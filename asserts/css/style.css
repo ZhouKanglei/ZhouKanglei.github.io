@@ -133,7 +133,7 @@
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	
+
 }
 
 .zkl_obj li:hover {
@@ -175,8 +175,10 @@
 }
 
 .zkl_obj_item {
-	/*display: none;*/
+	display: none;
 }
+
+
 
 .zkl_pdf {
 	width: 90%;

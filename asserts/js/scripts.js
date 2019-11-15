@@ -20,16 +20,23 @@
 // 
 
 
-function show_item(arg) {
-
-	var uls = document.getElementsByClassName("zkl_obj_item");
-	if (uls[arg].style.display == 'none' || uls[arg].style.display == '') {
-		uls[arg].style.display = 'block';
-		// alert(uls[arg].style.display);
-	} else {
-		uls[arg].style.display = 'none';
-		// alert(uls[arg].style.display);
+function show_item(ele) {
+	var ul = ele.nextElementSibling;
+	if (ul.tagName == "UL" && ul.getAttribute('class') == "zkl_obj_item") {
+		if (ul.style.display == "none") {
+			ul.style.display = "block";
+		} else {
+			ul.style.display = "none";
+		}
 	}
+	// var uls = document.getElementsByClassName("zkl_obj_item");
+	// if (uls[arg].style.display == 'none' || uls[arg].style.display == '') {
+	// 	uls[arg].style.display = 'block';
+	// 	// alert(uls[arg].style.display);
+	// } else {
+	// 	uls[arg].style.display = 'none';
+	// 	// alert(uls[arg].style.display);
+	// }
 	
 }
 

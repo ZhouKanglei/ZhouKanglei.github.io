@@ -129,10 +129,16 @@
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 50px;
-	background: rgba(204, 232, 255, 0.4);
+	background: rgba(204, 232, 255, 0.2);
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+
+}
+
+.zkl_obj_title:hover {
+
+	background: rgba(204, 232, 255, 0.4);
 
 }
 

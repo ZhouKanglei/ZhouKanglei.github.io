@@ -31,7 +31,7 @@
 	width: 90%;
 	height: 60px;
 	margin: 10px auto;
-	
+	overflow: hidden;
 	background: rgba(250,251,252,1);
 	/*background: gray;*/
 }
@@ -121,6 +121,7 @@
 	float: right;
 	font-size: 12px;
 	color: gray;
+	overflow: hidden;
 }
 
 .zkl_obj_title {
@@ -131,6 +132,8 @@
 	background: rgba(204, 232, 255, 0.4);
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+	
 }
 
 .zkl_obj li:hover {

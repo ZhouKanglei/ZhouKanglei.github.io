@@ -23,7 +23,7 @@
 function show_item(ele) {
 	var ul = ele.nextElementSibling;
 	if (ul.tagName == "UL" && ul.getAttribute('class') == "zkl_obj_item") {
-		if (ul.style.display == "none") {
+		if (ul.style.display == "none" || ul.style.display == "") {
 			ul.style.display = "block";
 		} else {
 			ul.style.display = "none";

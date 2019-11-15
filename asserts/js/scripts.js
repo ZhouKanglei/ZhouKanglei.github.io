@@ -1,0 +1,37 @@
+// $(function() { 
+//     $("#zkl_paper_title").bind("click", function() {
+//         alert();
+//         var $item_content = $(this).next("#ul");
+//         if ($item_content.is(":visible")) {
+//             $item_content.hide();
+//         } else {
+//             $item_content.show();
+//         }
+//     })
+// })
+
+// $(document).ready(function(){
+//     $('.zkl_obj_title').click(function(){
+//         alert('aaaa')；
+//     });
+
+// });
+// 
+// 
+
+
+function show_item(arg) {
+
+	var uls = document.getElementsByClassName("zkl_obj_item");
+	// alert(uls[arg].style.display);
+	if (uls[arg].style.display == 'none' || uls[arg].style.display == '') {
+		uls[arg].style.display = 'block';
+		// alert(uls[arg].style.display);
+	} else {
+		uls[arg].style.display = 'none';
+		// alert(uls[arg].style.display);
+	}
+	
+}
+
+	

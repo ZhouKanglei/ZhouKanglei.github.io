@@ -3,61 +3,53 @@
 <head>
 	<title>ZKL</title>
 	<meta charset="utf-8">
-	<style type="text/css">
-		.zkl_title {
-			width: 80%;
-			height: 100px;
-			margin: 0 auto;
-			background: rgba(202, 2, 5, 0.8);
-			color: #fff;
-			line-height: 100px;
-			font-family: "Times";
-			font-size: 28px;
-			text-align: center;
-		}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="asserts/css/style.css"/>
+	<!-- <script src="asserts/scripts/scripts.js"></script> -->
 
-		.zkl_pdf {
-			width: 80%;
-			height: 100px;
-			margin: 0 auto;
-			background: rgba(40, 41, 35, 0.7);
-			color: #fff;
-			line-height: 100px;
-			font-family: "Times";
-			font-size: 18px;
-		}
-
-		.zkl_pdf:hover {
-			background: rgba(40, 41, 35, 0.8);
-		}
-
-		.zkl_pdf img {
-			width: 20px;
-			height: 20px;
-			padding-left: 10px;
-		}
-
-		.zkl_pdf a {
-			color: yellow;
-			text-decoration: none;
-		}
-
-		.zkl_copyright {
-			width: 80%;
-			height: 100px;
-			margin: 0 auto;
-			line-height: 100px;
-			font-family: "Times";
-			font-size: 16px;
-			color: rgba(20, 51, 51, 1);
-			text-align: center;
-		}
-
-	</style>
 </head>
 <body>
-	<div class="zkl_title">My name is ZhouKanglei.</div>
-	<div class="zkl_pdf" title="点击查看">
+	<div class="zkl_line"></div>
+	<div class="zkl_head">
+		<a href="https://zhoukanglei.github.io/">
+			<img src="https://zhoukanglei.github.io/asserts/images/ZKL.png">
+		</a>
+		<div class="zkl_head_box">
+			<p class="zkl_head_box_title">Zhou Kanglei</p>
+			<p class="zkl_head_box_list">Good good study, day day up...</p>
+		</div>
+	</div>
+
+	<div class="zkl_paper">
+
+		<div class="zkl_paper_title" id="zkl_paper_title" >
+			<img src="https://zhoukanglei.github.io/asserts/images/icon/h1.ico" onclick="show_item()">
+			<span>Papers</span>
+		</div>
+
+		<ul class="zkl_paper_item" id="zkl_paper_item">
+			<li>
+				<div class="zkl_paper_number">
+					<img src="https://zhoukanglei.github.io/asserts/images/icon/f13.ico">
+				</div>
+				<p class="zkl_paper_name">
+					<a href="https://www.sciencedirect.com/science/article/pii/S0030399219309648">
+						Secure image encryption scheme using double random-phase encoding and compressed sensing.
+					</a>
+				</p>
+				<p class="zkl_paper_author">
+					Kanglei Zhou, Jingjing Fan, Haiju Fan, Ming Li*. Optics & Laser Technology: Jan. 2020 ,121 ,105769.
+				</p>
+			</li>
+
+			
+		</ul>
+
+		
+	</ul>
+</div>
+
+	<!-- <div class="zkl_pdf" title="点击查看">
 		<a href="https://zhoukanglei.github.io/asserts/docs/pdf/我的 个人陈述_20190913.pdf">
 			<img src="https://zhoukanglei.github.io/asserts/images/icon/views8.ico">
 			<span>我的个人陈述</span>
@@ -68,9 +60,17 @@
 			<img src="https://zhoukanglei.github.io/asserts/images/icon/views8.ico">
 			<span>我的个人简历</span>
 		</a>
-	</div>
+	</div> -->
 
 	<div class="zkl_copyright">Copyright © 2019 K.L. Zhou</div>
-	
+	<div class="zkl_line"></div>
+
+
+
 </body>
+<script type="text/javascript">
+function show_item() {
+	alert($item_content);
+}
+</script>
 </html>

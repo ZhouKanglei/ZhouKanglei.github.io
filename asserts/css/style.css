@@ -31,7 +31,8 @@
 	width: 90%;
 	height: 60px;
 	margin: 10px auto;
-	overflow: hidden;
+	
+	background: rgba(250,251,252,1);
 	/*background: gray;*/
 }
 
@@ -41,6 +42,7 @@
 	border-radius: 30px;
 	/*float: left;*/
 	display: inline-block;
+	overflow: hidden;
 	
 }
 
@@ -48,10 +50,11 @@
 	height: 60px;
 	display: inline-block;
 	font-family:"Microsoft YaHei";
+	overflow: hidden;
 }
 
 .zkl_head_box_title {
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 700;
 	line-height: 35px;
 	padding-left: 10px;
@@ -77,30 +80,26 @@
 	
 }
 
-
-.zkl_paper {
+.zkl_obj {
 	width: 90%;
-	/*height: 500px;*/
 	margin: 0 auto;
 	font-family: "Microsoft YaHei";
-	/*background: rgba(202,234,206,0.5);*/
-	
 }
 
-.zkl_paper ul,li {
+.zkl_obj ul,li {
 	margin: 0px;
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
 
-.zkl_paper li {
+.zkl_obj li {
 	height: 60px;
 	/*background: green;*/
 
 }
 
-.zkl_paper_number {
+.zkl_obj_number {
 	height: 50px;
 	color: #fff;
 	font-size: 25px;
@@ -111,24 +110,35 @@
 	float: left;
 }
 
-.zkl_paper_number img {
+.zkl_obj_number img {
 	height: 40px;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.zkl_paper_title {
+
+.zkl_obj_total {
+	float: right;
+	font-size: 12px;
+	color: gray;
+}
+
+.zkl_obj_title {
 	height: 50px;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 50px;
-	background: rgba(204, 232, 255, 0.6);
+	background: rgba(204, 232, 255, 0.4);
 	margin: 0;
 	padding: 0;
-	
 }
 
-.zkl_paper_title img {
+.zkl_obj li:hover {
+	background: rgba(204, 232, 255, 0.2);
+}
+
+
+.zkl_obj_title img {
 	height: 36px;
 	margin: 0;
 	padding: 0;
@@ -137,7 +147,7 @@
 	vertical-align: middle;
 }
 
-.zkl_paper_name {
+.zkl_obj_name {
 	font-size: 14px;
 	margin-top: 0;
 	line-height: 25px;
@@ -147,11 +157,11 @@
 	text-overflow: ellipsis;
 }
 
-.zkl_paper_name a {
+.zkl_obj_name a {
 	text-decoration: none;
 }
 
-.zkl_paper_author {
+.zkl_obj_author {
 	font-size: 12px;
 	line-height: 25px;
 	margin-top: 0;
@@ -161,7 +171,7 @@
 	text-overflow: ellipsis;
 }
 
-.zkl_paper_item {
+.zkl_obj_item {
 	/*display: none;*/
 }
 
@@ -193,11 +203,43 @@
 
 .zkl_copyright {
 	width: 90%;
-	height: 100px;
+	height: 60px;
 	margin: 0 auto;
-	line-height: 100px;
+	line-height: 60px;
 	font-family:"Microsoft YaHei";
-	font-size: 16px;
+	font-size: 12px;
 	color: rgba(20, 51, 51, 1);
-	text-align: center;
+	background: rgba(250,251,252,1);
+	/*text-align: center;*/
+	overflow: hidden;
+
+}
+
+.zkl_copyright_contacts img {
+	margin-left: 5px;
+	vertical-align: middle;
+	float: right;
+	overflow: hidden;
+
+}
+
+.zkl_copyright_contacts_google {
+	margin-top: 20px;
+	height: 20px;
+}
+
+.zkl_copyright_contacts_github {
+	margin-top: 15px;
+	height: 30px;
+}
+
+.zkl_copyright_contacts_email {
+	margin-top: 17px;
+	height: 26px;
+}
+
+.zkl_copyright_contacts img:hover {
+	filter: alpha(Opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
 }

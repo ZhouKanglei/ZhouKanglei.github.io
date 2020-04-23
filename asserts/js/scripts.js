@@ -47,4 +47,16 @@ window.onload = function() {
     
     }
 } 
+
+
+function unfold(id) {
+	var obj = document.getElementById(id);
+	if (obj.getAttribute('id') == id) {
+	if (obj.style.display == "none" || obj.style.display == "") {
+		obj.style.display = "block";
+	} else {
+			obj.style.display = "none";
+		}
+	}	
+}
 	

@@ -1,4 +1,0 @@
-baseURL: https://ZhouKanglei.github.io  #绑定的域名
-languageCode: zh-cn # en-us
-title: My first Blog
-theme: starter-hugo-academic # 主题名字，和themes文件夹下的一致

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Kanglei Zhou</title>
+    <link>https://ZhouKanglei.github.io/publication/</link>
+      <atom:link href="https://ZhouKanglei.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jun 2022 10:25:03 +0800</lastBuildDate>
+    <image>
+      <url>https://ZhouKanglei.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Publications</title>
+      <link>https://ZhouKanglei.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>TSVMPath: Fast Regularization Parameter Tuning Algorithm for Twin Support Vector Machine</title>
+      <link>https://ZhouKanglei.github.io/publication/tsvmpath/</link>
+      <pubDate>Tue, 07 Jun 2022 10:25:03 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/tsvmpath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising</title>
+      <link>https://ZhouKanglei.github.io/publication/stgae/</link>
+      <pubDate>Thu, 14 Oct 2021 10:25:09 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/stgae/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Secure image encryption scheme using double random-phase encoding and compressed sensing</title>
+      <link>https://ZhouKanglei.github.io/publication/drpe_cs/</link>
+      <pubDate>Tue, 14 Jul 2020 10:41:22 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/drpe_cs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptanalyzing an image encryption based on a modified Henon map using hybrid chaotic shift transform</title>
+      <link>https://ZhouKanglei.github.io/publication/cryptanalysis_mhm/</link>
+      <pubDate>Mon, 14 Oct 2019 10:53:48 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/cryptanalysis_mhm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,7 +5,7 @@
     <link>https://ZhouKanglei.github.io/publication/</link>
       <atom:link href="https://ZhouKanglei.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 02 Aug 2022 16:37:34 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 03 Aug 2022 16:33:22 +0800</lastBuildDate>
     <image>
       <url>https://ZhouKanglei.github.io/media/icon_hueb8b1ca9c2bc840f06aaac452d97ec21_85686_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
@@ -13,18 +13,18 @@
     </image>
     
     <item>
-      <title>Solution Path Algorithm for Twin Multi-class Support Vector Machine</title>
-      <link>https://ZhouKanglei.github.io/publication/twinmultipath/</link>
-      <pubDate>Tue, 02 Aug 2022 16:37:34 +0800</pubDate>
-      <guid>https://ZhouKanglei.github.io/publication/twinmultipath/</guid>
+      <title>HGN_AQA</title>
+      <link>https://ZhouKanglei.github.io/publication/hgn_aqa/</link>
+      <pubDate>Wed, 03 Aug 2022 16:33:22 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/hgn_aqa/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>HGN_AQA</title>
-      <link>https://ZhouKanglei.github.io/publication/hgn_aqa/</link>
-      <pubDate>Tue, 02 Aug 2022 16:33:22 +0800</pubDate>
-      <guid>https://ZhouKanglei.github.io/publication/hgn_aqa/</guid>
+      <title>Solution Path Algorithm for Twin Multi-class Support Vector Machine</title>
+      <link>https://ZhouKanglei.github.io/publication/twinmultipath/</link>
+      <pubDate>Tue, 02 Aug 2022 16:37:34 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/twinmultipath/</guid>
       <description></description>
     </item>
     

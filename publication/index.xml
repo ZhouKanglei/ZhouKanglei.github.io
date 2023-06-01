@@ -5,7 +5,7 @@
     <link>https://ZhouKanglei.github.io/publication/</link>
       <atom:link href="https://ZhouKanglei.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 03 Aug 2022 16:33:22 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Jun 2023 19:43:47 +0800</lastBuildDate>
     <image>
       <url>https://ZhouKanglei.github.io/media/icon_hueb8b1ca9c2bc840f06aaac452d97ec21_85686_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
@@ -13,10 +13,18 @@
     </image>
     
     <item>
-      <title>HGN_AQA</title>
-      <link>https://ZhouKanglei.github.io/publication/hgn_aqa/</link>
-      <pubDate>Wed, 03 Aug 2022 16:33:22 +0800</pubDate>
-      <guid>https://ZhouKanglei.github.io/publication/hgn_aqa/</guid>
+      <title>Hierarchical Graph Convolutional Networks for Action Quality Assessment</title>
+      <link>https://ZhouKanglei.github.io/publication/hgcn_aqa/</link>
+      <pubDate>Thu, 01 Jun 2023 19:43:47 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/hgcn_aqa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis</title>
+      <link>https://ZhouKanglei.github.io/publication/jdm_aqa/</link>
+      <pubDate>Thu, 11 May 2023 15:51:23 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/jdm_aqa/</guid>
       <description></description>
     </item>
     

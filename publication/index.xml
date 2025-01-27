@@ -5,12 +5,28 @@
     <link>https://ZhouKanglei.github.io/publication/</link>
       <atom:link href="https://ZhouKanglei.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2024 21:53:47 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jan 2025 18:28:18 +0800</lastBuildDate>
     <image>
       <url>https://ZhouKanglei.github.io/media/icon_hueb8b1ca9c2bc840f06aaac452d97ec21_85686_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
       <link>https://ZhouKanglei.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality</title>
+      <link>https://ZhouKanglei.github.io/publication/cvqa/</link>
+      <pubDate>Mon, 27 Jan 2025 18:28:18 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/cvqa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
+      <link>https://ZhouKanglei.github.io/publication/aqa_survey/</link>
+      <pubDate>Mon, 27 Jan 2025 18:26:41 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/aqa_survey/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment</title>
@@ -33,6 +49,14 @@
       <link>https://ZhouKanglei.github.io/publication/multi-stgae/</link>
       <pubDate>Tue, 28 Nov 2023 19:58:23 +0800</pubDate>
       <guid>https://ZhouKanglei.github.io/publication/multi-stgae/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Identifying phenotype-associated subpopulations through LP_SGL</title>
+      <link>https://ZhouKanglei.github.io/publication/lp_sgl/</link>
+      <pubDate>Tue, 28 Nov 2023 19:50:51 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/lp_sgl/</guid>
       <description></description>
     </item>
     

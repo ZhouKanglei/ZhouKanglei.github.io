@@ -5,12 +5,20 @@
     <link>https://ZhouKanglei.github.io/publication-type/1/</link>
       <atom:link href="https://ZhouKanglei.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
     <description>1</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2024 21:53:47 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 28 Jan 2025 11:23:22 +0800</lastBuildDate>
     <image>
       <url>https://ZhouKanglei.github.io/media/icon_hueb8b1ca9c2bc840f06aaac452d97ec21_85686_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
       <link>https://ZhouKanglei.github.io/publication-type/1/</link>
     </image>
+    
+    <item>
+      <title>Uncertainty-aware Probabilistic 3D Human Motion Forecasting via Invertible Networks</title>
+      <link>https://ZhouKanglei.github.io/publication/probhmi/</link>
+      <pubDate>Tue, 28 Jan 2025 11:23:22 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/probhmi/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment</title>

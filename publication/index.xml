@@ -5,12 +5,20 @@
     <link>https://ZhouKanglei.github.io/publication/</link>
       <atom:link href="https://ZhouKanglei.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jan 2025 18:28:18 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 28 Jan 2025 11:23:22 +0800</lastBuildDate>
     <image>
       <url>https://ZhouKanglei.github.io/media/icon_hueb8b1ca9c2bc840f06aaac452d97ec21_85686_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
       <link>https://ZhouKanglei.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Uncertainty-aware Probabilistic 3D Human Motion Forecasting via Invertible Networks</title>
+      <link>https://ZhouKanglei.github.io/publication/probhmi/</link>
+      <pubDate>Tue, 28 Jan 2025 11:23:22 +0800</pubDate>
+      <guid>https://ZhouKanglei.github.io/publication/probhmi/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality</title>

@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://zhoukanglei.github.io/sitemap.xml

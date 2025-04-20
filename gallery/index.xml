@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Galleries | Kanglei Zhou @ BUAA</title>
+    <link>https://zhoukanglei.github.io/gallery.html</link>
+      <atom:link href="https://zhoukanglei.github.io/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <description>Galleries</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://zhoukanglei.github.io/media/logo_hub4241536a40aba19023fe53b0ae22453_4788_300x300_fit_lanczos_3.png</url>
+      <title>Galleries</title>
+      <link>https://zhoukanglei.github.io/gallery.html</link>
+    </image>
+    
+    <item>
+      <title>My Previous Work</title>
+      <link>https://zhoukanglei.github.io/gallery/methods.html</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/gallery/methods.html</guid>
+      <description>&lt;h2 id=&#34;research-statement-of-my-previous-work&#34;&gt;Research Statement of My Previous Work&lt;/h2&gt;
+&lt;p&gt;My research addresses critical challenges in human motion analysis, particularly in aerospace and medical rehabilitation. It focuses on three interconnected scientific problems: &lt;strong&gt;motion perception anomalies caused by physiological or pathological factors&lt;/strong&gt;, &lt;strong&gt;negative transfer due to limited samples&lt;/strong&gt;, and &lt;strong&gt;catastrophic forgetting resulting from non-stationary data distributions&lt;/strong&gt;. Leveraging spatiotemporal graph models, domain adaptation, and continual learning frameworks, I have developed innovative methods that have achieved significant academic and practical outcomes. These methods have been validated in two key applications: microgravity grasping training for aerospace and motion assessment for juvenile dermatomyositis in medical rehabilitation, demonstrating substantial value for national defense and healthcare.&lt;/p&gt;
+&lt;p&gt;To address these challenges, I proposed three methods: a robust denoising method for human motion perception to mitigate perception anomalies, a domain adaptation method for human motion assessment to overcome negative transfer, and a continual learning method for human motion assessment to address catastrophic forgetting. These methods are interdependent: the first provides high-quality data for the latter two, while the third builds upon the second to meet practical application requirements. Together, they represent a significant advancement in the field of human motion analysis.&lt;/p&gt;
+&lt;h3 id=&#34;robust-denoising-method-for-human-motion-perception&#34;&gt;Robust Denoising Method for Human Motion Perception&lt;/h3&gt;
+&lt;p&gt;In virtual reality interactions, hand tremors caused by user fatigue severely degrade data quality and impair the interaction experience. Similarly, pathological tremors, such as those in Parkinson’s disease, pose challenges for precise interaction. To address this, I proposed a spatiotemporal graph autoencoder for hand motion denoising &lt;a href=&#34;https://ieeexplore.ieee.org/document/9583812&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[1]&lt;/a&gt;. However, denoising alone may lead to over-smoothing of motion, which can hinder the accurate interpretation of user intent. To address this limitation, I introduced a prediction task that forecasts future motion &lt;a href=&#34;https://ieeexplore.ieee.org/document/10336543&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[2]&lt;/a&gt;. This approach retains dynamic information in the feature space, significantly mitigating over-smoothing and enhancing both data collection efficiency and accuracy.&lt;/p&gt;
+&lt;p&gt;These methods were integrated into a prototype system for simulated microgravity grasping training in aerospace &lt;a href=&#34;https://ieeexplore.ieee.org/document/10316428&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[3]&lt;/a&gt;, providing an immersive and cost-effective ground-based training method for astronauts while also serving educational purposes. Users of the proposed system achieved 50% and 59% reductions in training time and repetitions, respectively, compared to the state-of-the-art CLAP system.&lt;/p&gt;
+&lt;h3 id=&#34;domain-adaptation-method-for-human-motion-assessment&#34;&gt;Domain Adaptation Method for Human Motion Assessment&lt;/h3&gt;
+&lt;p&gt;Motion quality assessment aims to evaluate the quality of motion execution using machine learning, with applications in sports analysis, medical rehabilitation, and skill assessment. However, in practice, data scarcity leads to small sample sizes, causing models to overfit, while existing domain adaptation methods suffer from negative transfer. To address this, innovative graph network-based methods were proposed &lt;a href=&#34;https://ieeexplore.ieee.org/document/10049714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[4]&lt;/a&gt;, &lt;a href=&#34;https://www.ijcai.org/proceedings/2024/196&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[5]&lt;/a&gt;, &lt;a href=&#34;https://ieeexplore.ieee.org/document/10138608&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[6]&lt;/a&gt;, significantly improving the robustness and interpretability of motion assessment.&lt;/p&gt;
+&lt;p&gt;These methods were integrated into a juvenile dermatomyositis motion assessment system. In experiments at the Capital Institute of Pediatrics, the system improved diagnostic accuracy by 4.99% and efficiency by 20%.&lt;/p&gt;
+&lt;h3 id=&#34;continual-learning-method-for-human-motion-assessment&#34;&gt;Continual Learning Method for Human Motion Assessment&lt;/h3&gt;
+&lt;p&gt;In practical applications, individual differences and data distributions change over time, while protecting user privacy, especially for patients, is crucial. To address this, I proposed the task of continual action quality assessment for the first time, along with strategies to tackle the dual challenges of privacy protection and catastrophic forgetting &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10916806&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[7]&lt;/a&gt;, &lt;a href=&#34;https://eccv.ecva.net/virtual/2024/oral/1974&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[8]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This work was presented as oral talks at VR 2025 and ECCV 2024. Notably, the oral acceptance rate for ECCV 2024 was only 2.3%, with reviewers highlighting its &amp;ldquo;practical significance&amp;rdquo; and giving it a &amp;ldquo;strong accept&amp;rdquo; rating during the initial review. The VR 2025 paper was recommended for publication in the IEEE TVCG, a top-tier journal in virtual reality.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&#34;&lt;/strong&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2021. (Top AR Conference, Core A*)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;Multi-Task Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&#34;&lt;/strong&gt; &lt;em&gt;IEEE Transactions on Visualization and Computer Graphics (TVCG)&lt;/em&gt;, 2024. (Top VR Journal, CCF A)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;A Mixed Reality Training System for Hand-Object Interaction in Simulated Microgravity Environments.&#34;&lt;/strong&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2023. (Top AR Conference, Core A*)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2023. (Top VR Journal, CCF A, Recommended by VR 2023, Acceptance Rate: 10%)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment.&#34;&lt;/strong&gt; &lt;em&gt;IJCAI&lt;/em&gt;, 2024. (Top AI Conference, CCF A)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;Hierarchical Graph Convolutional Networks for Action Quality Assessment.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TCSVT&lt;/em&gt;, 2023. (Top Computer Vision Conference, CAS Tier 1 TOP)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2025. (Top VR Journal, CCF A)
+  &lt;/li&gt;
+  &lt;li&gt;
+    Kanglei Zhou et al. &lt;strong&gt;&#34;MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment.&#34;&lt;/strong&gt; &lt;em&gt;ECCV&lt;/em&gt;, 2024. (Top Computer Vision Conference, CAAI/THU A, Oral Presentation, Acceptance Rate: ~2.3%)
+  &lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Research Proposal</title>
+      <link>https://zhoukanglei.github.io/gallery/proposal.html</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/gallery/proposal.html</guid>
+      <description>&lt;h2 id=&#34;research-proposal-on-multi-modal-action-quality-assessment&#34;&gt;Research Proposal on Multi-Modal Action Quality Assessment&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you are interested in this proposal, please feel free to contact me.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;challenges-within-existing-multi-modal-action-quality-assessment-methods&#34;&gt;Challenges within Existing Multi-Modal Action Quality Assessment Methods&lt;/h3&gt;
+&lt;p&gt;Despite the potential benefits of multi-modal Action Quality Assessment (&lt;a href=&#34;https://zhoukanglei.github.io/AQA-Survey/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;see our survey for details&lt;/a&gt;), several challenges remain to be addressed to ensure accurate and interpretable assessment.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Modality Heterogeneity and Missing Data&lt;/strong&gt;: Integrating diverse data sources is challenging due to differing feature representations. Additionally, missing modalities caused by sensor failures or acquisition issues can significantly degrade performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lack of Interpretability&lt;/strong&gt;: Many current models function as black boxes, making it difficult to understand their decision-making processes. This lack of transparency is particularly concerning in high-stakes applications like muscle strength assessment, where predictions must be explainable and trustworthy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Addressing these challenges requires the development of innovative methods to effectively integrate heterogeneous data, handle missing modalities, and provide interpretable predictions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

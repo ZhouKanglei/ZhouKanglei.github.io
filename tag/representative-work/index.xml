@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Representative Work | Kanglei Zhou @ BUAA</title>
+    <link>https://zhoukanglei.github.io/tag/representative-work.html</link>
+      <atom:link href="https://zhoukanglei.github.io/tag/representative-work/index.xml" rel="self" type="application/rss+xml" />
+    <description>Representative Work</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 27 Jan 2025 18:28:18 +0800</lastBuildDate>
+    <image>
+      <url>https://zhoukanglei.github.io/media/logo_hub4241536a40aba19023fe53b0ae22453_4788_300x300_fit_lanczos_3.png</url>
+      <title>Representative Work</title>
+      <link>https://zhoukanglei.github.io/tag/representative-work.html</link>
+    </image>
+    
+    <item>
+      <title>Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality</title>
+      <link>https://zhoukanglei.github.io/publications/cvqa.html</link>
+      <pubDate>Mon, 27 Jan 2025 18:28:18 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/cvqa.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment</title>
+      <link>https://zhoukanglei.github.io/publications/magr_aqa.html</link>
+      <pubDate>Mon, 01 Jul 2024 21:53:47 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/magr_aqa.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment</title>
+      <link>https://zhoukanglei.github.io/publications/cofinal_aqa.html</link>
+      <pubDate>Thu, 18 Apr 2024 21:49:13 +0100</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/cofinal_aqa.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multi-Task Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising</title>
+      <link>https://zhoukanglei.github.io/publications/multi-stgae.html</link>
+      <pubDate>Tue, 28 Nov 2023 19:58:23 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/multi-stgae.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Graph Convolutional Networks for Action Quality Assessment</title>
+      <link>https://zhoukanglei.github.io/publications/hgcn_aqa.html</link>
+      <pubDate>Thu, 01 Jun 2023 19:43:47 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/hgcn_aqa.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis</title>
+      <link>https://zhoukanglei.github.io/publications/jdm_aqa.html</link>
+      <pubDate>Thu, 11 May 2023 15:51:23 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/jdm_aqa.html</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

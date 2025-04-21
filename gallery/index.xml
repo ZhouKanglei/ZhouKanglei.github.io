@@ -31,31 +31,32 @@
 &lt;p&gt;This work was presented as oral talks at VR 2025 and ECCV 2024. Notably, the oral acceptance rate for ECCV 2024 was only 2.3%, with reviewers highlighting its &amp;ldquo;practical significance&amp;rdquo; and giving it a &amp;ldquo;strong accept&amp;rdquo; rating during the initial review. The VR 2025 paper was recommended for publication in the IEEE TVCG, a top-tier journal in virtual reality.&lt;/p&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&#34;&lt;/strong&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2021. (Top AR Conference, Core A*)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;Multi-Task Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&#34;&lt;/strong&gt; &lt;em&gt;IEEE Transactions on Visualization and Computer Graphics (TVCG)&lt;/em&gt;, 2024. (Top VR Journal, CCF A)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;A Mixed Reality Training System for Hand-Object Interaction in Simulated Microgravity Environments.&#34;&lt;/strong&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2023. (Top AR Conference, Core A*)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2023. (Top VR Journal, CCF A, Recommended by VR 2023, Acceptance Rate: 10%)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment.&#34;&lt;/strong&gt; &lt;em&gt;IJCAI&lt;/em&gt;, 2024. (Top AI Conference, CCF A)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;Hierarchical Graph Convolutional Networks for Action Quality Assessment.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TCSVT&lt;/em&gt;, 2023. (Top Computer Vision Conference, CAS Tier 1 TOP)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality.&#34;&lt;/strong&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2025. (Top VR Journal, CCF A)
-  &lt;/li&gt;
-  &lt;li&gt;
-    Kanglei Zhou et al. &lt;strong&gt;&#34;MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment.&#34;&lt;/strong&gt; &lt;em&gt;ECCV&lt;/em&gt;, 2024. (Top Computer Vision Conference, CAAI/THU A, Oral Presentation, Acceptance Rate: ~2.3%)
-  &lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/document/9583812&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2021. (Top AR Conference, Core A*)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/document/10336543&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;Multi-Task Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE Transactions on Visualization and Computer Graphics (TVCG)&lt;/em&gt;, 2024. (Top VR Journal, CCF A)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/document/10316428&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;A Mixed Reality Training System for Hand-Object Interaction in Simulated Microgravity Environments.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE ISMAR&lt;/em&gt;, 2023. (Top AR Conference, Core A*)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/document/10049714&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2023. (Top VR Journal, CCF A, Recommended by VR 2023, Acceptance Rate: 10%)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://www.ijcai.org/proceedings/2024/196&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IJCAI&lt;/em&gt;, 2024. (Top AI Conference, CCF A)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/document/10138608&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;Hierarchical Graph Convolutional Networks for Action Quality Assessment.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE TCSVT&lt;/em&gt;, 2023. (CAS Tier 1 TOP)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/10916806&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;IEEE TVCG&lt;/em&gt;, 2025. (Top VR Journal, CCF A)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kanglei Zhou et al. &lt;a href=&#34;https://eccv.ecva.net/virtual/2024/oral/1974&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;&amp;ldquo;MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment.&amp;rdquo;&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;ECCV&lt;/em&gt;, 2024. (Top Computer Vision Conference, CAAI/THU A, Oral Presentation, Acceptance Rate: ~2.3%)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
     <item>

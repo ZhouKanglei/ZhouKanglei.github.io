@@ -863,9 +863,20 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header" href="/publications/hgcn_aqa/cite.bib" >
-  Cite 
+<a class="btn btn-outline-primary btn-page-header" href="#" onclick="openBib('\/publications\/hgcn_aqa\/cite.bib')">
+  Cite
 </a>
+<script>
+  function openBib(url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const newWindow = window.open("", "_blank");
+        newWindow.document.write("<pre>" + data + "</pre>");
+        newWindow.document.close();
+      });
+  }
+</script>
 
 
   

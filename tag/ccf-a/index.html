@@ -858,9 +858,20 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="/publications/phi_aqa/cite.bib" >
-  Cite 
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="#" onclick="openBib('\/publications\/phi_aqa\/cite.bib')">
+  Cite
 </a>
+<script>
+  function openBib(url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const newWindow = window.open("", "_blank");
+        newWindow.document.write("<pre>" + data + "</pre>");
+        newWindow.document.close();
+      });
+  }
+</script>
 
 
   

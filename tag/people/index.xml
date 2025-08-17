@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>People | Kanglei Zhou</title>
+    <link>https://zhoukanglei.github.io/tag/people/</link>
+      <atom:link href="https://zhoukanglei.github.io/tag/people/index.xml" rel="self" type="application/rss+xml" />
+    <description>People</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
+      <title>People</title>
+      <link>https://zhoukanglei.github.io/tag/people/</link>
+    </image>
+    
+    <item>
+      <title>Hubert P. H. Shum</title>
+      <link>https://zhoukanglei.github.io/group/hubert/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/group/hubert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Liyuan Wang</title>
+      <link>https://zhoukanglei.github.io/group/liyuan-wang/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/group/liyuan-wang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xiaohui Liang</title>
+      <link>https://zhoukanglei.github.io/group/xiaohui-liang/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/group/xiaohui-liang/</guid>
+      <description>&lt;p&gt;He is my PhD supervisor at Beihang University.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Zikai Hao</title>
+      <link>https://zhoukanglei.github.io/group/zikai-hao/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/group/zikai-hao/</guid>
+      <description>&lt;p&gt;He is my co-supervised master&amp;rsquo;s student (2023-2026) at Beihang University, working under Prof. Xiaohui Liang.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

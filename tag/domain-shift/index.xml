@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Domain Shift | Kanglei Zhou</title>
+    <link>https://zhoukanglei.github.io/tag/domain-shift/</link>
+      <atom:link href="https://zhoukanglei.github.io/tag/domain-shift/index.xml" rel="self" type="application/rss+xml" />
+    <description>Domain Shift</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 May 2025 10:38:00 +0800</lastBuildDate>
+    <image>
+      <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
+      <title>Domain Shift</title>
+      <link>https://zhoukanglei.github.io/tag/domain-shift/</link>
+    </image>
+    
+    <item>
+      <title>PHI: Bridging Domain Shift in Long-Term Action Quality Assessment via Progressive Hierarchical Instruction</title>
+      <link>https://zhoukanglei.github.io/publications/phi_aqa/</link>
+      <pubDate>Tue, 27 May 2025 10:38:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/phi_aqa/</guid>
+      <description>&lt;h3 id=&#34;core-idea&#34;&gt;Core Idea&lt;/h3&gt;
+&lt;p&gt;💡 A follow-up to our IJCAI 2024 paper, proposing a domain shift and feature adaptation outperforms task reconstruction methods.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment</title>
+      <link>https://zhoukanglei.github.io/publications/cofinal_aqa/</link>
+      <pubDate>Thu, 18 Apr 2024 21:49:13 +0100</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/cofinal_aqa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

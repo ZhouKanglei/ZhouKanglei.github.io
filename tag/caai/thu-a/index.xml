@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CAAI/THU A | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/tag/caai/thu-a/</link>
+    <link>https://zhoukanglei.github.io/tag/caai/thu-a.html</link>
       <atom:link href="https://zhoukanglei.github.io/tag/caai/thu-a/index.xml" rel="self" type="application/rss+xml" />
     <description>CAAI/THU A</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2024 21:53:47 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>CAAI/THU A</title>
-      <link>https://zhoukanglei.github.io/tag/caai/thu-a/</link>
+      <link>https://zhoukanglei.github.io/tag/caai/thu-a.html</link>
     </image>
     
     <item>
       <title>MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment</title>
-      <link>https://zhoukanglei.github.io/publications/magr_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/magr_aqa.html</link>
       <pubDate>Mon, 01 Jul 2024 21:53:47 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/magr_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/magr_aqa.html</guid>
       <description></description>
     </item>
     

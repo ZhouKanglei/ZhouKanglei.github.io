@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Survey | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/tag/survey/</link>
+    <link>https://zhoukanglei.github.io/tag/survey.html</link>
       <atom:link href="https://zhoukanglei.github.io/tag/survey/index.xml" rel="self" type="application/rss+xml" />
     <description>Survey</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 18:26:41 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Survey</title>
-      <link>https://zhoukanglei.github.io/tag/survey/</link>
+      <link>https://zhoukanglei.github.io/tag/survey.html</link>
     </image>
     
     <item>
       <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
-      <link>https://zhoukanglei.github.io/publications/aqa_survey/</link>
+      <link>https://zhoukanglei.github.io/publications/aqa_survey.html</link>
       <pubDate>Sun, 15 Dec 2024 18:26:41 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/aqa_survey/</guid>
+      <guid>https://zhoukanglei.github.io/publications/aqa_survey.html</guid>
       <description></description>
     </item>
     

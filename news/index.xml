@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>News | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/news/</link>
+    <link>https://zhoukanglei.github.io/news.html</link>
       <atom:link href="https://zhoukanglei.github.io/news/index.xml" rel="self" type="application/rss+xml" />
     <description>News</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>News</title>
-      <link>https://zhoukanglei.github.io/news/</link>
+      <link>https://zhoukanglei.github.io/news.html</link>
     </image>
     
     <item>
       <title>A Milestone Achieved</title>
-      <link>https://zhoukanglei.github.io/news/20250519-phd_defence/</link>
+      <link>https://zhoukanglei.github.io/news/20250519-phd_defence.html</link>
       <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://zhoukanglei.github.io/news/20250519-phd_defence/</guid>
+      <guid>https://zhoukanglei.github.io/news/20250519-phd_defence.html</guid>
       <description>&lt;p&gt;🎉 I am beyond excited to share that I have successfully defended my PhD thesis! This achievement represents years of dedication, research, and perseverance. A heartfelt thank you to everyone who supported and encouraged me throughout this journey. Stay tuned for updates on the exciting paths ahead!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>New Website Launch</title>
-      <link>https://zhoukanglei.github.io/news/20250420-new_website/</link>
+      <link>https://zhoukanglei.github.io/news/20250420-new_website.html</link>
       <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://zhoukanglei.github.io/news/20250420-new_website/</guid>
+      <guid>https://zhoukanglei.github.io/news/20250420-new_website.html</guid>
       <description>&lt;p&gt;With the recent update to the Wochemy theme, I have upgraded my website. This new version is built on the foundation of &lt;a href=&#34;https://github.com/simongravelle/simongravelle.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;simongravelle.github.io&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>

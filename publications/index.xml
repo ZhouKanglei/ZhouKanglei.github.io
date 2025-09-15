@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/publications/</link>
+    <link>https://zhoukanglei.github.io/publications.html</link>
       <atom:link href="https://zhoukanglei.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 May 2025 10:38:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Publications</title>
-      <link>https://zhoukanglei.github.io/publications/</link>
+      <link>https://zhoukanglei.github.io/publications.html</link>
     </image>
     
     <item>
       <title>PHI: Bridging Domain Shift in Long-Term Action Quality Assessment via Progressive Hierarchical Instruction</title>
-      <link>https://zhoukanglei.github.io/publications/phi_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/phi_aqa.html</link>
       <pubDate>Tue, 27 May 2025 10:38:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/phi_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/phi_aqa.html</guid>
       <description>&lt;h3 id=&#34;core-idea&#34;&gt;Core Idea&lt;/h3&gt;
 &lt;p&gt;💡 A follow-up to our IJCAI 2024 paper, proposing a domain shift and feature adaptation outperforms task reconstruction methods.&lt;/p&gt;
 </description>
@@ -24,121 +24,121 @@
     
     <item>
       <title>Uncertainty-aware Probabilistic 3D Human Motion Forecasting via Invertible Networks</title>
-      <link>https://zhoukanglei.github.io/publications/probhmi/</link>
+      <link>https://zhoukanglei.github.io/publications/probhmi.html</link>
       <pubDate>Tue, 28 Jan 2025 11:23:22 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/probhmi/</guid>
+      <guid>https://zhoukanglei.github.io/publications/probhmi.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Adaptive Score Alignment Learning for Continual Perceptual Quality Assessment of 360-Degree Videos in Virtual Reality</title>
-      <link>https://zhoukanglei.github.io/publications/cvqa/</link>
+      <link>https://zhoukanglei.github.io/publications/cvqa.html</link>
       <pubDate>Mon, 27 Jan 2025 18:28:18 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/cvqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/cvqa.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
-      <link>https://zhoukanglei.github.io/publications/aqa_survey/</link>
+      <link>https://zhoukanglei.github.io/publications/aqa_survey.html</link>
       <pubDate>Sun, 15 Dec 2024 18:26:41 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/aqa_survey/</guid>
+      <guid>https://zhoukanglei.github.io/publications/aqa_survey.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>MAGR: Manifold-Aligned Graph Regularization for Continual Action Quality Assessment</title>
-      <link>https://zhoukanglei.github.io/publications/magr_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/magr_aqa.html</link>
       <pubDate>Mon, 01 Jul 2024 21:53:47 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/magr_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/magr_aqa.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>CoFInAl: Enhancing Action Quality Assessment with Coarse-to-Fine Instruction Alignment</title>
-      <link>https://zhoukanglei.github.io/publications/cofinal_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/cofinal_aqa.html</link>
       <pubDate>Thu, 18 Apr 2024 21:49:13 +0100</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/cofinal_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/cofinal_aqa.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multi-Task Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising</title>
-      <link>https://zhoukanglei.github.io/publications/multi-stgae/</link>
+      <link>https://zhoukanglei.github.io/publications/multi-stgae.html</link>
       <pubDate>Tue, 28 Nov 2023 19:58:23 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/multi-stgae/</guid>
+      <guid>https://zhoukanglei.github.io/publications/multi-stgae.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Identifying phenotype-associated subpopulations through LP_SGL</title>
-      <link>https://zhoukanglei.github.io/publications/lp_sgl/</link>
+      <link>https://zhoukanglei.github.io/publications/lp_sgl.html</link>
       <pubDate>Tue, 28 Nov 2023 19:50:51 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/lp_sgl/</guid>
+      <guid>https://zhoukanglei.github.io/publications/lp_sgl.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Mixed Reality Training System for Hand-Object Interaction in Simulated Microgravity Environments</title>
-      <link>https://zhoukanglei.github.io/publications/mr_hoi/</link>
+      <link>https://zhoukanglei.github.io/publications/mr_hoi.html</link>
       <pubDate>Sat, 11 Nov 2023 19:00:00 +0000</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/mr_hoi/</guid>
+      <guid>https://zhoukanglei.github.io/publications/mr_hoi.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hierarchical Graph Convolutional Networks for Action Quality Assessment</title>
-      <link>https://zhoukanglei.github.io/publications/hgcn_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/hgcn_aqa.html</link>
       <pubDate>Thu, 01 Jun 2023 19:43:47 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/hgcn_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/hgcn_aqa.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Video-Based Augmented Reality System for Human-in-the-Loop Muscle Strength Assessment of Juvenile Dermatomyositis</title>
-      <link>https://zhoukanglei.github.io/publications/jdm_aqa/</link>
+      <link>https://zhoukanglei.github.io/publications/jdm_aqa.html</link>
       <pubDate>Thu, 11 May 2023 15:51:23 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/jdm_aqa/</guid>
+      <guid>https://zhoukanglei.github.io/publications/jdm_aqa.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Solution Path Algorithm for Twin Multi-class Support Vector Machine</title>
-      <link>https://zhoukanglei.github.io/publications/twinmultipath/</link>
+      <link>https://zhoukanglei.github.io/publications/twinmultipath.html</link>
       <pubDate>Tue, 02 Aug 2022 16:37:34 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/twinmultipath/</guid>
+      <guid>https://zhoukanglei.github.io/publications/twinmultipath.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>TSVMPath: Fast Regularization Parameter Tuning Algorithm for Twin Support Vector Machine</title>
-      <link>https://zhoukanglei.github.io/publications/tsvmpath/</link>
+      <link>https://zhoukanglei.github.io/publications/tsvmpath.html</link>
       <pubDate>Tue, 07 Jun 2022 10:25:03 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/tsvmpath/</guid>
+      <guid>https://zhoukanglei.github.io/publications/tsvmpath.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising</title>
-      <link>https://zhoukanglei.github.io/publications/stgae/</link>
+      <link>https://zhoukanglei.github.io/publications/stgae.html</link>
       <pubDate>Thu, 14 Oct 2021 10:25:09 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/stgae/</guid>
+      <guid>https://zhoukanglei.github.io/publications/stgae.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Secure image encryption scheme using double random-phase encoding and compressed sensing</title>
-      <link>https://zhoukanglei.github.io/publications/drpe_cs/</link>
+      <link>https://zhoukanglei.github.io/publications/drpe_cs.html</link>
       <pubDate>Tue, 14 Jul 2020 10:41:22 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/drpe_cs/</guid>
+      <guid>https://zhoukanglei.github.io/publications/drpe_cs.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cryptanalyzing an image encryption based on a modified Henon map using hybrid chaotic shift transform</title>
-      <link>https://zhoukanglei.github.io/publications/cryptanalysis_mhm/</link>
+      <link>https://zhoukanglei.github.io/publications/cryptanalysis_mhm.html</link>
       <pubDate>Mon, 14 Oct 2019 10:53:48 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/cryptanalysis_mhm/</guid>
+      <guid>https://zhoukanglei.github.io/publications/cryptanalysis_mhm.html</guid>
       <description></description>
     </item>
     

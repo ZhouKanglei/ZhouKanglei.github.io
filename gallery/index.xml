@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Galleries | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/gallery/</link>
+    <link>https://zhoukanglei.github.io/gallery.html</link>
       <atom:link href="https://zhoukanglei.github.io/gallery/index.xml" rel="self" type="application/rss+xml" />
     <description>Galleries</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Galleries</title>
-      <link>https://zhoukanglei.github.io/gallery/</link>
+      <link>https://zhoukanglei.github.io/gallery.html</link>
     </image>
     
     <item>
       <title>My Previous Work</title>
-      <link>https://zhoukanglei.github.io/gallery/methods/</link>
+      <link>https://zhoukanglei.github.io/gallery/methods.html</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://zhoukanglei.github.io/gallery/methods/</guid>
+      <guid>https://zhoukanglei.github.io/gallery/methods.html</guid>
       <description>&lt;h2 id=&#34;research-statement-of-my-previous-work&#34;&gt;Research Statement of My Previous Work&lt;/h2&gt;
 &lt;p&gt;My research addresses critical challenges in human motion analysis, particularly in aerospace and medical rehabilitation. It focuses on three interconnected scientific problems: &lt;strong&gt;motion perception anomalies caused by physiological or pathological factors&lt;/strong&gt;, &lt;strong&gt;negative transfer due to limited samples&lt;/strong&gt;, and &lt;strong&gt;catastrophic forgetting resulting from non-stationary data distributions&lt;/strong&gt;. Leveraging spatiotemporal graph models, domain adaptation, and continual learning frameworks, I have developed innovative methods that have achieved significant academic and practical outcomes. These methods have been validated in two key applications: microgravity grasping training for aerospace and motion assessment for juvenile dermatomyositis in medical rehabilitation, demonstrating substantial value for national defense and healthcare.&lt;/p&gt;
 &lt;p&gt;To address these challenges, I proposed three methods: a robust denoising method for human motion perception to mitigate perception anomalies, a domain adaptation method for human motion assessment to overcome negative transfer, and a continual learning method for human motion assessment to address catastrophic forgetting. These methods are interdependent: the first provides high-quality data for the latter two, while the third builds upon the second to meet practical application requirements. Together, they represent a significant advancement in the field of human motion analysis.&lt;/p&gt;
@@ -61,9 +61,9 @@
     
     <item>
       <title>Research Proposal</title>
-      <link>https://zhoukanglei.github.io/gallery/proposal/</link>
+      <link>https://zhoukanglei.github.io/gallery/proposal.html</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://zhoukanglei.github.io/gallery/proposal/</guid>
+      <guid>https://zhoukanglei.github.io/gallery/proposal.html</guid>
       <description>&lt;h2 id=&#34;research-proposal-on-multi-modal-action-quality-assessment&#34;&gt;Research Proposal on Multi-Modal Action Quality Assessment&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;If you are interested in this proposal, please feel free to contact me.&lt;/p&gt;

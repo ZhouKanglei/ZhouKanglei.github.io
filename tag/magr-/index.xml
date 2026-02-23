@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>3 | Kanglei Zhou</title>
-    <link>https://zhoukanglei.github.io/publication-type/3/</link>
-      <atom:link href="https://zhoukanglei.github.io/publication-type/3/index.xml" rel="self" type="application/rss+xml" />
-    <description>3</description>
+    <title>MAGR&#43;&#43; | Kanglei Zhou</title>
+    <link>https://zhoukanglei.github.io/tag/magr-/</link>
+      <atom:link href="https://zhoukanglei.github.io/tag/magr-/index.xml" rel="self" type="application/rss+xml" />
+    <description>MAGR&#43;&#43;</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
-      <title>3</title>
-      <link>https://zhoukanglei.github.io/publication-type/3/</link>
+      <title>MAGR&#43;&#43;</title>
+      <link>https://zhoukanglei.github.io/tag/magr-/</link>
     </image>
     
     <item>
@@ -19,14 +19,6 @@
       <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
       <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
-      <link>https://zhoukanglei.github.io/publications/aqa_survey/</link>
-      <pubDate>Sun, 15 Dec 2024 18:26:41 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/aqa_survey/</guid>
-      <description></description>
     </item>
     
   </channel>

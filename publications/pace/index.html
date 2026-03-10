@@ -72,7 +72,7 @@
   
     
   
-  <meta name="description" content="" />
+  <meta name="description" content="Audio is a fundamental modality for analyzing speech, music, and environmental sounds. While pretrained audio models have significantly advanced audio understanding, they remain fragile in real-world scenarios where data distributions evolve over time. In this work, we present the first systematic benchmark for audio continual learning (CL) with pretrained models (PTMs) and provide a comprehensive analysis of its unique challenges. Unlike in the vision domain where parameter-efficient fine-tuning (PEFT) has proven effective for CL, directly applying such strategies to audio leads to poor performance. This is due to a fundamental property of audio backbones: they emphasize low-level spectral details rather than structured semantics, resulting in severe upstream–downstream misalignment. Through extensive empirical analysis, we identify a promising technical route based on analytic classifiers with first-session adaptation (FSA), but also uncover two major limitations: representation saturation in coarse-grained scenarios and representation shifts in fine-grained scenarios. To address these challenges, we propose PACE, an innovative method that improves FSA via a regularized analytic classifier and introduces multi-session adaptation through adaptive subspace-orthogonal PEFT for better semantic alignment. Additionally, we design spectrogram-based boundary-aware perturbations to mitigate representation overlap and improve stability. Experiments across six diverse audio CL benchmarks demonstrate that PACE substantially outperforms state-of-the-art baselines, representing a significant step toward robust and scalable audio CL with PTMs." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://zhoukanglei.github.io/publications/pace/" />
@@ -305,7 +305,7 @@
   <meta property="og:site_name" content="Kanglei Zhou" />
   <meta property="og:url" content="https://zhoukanglei.github.io/publications/pace/" />
   <meta property="og:title" content="PACE: Pretrained Audio Continual Learning | Kanglei Zhou" />
-  <meta property="og:description" content="" /><meta property="og:image" content="https://zhoukanglei.github.io/publications/pace/featured.png" />
+  <meta property="og:description" content="Audio is a fundamental modality for analyzing speech, music, and environmental sounds. While pretrained audio models have significantly advanced audio understanding, they remain fragile in real-world scenarios where data distributions evolve over time. In this work, we present the first systematic benchmark for audio continual learning (CL) with pretrained models (PTMs) and provide a comprehensive analysis of its unique challenges. Unlike in the vision domain where parameter-efficient fine-tuning (PEFT) has proven effective for CL, directly applying such strategies to audio leads to poor performance. This is due to a fundamental property of audio backbones: they emphasize low-level spectral details rather than structured semantics, resulting in severe upstream–downstream misalignment. Through extensive empirical analysis, we identify a promising technical route based on analytic classifiers with first-session adaptation (FSA), but also uncover two major limitations: representation saturation in coarse-grained scenarios and representation shifts in fine-grained scenarios. To address these challenges, we propose PACE, an innovative method that improves FSA via a regularized analytic classifier and introduces multi-session adaptation through adaptive subspace-orthogonal PEFT for better semantic alignment. Additionally, we design spectrogram-based boundary-aware perturbations to mitigate representation overlap and improve stability. Experiments across six diverse audio CL benchmarks demonstrate that PACE substantially outperforms state-of-the-art baselines, representing a significant step toward robust and scalable audio CL with PTMs." /><meta property="og:image" content="https://zhoukanglei.github.io/publications/pace/featured.png" />
     <meta property="twitter:image" content="https://zhoukanglei.github.io/publications/pace/featured.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -764,7 +764,17 @@
 
       
       
+        
+      
 
+      
+        
+        
+
+        
+          
+          
+        
       
 
       
@@ -1342,7 +1352,7 @@
 
       
 
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents"><ul><li><a href="#publication-abstract">Abstract</a></li></ul></nav>
 
 
       
@@ -1566,6 +1576,11 @@
 
         <div class="article-container">
 
+          
+            <h3 id="publication-abstract">Abstract</h3>
+            <div class="abstract-card">
+              <p>  Audio is a fundamental modality for analyzing speech, music, and environmental sounds. While pretrained audio models have significantly advanced audio understanding, they remain fragile in real-world scenarios where data distributions evolve over time. In this work, we present the first systematic benchmark for audio continual learning (CL) with pretrained models (PTMs) and provide a comprehensive analysis of its unique challenges. Unlike in the vision domain where parameter-efficient fine-tuning (PEFT) has proven effective for CL, directly applying such strategies to audio leads to poor performance. This is due to a fundamental property of audio backbones: they emphasize low-level spectral details rather than structured semantics, resulting in severe upstream–downstream misalignment. Through extensive empirical analysis, we identify a promising technical route based on analytic classifiers with first-session adaptation (FSA), but also uncover two major limitations: representation saturation in coarse-grained scenarios and representation shifts in fine-grained scenarios. To address these challenges, we propose PACE, an innovative method that improves FSA via a regularized analytic classifier and introduces multi-session adaptation through adaptive subspace-orthogonal PEFT for better semantic alignment. Additionally, we design spectrogram-based boundary-aware perturbations to mitigate representation overlap and improve stability. Experiments across six diverse audio CL benchmarks demonstrate that PACE substantially outperforms state-of-the-art baselines, representing a significant step toward robust and scalable audio CL with PTMs.</p>
+            </div>
           
 
           <div class="article-style" align="justify">

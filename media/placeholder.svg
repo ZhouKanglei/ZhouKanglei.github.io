@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-label="Placeholder image">
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-label="Coming soon">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#1e66f5" stop-opacity="1"/>
@@ -16,7 +16,8 @@
     <path d="M0 420 C240 320, 480 500, 720 400 S1200 320, 1440 420"/>
   </g>
   <g fill="#ffffff" fill-opacity="0.78">
-    <circle cx="720" cy="220" r="54"/>
-    <path d="M640 330c38-44 84-66 140-66s102 22 140 66" />
+    <text x="720" y="250" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="0.5">
+      Coming soon
+    </text>
   </g>
 </svg>

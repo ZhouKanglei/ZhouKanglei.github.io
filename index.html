@@ -1884,16 +1884,19 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
             #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
             #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+             
+            #bib-modal .btn{transform:none !important}
+            #bib-modal .btn:hover{transform:none !important}
           </style>
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:600;">Cite</div>
+            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
             <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
           <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;">BibTeX</div>
+              <div style="font-weight:600;font-size:18px;">BibTeX</div>
               <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
@@ -1904,25 +1907,25 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
                 </button>
               </div>
             </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
+            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">IEEEtran</div>
+              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
               <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">GBT7714-2015</div>
+              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
               <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="height:0;position:relative;"></div>
           </div>
@@ -2049,6 +2052,15 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     } catch (e) {
       textarea.value = 'Failed to load BibTeX.';
     }
+
+    
+    try {
+      const maxPx = Math.round(window.innerHeight * 0.42);
+      textarea.style.height = 'auto';
+      const next = Math.min(textarea.scrollHeight + 2, maxPx);
+      textarea.style.height = `${Math.max(120, next)}px`;
+      textarea.style.overflowY = 'auto';
+    } catch (e) {}
 
     
     try {
@@ -2323,16 +2335,19 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
             #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
             #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+             
+            #bib-modal .btn{transform:none !important}
+            #bib-modal .btn:hover{transform:none !important}
           </style>
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:600;">Cite</div>
+            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
             <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
           <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;">BibTeX</div>
+              <div style="font-weight:600;font-size:18px;">BibTeX</div>
               <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
@@ -2343,25 +2358,25 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
                 </button>
               </div>
             </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
+            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">IEEEtran</div>
+              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
               <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">GBT7714-2015</div>
+              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
               <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="height:0;position:relative;"></div>
           </div>
@@ -2488,6 +2503,15 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     } catch (e) {
       textarea.value = 'Failed to load BibTeX.';
     }
+
+    
+    try {
+      const maxPx = Math.round(window.innerHeight * 0.42);
+      textarea.style.height = 'auto';
+      const next = Math.min(textarea.scrollHeight + 2, maxPx);
+      textarea.style.height = `${Math.max(120, next)}px`;
+      textarea.style.overflowY = 'auto';
+    } catch (e) {}
 
     
     try {
@@ -2726,16 +2750,19 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
             #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
             #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+             
+            #bib-modal .btn{transform:none !important}
+            #bib-modal .btn:hover{transform:none !important}
           </style>
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:600;">Cite</div>
+            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
             <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
           <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;">BibTeX</div>
+              <div style="font-weight:600;font-size:18px;">BibTeX</div>
               <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
@@ -2746,25 +2773,25 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
                 </button>
               </div>
             </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
+            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">IEEEtran</div>
+              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
               <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">GBT7714-2015</div>
+              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
               <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="height:0;position:relative;"></div>
           </div>
@@ -2891,6 +2918,15 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     } catch (e) {
       textarea.value = 'Failed to load BibTeX.';
     }
+
+    
+    try {
+      const maxPx = Math.round(window.innerHeight * 0.42);
+      textarea.style.height = 'auto';
+      const next = Math.min(textarea.scrollHeight + 2, maxPx);
+      textarea.style.height = `${Math.max(120, next)}px`;
+      textarea.style.overflowY = 'auto';
+    } catch (e) {}
 
     
     try {
@@ -3161,16 +3197,19 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
             #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
             #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+             
+            #bib-modal .btn{transform:none !important}
+            #bib-modal .btn:hover{transform:none !important}
           </style>
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:600;">Cite</div>
+            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
             <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
           <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;">BibTeX</div>
+              <div style="font-weight:600;font-size:18px;">BibTeX</div>
               <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
@@ -3181,25 +3220,25 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
                 </button>
               </div>
             </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
+            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">IEEEtran</div>
+              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
               <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">GBT7714-2015</div>
+              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
               <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="height:0;position:relative;"></div>
           </div>
@@ -3326,6 +3365,15 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     } catch (e) {
       textarea.value = 'Failed to load BibTeX.';
     }
+
+    
+    try {
+      const maxPx = Math.round(window.innerHeight * 0.42);
+      textarea.style.height = 'auto';
+      const next = Math.min(textarea.scrollHeight + 2, maxPx);
+      textarea.style.height = `${Math.max(120, next)}px`;
+      textarea.style.overflowY = 'auto';
+    } catch (e) {}
 
     
     try {
@@ -3564,16 +3612,19 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
             #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
             #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+             
+            #bib-modal .btn{transform:none !important}
+            #bib-modal .btn:hover{transform:none !important}
           </style>
           <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:600;">Cite</div>
+            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
             <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
               <i class="fas fa-times" aria-hidden="true"></i>
             </button>
           </div>
           <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;">BibTeX</div>
+              <div style="font-weight:600;font-size:18px;">BibTeX</div>
               <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
@@ -3584,25 +3635,25 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
                 </button>
               </div>
             </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:220px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
+            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">IEEEtran</div>
+              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
               <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;">GBT7714-2015</div>
+              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
               <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
               <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
                 <i class="fas fa-copy" aria-hidden="true"></i>
               </button>
             </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;white-space:pre-wrap;word-break:break-word;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
+            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
 
             <div style="height:0;position:relative;"></div>
           </div>
@@ -3729,6 +3780,15 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     } catch (e) {
       textarea.value = 'Failed to load BibTeX.';
     }
+
+    
+    try {
+      const maxPx = Math.round(window.innerHeight * 0.42);
+      textarea.style.height = 'auto';
+      const next = Math.min(textarea.scrollHeight + 2, maxPx);
+      textarea.style.height = `${Math.max(120, next)}px`;
+      textarea.style.overflowY = 'auto';
+    } catch (e) {}
 
     
     try {
@@ -4464,7 +4524,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-People">
+          <div class="project-card project-item isotope-item ">
         
         
 
@@ -4584,7 +4644,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-People js-id-Supervisor">
+          <div class="project-card project-item isotope-item js-id-Supervisor">
         
         
 
@@ -4718,7 +4778,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-People">
+          <div class="project-card project-item isotope-item ">
         
         
 
@@ -4958,7 +5018,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-People js-id-Co-supervised-Students">
+          <div class="project-card project-item isotope-item js-id-Co-Supervised-Student">
         
         
 
@@ -5090,7 +5150,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-Supervisor js-id-People">
+          <div class="project-card project-item isotope-item js-id-Supervisor">
         
         
 
@@ -5224,7 +5284,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-Supervisor js-id-People">
+          <div class="project-card project-item isotope-item js-id-Supervisor">
         
         
 
@@ -5344,7 +5404,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
       
         
-          <div class="project-card project-item isotope-item js-id-Supervisor js-id-People">
+          <div class="project-card project-item isotope-item js-id-Supervisor">
         
         
 

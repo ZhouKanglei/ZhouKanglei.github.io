@@ -5,12 +5,28 @@
     <link>https://zhoukanglei.github.io/publications/</link>
       <atom:link href="https://zhoukanglei.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 17 Mar 2026 00:00:00 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 04 May 2026 03:00:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Publications</title>
       <link>https://zhoukanglei.github.io/publications/</link>
     </image>
+    
+    <item>
+      <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
+      <link>https://zhoukanglei.github.io/publications/aqa_survey/</link>
+      <pubDate>Mon, 04 May 2026 03:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/aqa_survey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CE4L: Continual Ego, Exo, and Ego-Exo Learning</title>
+      <link>https://zhoukanglei.github.io/publications/ce4l/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/ce4l/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Camera-Aware Cross-View Alignment for Referring 3D Gaussian Splatting Segmentation</title>
@@ -101,14 +117,6 @@
       <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
       <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</title>
-      <link>https://zhoukanglei.github.io/publications/aqa_survey/</link>
-      <pubDate>Sun, 15 Dec 2024 18:26:41 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/aqa_survey/</guid>
-      <description></description>
     </item>
     
     <item>

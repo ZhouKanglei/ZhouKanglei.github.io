@@ -21,3 +21,20 @@
 	text-align: right;
 	opacity: 0.1;
 }
+
+/* Highlight CCF A/B items (list view). */
+.ccf-highlight {
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin: 0.25rem 0;
+}
+
+body:not(.dark) .ccf-highlight {
+  background: rgba(255, 193, 7, 0.14);
+  border: 1px solid rgba(255, 193, 7, 0.22);
+}
+
+body.dark .ccf-highlight {
+  background: rgba(255, 193, 7, 0.10);
+  border: 1px solid rgba(255, 193, 7, 0.18);
+}

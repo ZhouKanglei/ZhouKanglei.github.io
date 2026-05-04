@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.cb496150c831ae96768fbabe381bcec4.css" />
+  <link rel="stylesheet" href="/css/wowchemy.f52d6c654037f7251efff973350588df.css" />
 
   
   
@@ -496,43 +496,6 @@
               
             
             
-              
-              
-              
-                
-              
-              
-            
-          
-
-          <li class="nav-item">
-            <a class="nav-link " href="/#gallery"><span>Research</span></a>
-          </li>
-
-          
-          
-
-          
-
-          
-          
-          
-            
-          
-
-          
-
-          
-          
-          
-          
-
-          
-            
-              
-              
-            
-            
           
 
           <li class="nav-item">
@@ -611,6 +574,43 @@
 
           <li class="nav-item">
             <a class="nav-link " href="/#people"><span>Collaborators</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#gallery"><span>Research</span></a>
           </li>
 
           
@@ -862,17 +862,79 @@
   
   
 
-  
-  
-  
-    
-  
-    
-  
+	  
+	  
+	  
+	    
+	  
+	    
+	  
 
-  
-  
-  
+	  
+	  
+	  
+
+	  
+	  
+	  
+	  
+
+	  
+	  
+	  
+	  
+	    
+	    
+
+	    
+	    
+	    
+	      
+	      
+	      
+	    
+	    
+
+	    
+	    
+	    
+
+	    
+	    
+	    
+	  
+	    
+	    
+
+	    
+	    
+	    
+	      
+	      
+	      
+	    
+	    
+
+	    
+	    
+	    
+
+	    
+	    
+	    
+	  
+
+	  
+	  
+	  
+
+	  
+	  
+	  
+
+	  
+	  
+	  
 
   
   
@@ -1026,7 +1088,10 @@
   
 
   
-  
+	  
+
+	  
+	  
 
   
   
@@ -1049,12 +1114,21 @@
     </div>
 
     <main class="col-xl-8 col-lg-8 docs-content" role="main">
-      <article class="article" align="justify">
+      <article class="article" >
         <div class="article-container article-container-list pt-3">
-          <h1 class="page-title">Galleries</h1>
+          <h1 class="page-title">Galleries<span class="rank-title-suffix"></span></h1>
         </div>
         
 <div class="article-container article-container-list">
+  <style>
+    .article-container-list .stream-item.view-compact{border-radius:10px;padding:.75rem;margin:1rem 0}
+    body:not(.dark) .article-container-list .ccf-highlight{background:rgba(32,129,240,.05);border:1px solid rgba(32,129,240,.12)}
+    body.dark .article-container-list .ccf-highlight{background:rgba(32,129,240,.10);border:1px solid rgba(32,129,240,.18)}
+     
+    .docs-toc a[href^="?ccf_rank="],
+    .docs-toc a[href^="?core_rank="],
+    .docs-toc a[href^="?jcr_rank="]{font-family:inherit;font-variant:normal;letter-spacing:normal}
+  </style>
   
   
 
@@ -1085,25 +1159,62 @@
     
     
 
-    
-      
-      
-      
+	    
+	      
+	      
+	      
 
-       
-      
-    
-      
-      
-      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
 
-       
-      
-    
+	      
+	      
+	      
+	      
+	      
 
-    
-    
-    
+	       
+	      
+	      
+	      
+	      
+	    
+	      
+	      
+	      
+
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+	      
+
+	      
+	      
+	      
+	      
+	      
+
+	       
+	      
+	      
+	      
+	      
+	    
+
+	    
+	    
 
     
     
@@ -1138,7 +1249,40 @@
 
 
 
-<div class="media stream-item view-compact"  data-year="2025">
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item view-compact"
+  data-year="2025"
+  
+  
+  >
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
@@ -1234,7 +1378,40 @@
 
 
 
-<div class="media stream-item view-compact"  data-year="2025">
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item view-compact"
+  data-year="2025"
+  
+  
+  >
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
@@ -1313,7 +1490,82 @@
       </article>
     </main>
   </div>
-</div>
+	</div>
+
+	<script>
+	  (function () {
+	    const params = new URLSearchParams(window.location.search);
+	    const ccf = params.get('ccf_rank');
+	    const core = params.get('core_rank');
+	    const jcr = params.get('jcr_rank');
+	    if (!ccf && !core && !jcr) return;
+
+	    const suffixEl = document.querySelector('.rank-title-suffix');
+	    if (suffixEl) {
+	      const parts = [];
+	      if (ccf) parts.push(`CCF ${ccf}`);
+	      if (core) parts.push(`CORE ${core}`);
+	      if (jcr) parts.push(`JCR ${jcr}`);
+	      if (parts.length) suffixEl.textContent = ` - ${parts.join(', ')}`;
+	    }
+
+	    const items = document.querySelectorAll('.stream-item');
+	    items.forEach((el) => {
+	      const ok =
+	        (!ccf || (el.getAttribute('data-ccf-rank') || '') === ccf) &&
+	        (!core || (el.getAttribute('data-core-rank') || '') === core) &&
+	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr);
+	      if (!ok) el.style.display = 'none';
+	    });
+
+	    
+	    const firstItem = document.querySelector('.stream-item');
+	    const container = firstItem ? firstItem.parentElement : null;
+	    if (!container) return;
+
+	    const isVisibleItem = (el) =>
+	      el && el.classList && el.classList.contains('stream-item') && el.style.display !== 'none';
+
+	    
+	    const years = container.querySelectorAll('h2.list-year');
+	    years.forEach((h) => {
+	      let cur = h.nextElementSibling;
+	      let hasVisible = false;
+	      while (cur && !(cur.tagName === 'H2' && cur.classList.contains('list-year'))) {
+	        if (isVisibleItem(cur)) { hasVisible = true; break; }
+	        cur = cur.nextElementSibling;
+	      }
+	      h.style.display = hasVisible ? '' : 'none';
+	    });
+
+	    
+	    const seps = Array.from(container.querySelectorAll('div[style*="dashed"]'));
+	    seps.forEach((sep) => {
+	      const isYearHeader = (el) =>
+	        el && el.tagName === 'H2' && el.classList && el.classList.contains('list-year');
+
+	      const prevItem = (() => {
+	        let el = sep.previousElementSibling;
+	        while (el && !isYearHeader(el)) {
+	          if (isVisibleItem(el)) return el;
+	          el = el.previousElementSibling;
+	        }
+	        return null;
+	      })();
+
+	      const nextItem = (() => {
+	        let el = sep.nextElementSibling;
+	        while (el && !isYearHeader(el)) {
+	          if (isVisibleItem(el)) return el;
+	          el = el.nextElementSibling;
+	        }
+	        return null;
+	      })();
+
+	      sep.style.display = (prevItem && nextItem) ? '' : 'none';
+	    });
+	  })();
+	</script>
   </div>
 
   <div class="page-footer">

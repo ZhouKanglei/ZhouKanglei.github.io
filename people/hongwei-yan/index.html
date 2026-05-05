@@ -275,8 +275,8 @@
   
 
   
-  <link rel="icon" type="image/png" href="/media/icon_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_32x32_fill_lanczos_center_3.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_180x180_fill_lanczos_center_3.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_180x180_fill_lanczos_center_3.png" />
 
   <link rel="canonical" href="https://zhoukanglei.github.io/people/hongwei-yan/" />
 
@@ -765,7 +765,10 @@
     
     
 
-    <div class="container-fluid docs">
+    
+
+
+<div class="container-fluid docs">
   <div class="row">
     <div class="col-xl-2 col-lg-2 d-none d-xl-block d-lg-block empty"></div>
 
@@ -2371,7 +2374,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmNlNGwsCiAgdGl0bGUgICAgICAgID0ge0NFJF40JEw6IENvbnRpbnVhbCBFZ28sIEV4bywgYW5kIEVnby1FeG8gTGVhcm5pbmd9LAogIGF1dGhvciAgICAgICA9IHtZYW4sIEhvbmd3ZWkgYW5kIFpob3UsIEthbmdsZWkgYW5kIExpdSwgWXVjaGVuIGFuZCBTaGksIFFpbmd5dSBhbmQgWmhvbmcsIFlpIGFuZCBXYW5nLCBMaXl1YW59LAogIGJvb2t0aXRsZSAgICA9IHtQcm9jZWVkaW5ncyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIE1hY2hpbmUgTGVhcm5pbmcgKElDTUwpfSwKICB5ZWFyICAgICAgICAgPSB7MjAyNn0sCiAgbm90ZSAgICAgICAgID0ge3RvIGFwcGVhcn0sCn0K" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmNlNGwsCiAgdGl0bGUgICAgICAgID0ge0NFJF40JEw6IENvbnRpbnVhbCBFZ28sIEV4bywgYW5kIEVnby1FeG8gTGVhcm5pbmd9LAogIGF1dGhvciAgICAgICA9IHtZYW4sIEhvbmd3ZWkgYW5kIFpob3UsIEthbmdsZWkgYW5kIExpdSwgWXVjaGVuIGFuZCBTaGksIFFpbmd5dSBhbmQgWmhvbmcsIFlpIGFuZCBXYW5nLCBMaXl1YW59LAogIGJvb2t0aXRsZSAgICA9IHtQcm9jZWVkaW5ncyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIE1hY2hpbmUgTGVhcm5pbmcgKElDTUwpfSwKICB5ZWFyICAgICAgICAgPSB7MjAyNn0sCiAgbm90ZSAgICAgICAgID0ge3RvIGFwcGVhcn0sCn0K">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -2379,7 +2384,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -2583,7 +2591,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -2764,14 +2772,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -2815,9 +2827,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -3000,7 +3019,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmZseXByb21wdCwKICB0aXRsZSAgICAgPSB7Rmx5UHJvbXB0OiBCcmFpbi1JbnNwaXJlZCBSYW5kb20tRXhwYW5kZWQgUm91dGluZyB3aXRoIFRlbXBvcmFsLUVuc2VtYmxlIEV4cGVydHMgZm9yIEdlbmVyYWwgQ29udGludWFsIExlYXJuaW5nfSwKICBhdXRob3IgICAgPSB7SG9uZ3dlaSBZYW4gYW5kIEd1YW5nbG9uZyBTdW4gYW5kIEthbmdsZWkgWmhvdSBhbmQgUWlhbiBMaSBhbmQgTGl5dWFuIFdhbmcgYW5kIFlpIFpob25nfSwKICBib29rdGl0bGUgPSB7VGhlIFRoaXJ0ZWVudGggSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIExlYXJuaW5nIFJlcHJlc2VudGF0aW9ucyAoSUNMUil9LAogIHllYXIgICAgICA9IHsyMDI2fSwKICB1cmwgICAgICAgPSB7aHR0cHM6Ly9vcGVucmV2aWV3Lm5ldC9mb3J1bT9pZD04cGkxclA3MXF2fQp9" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmZseXByb21wdCwKICB0aXRsZSAgICAgPSB7Rmx5UHJvbXB0OiBCcmFpbi1JbnNwaXJlZCBSYW5kb20tRXhwYW5kZWQgUm91dGluZyB3aXRoIFRlbXBvcmFsLUVuc2VtYmxlIEV4cGVydHMgZm9yIEdlbmVyYWwgQ29udGludWFsIExlYXJuaW5nfSwKICBhdXRob3IgICAgPSB7SG9uZ3dlaSBZYW4gYW5kIEd1YW5nbG9uZyBTdW4gYW5kIEthbmdsZWkgWmhvdSBhbmQgUWlhbiBMaSBhbmQgTGl5dWFuIFdhbmcgYW5kIFlpIFpob25nfSwKICBib29rdGl0bGUgPSB7VGhlIFRoaXJ0ZWVudGggSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIExlYXJuaW5nIFJlcHJlc2VudGF0aW9ucyAoSUNMUil9LAogIHllYXIgICAgICA9IHsyMDI2fSwKICB1cmwgICAgICAgPSB7aHR0cHM6Ly9vcGVucmV2aWV3Lm5ldC9mb3J1bT9pZD04cGkxclA3MXF2fQp9">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -3008,7 +3029,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -3212,7 +3236,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -3393,14 +3417,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -3444,9 +3472,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 

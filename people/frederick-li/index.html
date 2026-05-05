@@ -275,8 +275,8 @@
   
 
   
-  <link rel="icon" type="image/png" href="/media/icon_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_32x32_fill_lanczos_center_3.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_180x180_fill_lanczos_center_3.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_180x180_fill_lanczos_center_3.png" />
 
   <link rel="canonical" href="https://zhoukanglei.github.io/people/frederick-li/" />
 
@@ -765,7 +765,10 @@
     
     
 
-    <div class="container-fluid docs">
+    
+
+
+<div class="container-fluid docs">
   <div class="row">
     <div class="col-xl-2 col-lg-2 d-none d-xl-block d-lg-block empty"></div>
 
@@ -2516,7 +2519,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGFydGljbGV7emhvdTI1cGhpLAogIGF1dGhvciAgICA9IHtaaG91LCBLYW5nbGVpIGFuZCBTaHVtLCBIdWJlcnQgUC4gSC4gYW5kIExpLCBGcmVkZXJpY2sgVy4gQi4gYW5kIFpoYW5nLCBYaW5neGluZyBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGpvdXJuYWwgICA9IHtJRUVFIFRyYW5zYWN0aW9ucyBvbiBJbWFnZSBQcm9jZXNzaW5nfSwKICB0aXRsZSAgICAgPSB7UEhJOiBCcmlkZ2luZyBEb21haW4gU2hpZnQgaW4gTG9uZy1UZXJtIEFjdGlvbiBRdWFsaXR5IEFzc2Vzc21lbnQgdmlhIFByb2dyZXNzaXZlIEhpZXJhcmNoaWNhbCBJbnN0cnVjdGlvbn0sCiAgeWVhciAgICAgID0gezIwMjV9LAogIHZvbHVtZSAgICA9IHszNH0sCiAgcGFnZXMgICAgID0gezM3MTgtLTM3MzJ9LAogIG51bXBhZ2VzICA9IHsxNX0sCiAgZG9pICAgICAgID0gezEwLjExMDkvVElQLjIwMjUuMzU3NDkzOH0sCiAgaXNzbiAgICAgID0gezEwNTctNzE0OX0sCiAgcHVibGlzaGVyID0ge0lFRUV9Cn0=" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGFydGljbGV7emhvdTI1cGhpLAogIGF1dGhvciAgICA9IHtaaG91LCBLYW5nbGVpIGFuZCBTaHVtLCBIdWJlcnQgUC4gSC4gYW5kIExpLCBGcmVkZXJpY2sgVy4gQi4gYW5kIFpoYW5nLCBYaW5neGluZyBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGpvdXJuYWwgICA9IHtJRUVFIFRyYW5zYWN0aW9ucyBvbiBJbWFnZSBQcm9jZXNzaW5nfSwKICB0aXRsZSAgICAgPSB7UEhJOiBCcmlkZ2luZyBEb21haW4gU2hpZnQgaW4gTG9uZy1UZXJtIEFjdGlvbiBRdWFsaXR5IEFzc2Vzc21lbnQgdmlhIFByb2dyZXNzaXZlIEhpZXJhcmNoaWNhbCBJbnN0cnVjdGlvbn0sCiAgeWVhciAgICAgID0gezIwMjV9LAogIHZvbHVtZSAgICA9IHszNH0sCiAgcGFnZXMgICAgID0gezM3MTgtLTM3MzJ9LAogIG51bXBhZ2VzICA9IHsxNX0sCiAgZG9pICAgICAgID0gezEwLjExMDkvVElQLjIwMjUuMzU3NDkzOH0sCiAgaXNzbiAgICAgID0gezEwNTctNzE0OX0sCiAgcHVibGlzaGVyID0ge0lFRUV9Cn0">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -2524,7 +2529,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -2728,7 +2736,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -2909,14 +2917,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -2960,9 +2972,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -3166,7 +3185,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7bWEyMDI1dW5jZXJ0YWludHksCiAgdGl0bGUgICAgICAgID0ge1VuY2VydGFpbnR5LWF3YXJlIHByb2JhYmlsaXN0aWMgM2QgaHVtYW4gbW90aW9uIGZvcmVjYXN0aW5nIHZpYSBpbnZlcnRpYmxlIG5ldHdvcmtzfSwKICBhdXRob3IgICAgICAgPSB7TWEsIFl1ZSBhbmQgWmhvdSwgS2FuZ2xlaSBhbmQgWXUsIEZ1eWFuZyBhbmQgTGksIEZyZWRlcmljayBXQiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZSAgICA9IHsyMDI1IElFRUUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIFJvYm90aWNzIGFuZCBBdXRvbWF0aW9uIChJQ1JBKX0sCiAgcGFnZXMgICAgICAgID0gezE0MzA3LS0xNDMxNH0sCiAgeWVhciAgICAgICAgID0gezIwMjV9LAogIG9yZ2FuaXphdGlvbiA9IHtJRUVFfQp9Cgo=" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7bWEyMDI1dW5jZXJ0YWludHksCiAgdGl0bGUgICAgICAgID0ge1VuY2VydGFpbnR5LWF3YXJlIHByb2JhYmlsaXN0aWMgM2QgaHVtYW4gbW90aW9uIGZvcmVjYXN0aW5nIHZpYSBpbnZlcnRpYmxlIG5ldHdvcmtzfSwKICBhdXRob3IgICAgICAgPSB7TWEsIFl1ZSBhbmQgWmhvdSwgS2FuZ2xlaSBhbmQgWXUsIEZ1eWFuZyBhbmQgTGksIEZyZWRlcmljayBXQiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZSAgICA9IHsyMDI1IElFRUUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIFJvYm90aWNzIGFuZCBBdXRvbWF0aW9uIChJQ1JBKX0sCiAgcGFnZXMgICAgICAgID0gezE0MzA3LS0xNDMxNH0sCiAgeWVhciAgICAgICAgID0gezIwMjV9LAogIG9yZ2FuaXphdGlvbiA9IHtJRUVFfQp9Cgo">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -3174,7 +3195,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -3378,7 +3402,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -3559,14 +3583,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -3610,9 +3638,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -3789,7 +3824,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGFydGljbGV7emhvdTIwMjVjb250aW51YWwsCiAgdGl0bGUgICA9IHtDb250aW51YWwgYWN0aW9uIHF1YWxpdHkgYXNzZXNzbWVudCB2aWEgYWRhcHRpdmUgbWFuaWZvbGQtYWxpZ25lZCBncmFwaCByZWd1bGFyaXphdGlvbn0sCiAgYXV0aG9yICA9IHtaaG91LCBLYW5nbGVpIGFuZCBQYW4sIFFpbmd5aSBhbmQgWmhhbmcsIFhpbmd4aW5nIGFuZCBTaHVtLCBIdWJlcnQgUEggYW5kIExpLCBGcmVkZXJpY2sgV0IgYW5kIExpYW5nLCBYaWFvaHVpIGFuZCBXYW5nLCBMaXl1YW59LAogIGpvdXJuYWwgPSB7YXJYaXYgcHJlcHJpbnQgYXJYaXY6MjUxMC4wNjg0Mn0sCiAgeWVhciAgICA9IHsyMDI1fQp9Cg==" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGFydGljbGV7emhvdTIwMjVjb250aW51YWwsCiAgdGl0bGUgICA9IHtDb250aW51YWwgYWN0aW9uIHF1YWxpdHkgYXNzZXNzbWVudCB2aWEgYWRhcHRpdmUgbWFuaWZvbGQtYWxpZ25lZCBncmFwaCByZWd1bGFyaXphdGlvbn0sCiAgYXV0aG9yICA9IHtaaG91LCBLYW5nbGVpIGFuZCBQYW4sIFFpbmd5aSBhbmQgWmhhbmcsIFhpbmd4aW5nIGFuZCBTaHVtLCBIdWJlcnQgUEggYW5kIExpLCBGcmVkZXJpY2sgV0IgYW5kIExpYW5nLCBYaWFvaHVpIGFuZCBXYW5nLCBMaXl1YW59LAogIGpvdXJuYWwgPSB7YXJYaXYgcHJlcHJpbnQgYXJYaXY6MjUxMC4wNjg0Mn0sCiAgeWVhciAgICA9IHsyMDI1fQp9Cg">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -3797,7 +3834,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -4001,7 +4041,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -4182,14 +4222,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -4233,9 +4277,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -4413,7 +4464,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjRtYWdyLAogIHRpdGxlICAgICAgICA9IHtNYWdyOiBNYW5pZm9sZC1hbGlnbmVkIGdyYXBoIHJlZ3VsYXJpemF0aW9uIGZvciBjb250aW51YWwgYWN0aW9uIHF1YWxpdHkgYXNzZXNzbWVudH0sCiAgYXV0aG9yICAgICAgID0ge1pob3UsIEthbmdsZWkgYW5kIFdhbmcsIExpeXVhbiBhbmQgWmhhbmcsIFhpbmd4aW5nIGFuZCBTaHVtLCBIdWJlcnQgUEggYW5kIExpLCBGcmVkZXJpY2sgV0IgYW5kIExpLCBKaWFuZ3VvIGFuZCBMaWFuZywgWGlhb2h1aX0sCiAgYm9va3RpdGxlICAgID0ge0V1cm9wZWFuIENvbmZlcmVuY2Ugb24gQ29tcHV0ZXIgVmlzaW9ufSwKICB2b2x1bWUgICAgICAgPSB7MTUwNjl9LAogIHBhZ2VzICAgICAgICA9IHszNzUtLTM5Mn0sCiAgeWVhciAgICAgICAgID0gezIwMjR9LAogIG9yZ2FuaXphdGlvbiA9IHtTcHJpbmdlcn0KfQ==" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjRtYWdyLAogIHRpdGxlICAgICAgICA9IHtNYWdyOiBNYW5pZm9sZC1hbGlnbmVkIGdyYXBoIHJlZ3VsYXJpemF0aW9uIGZvciBjb250aW51YWwgYWN0aW9uIHF1YWxpdHkgYXNzZXNzbWVudH0sCiAgYXV0aG9yICAgICAgID0ge1pob3UsIEthbmdsZWkgYW5kIFdhbmcsIExpeXVhbiBhbmQgWmhhbmcsIFhpbmd4aW5nIGFuZCBTaHVtLCBIdWJlcnQgUEggYW5kIExpLCBGcmVkZXJpY2sgV0IgYW5kIExpLCBKaWFuZ3VvIGFuZCBMaWFuZywgWGlhb2h1aX0sCiAgYm9va3RpdGxlICAgID0ge0V1cm9wZWFuIENvbmZlcmVuY2Ugb24gQ29tcHV0ZXIgVmlzaW9ufSwKICB2b2x1bWUgICAgICAgPSB7MTUwNjl9LAogIHBhZ2VzICAgICAgICA9IHszNzUtLTM5Mn0sCiAgeWVhciAgICAgICAgID0gezIwMjR9LAogIG9yZ2FuaXphdGlvbiA9IHtTcHJpbmdlcn0KfQ">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -4421,7 +4474,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -4625,7 +4681,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -4806,14 +4862,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -4857,9 +4917,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -5108,7 +5175,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGFydGljbGV7emhvdTIwMjRtdWx0aXRhc2ssCiAgYXV0aG9yICA9IHtaaG91LCBLYW5nbGVpIGFuZCBTaHVtLCBIdWJlcnQgUC4gSC4gYW5kIExpLCBGcmVkZXJpY2sgVy4gQi4gYW5kIExpYW5nLCBYaWFvaHVpfSwKICBqb3VybmFsID0ge0lFRUUgVHJhbnNhY3Rpb25zIG9uIFZpc3VhbGl6YXRpb24gYW5kIENvbXB1dGVyIEdyYXBoaWNzfSwKICB0aXRsZSAgID0ge011bHRpLVRhc2sgU3BhdGlhbC1UZW1wb3JhbCBHcmFwaCBBdXRvLUVuY29kZXIgZm9yIEhhbmQgTW90aW9uIERlbm9pc2luZ30sCiAgeWVhciAgICA9IHsyMDI0fSwKICB2b2x1bWUgID0gezMwfSwKICBudW1iZXIgID0gezEwfSwKICBwYWdlcyAgID0gezY3NTQtLTY3Njl9Cn0=" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGFydGljbGV7emhvdTIwMjRtdWx0aXRhc2ssCiAgYXV0aG9yICA9IHtaaG91LCBLYW5nbGVpIGFuZCBTaHVtLCBIdWJlcnQgUC4gSC4gYW5kIExpLCBGcmVkZXJpY2sgVy4gQi4gYW5kIExpYW5nLCBYaWFvaHVpfSwKICBqb3VybmFsID0ge0lFRUUgVHJhbnNhY3Rpb25zIG9uIFZpc3VhbGl6YXRpb24gYW5kIENvbXB1dGVyIEdyYXBoaWNzfSwKICB0aXRsZSAgID0ge011bHRpLVRhc2sgU3BhdGlhbC1UZW1wb3JhbCBHcmFwaCBBdXRvLUVuY29kZXIgZm9yIEhhbmQgTW90aW9uIERlbm9pc2luZ30sCiAgeWVhciAgICA9IHsyMDI0fSwKICB2b2x1bWUgID0gezMwfSwKICBudW1iZXIgID0gezEwfSwKICBwYWdlcyAgID0gezY3NTQtLTY3Njl9Cn0">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -5116,7 +5185,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -5320,7 +5392,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -5501,14 +5573,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -5552,9 +5628,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -5777,7 +5860,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIzbWl4ZWQsCiAgYXV0aG9yICAgID0ge1pob3UsIEthbmdsZWkgYW5kIENoZW4sIENoZW4gYW5kIE1hLCBZdWUgYW5kIExlbmcsIFpoaXlpbmcgYW5kIFNodW0sIEh1YmVydCBQLiBILiBhbmQgTGksIEZyZWRlcmljayBXLiBCLiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZSA9IHtJRUVFIEludGVybmF0aW9uYWwgU3ltcG9zaXVtIG9uIE1peGVkIGFuZCBBdWdtZW50ZWQgUmVhbGl0eX0sCiAgdGl0bGUgICAgID0ge0EgTWl4ZWQgUmVhbGl0eSBUcmFpbmluZyBTeXN0ZW0gZm9yIEhhbmQtT2JqZWN0IEludGVyYWN0aW9uIGluIFNpbXVsYXRlZCBNaWNyb2dyYXZpdHkgRW52aXJvbm1lbnRzfSwKICBwYWdlcyAgICAgPSB7MTY3LTE3Nn0sCiAgeWVhciAgICAgID0gezIwMjN9LAogIG1vbnRoICAgICA9IHsxMH0sCiAgcHVibGlzaGVyID0ge0lFRUV9LAogIGxvY2F0aW9uICA9IHtTeWRuZXksIEF1c3RyYWxpYX0KfQ==" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIzbWl4ZWQsCiAgYXV0aG9yICAgID0ge1pob3UsIEthbmdsZWkgYW5kIENoZW4sIENoZW4gYW5kIE1hLCBZdWUgYW5kIExlbmcsIFpoaXlpbmcgYW5kIFNodW0sIEh1YmVydCBQLiBILiBhbmQgTGksIEZyZWRlcmljayBXLiBCLiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZSA9IHtJRUVFIEludGVybmF0aW9uYWwgU3ltcG9zaXVtIG9uIE1peGVkIGFuZCBBdWdtZW50ZWQgUmVhbGl0eX0sCiAgdGl0bGUgICAgID0ge0EgTWl4ZWQgUmVhbGl0eSBUcmFpbmluZyBTeXN0ZW0gZm9yIEhhbmQtT2JqZWN0IEludGVyYWN0aW9uIGluIFNpbXVsYXRlZCBNaWNyb2dyYXZpdHkgRW52aXJvbm1lbnRzfSwKICBwYWdlcyAgICAgPSB7MTY3LTE3Nn0sCiAgeWVhciAgICAgID0gezIwMjN9LAogIG1vbnRoICAgICA9IHsxMH0sCiAgcHVibGlzaGVyID0ge0lFRUV9LAogIGxvY2F0aW9uICA9IHtTeWRuZXksIEF1c3RyYWxpYX0KfQ">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -5785,7 +5870,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -5989,7 +6077,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -6170,14 +6258,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -6221,9 +6313,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -6434,7 +6533,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGFydGljbGV7emhvdTIwMjN2aWRlbywKICB0aXRsZSAgICAgPSB7QSB2aWRlby1iYXNlZCBhdWdtZW50ZWQgcmVhbGl0eSBzeXN0ZW0gZm9yIGh1bWFuLWluLXRoZS1sb29wIG11c2NsZSBzdHJlbmd0aCBhc3Nlc3NtZW50IG9mIGp1dmVuaWxlIGRlcm1hdG9teW9zaXRpc30sCiAgYXV0aG9yICAgID0ge1pob3UsIEthbmdsZWkgYW5kIENhaSwgUnVpemhpIGFuZCBNYSwgWXVlIGFuZCBUYW4sIFFpbmdxaW5nIGFuZCBXYW5nLCBYaW5uaW5nIGFuZCBMaSwgSmlhbmd1byBhbmQgU2h1bSwgSHViZXJ0IFBIIGFuZCBMaSwgRnJlZGVyaWNrIFdCIGFuZCBKaW4sIFNvbmcgYW5kIExpYW5nLCBYaWFvaHVpfSwKICBqb3VybmFsICAgPSB7SUVFRSBUcmFuc2FjdGlvbnMgb24gVmlzdWFsaXphdGlvbiBhbmQgQ29tcHV0ZXIgR3JhcGhpY3N9LAogIHZvbHVtZSAgICA9IHsyOX0sCiAgbnVtYmVyICAgID0gezV9LAogIHBhZ2VzICAgICA9IHsyNDU2LS0yNDY2fSwKICB5ZWFyICAgICAgPSB7MjAyM30sCiAgcHVibGlzaGVyID0ge0lFRUV9Cn0=" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGFydGljbGV7emhvdTIwMjN2aWRlbywKICB0aXRsZSAgICAgPSB7QSB2aWRlby1iYXNlZCBhdWdtZW50ZWQgcmVhbGl0eSBzeXN0ZW0gZm9yIGh1bWFuLWluLXRoZS1sb29wIG11c2NsZSBzdHJlbmd0aCBhc3Nlc3NtZW50IG9mIGp1dmVuaWxlIGRlcm1hdG9teW9zaXRpc30sCiAgYXV0aG9yICAgID0ge1pob3UsIEthbmdsZWkgYW5kIENhaSwgUnVpemhpIGFuZCBNYSwgWXVlIGFuZCBUYW4sIFFpbmdxaW5nIGFuZCBXYW5nLCBYaW5uaW5nIGFuZCBMaSwgSmlhbmd1byBhbmQgU2h1bSwgSHViZXJ0IFBIIGFuZCBMaSwgRnJlZGVyaWNrIFdCIGFuZCBKaW4sIFNvbmcgYW5kIExpYW5nLCBYaWFvaHVpfSwKICBqb3VybmFsICAgPSB7SUVFRSBUcmFuc2FjdGlvbnMgb24gVmlzdWFsaXphdGlvbiBhbmQgQ29tcHV0ZXIgR3JhcGhpY3N9LAogIHZvbHVtZSAgICA9IHsyOX0sCiAgbnVtYmVyICAgID0gezV9LAogIHBhZ2VzICAgICA9IHsyNDU2LS0yNDY2fSwKICB5ZWFyICAgICAgPSB7MjAyM30sCiAgcHVibGlzaGVyID0ge0lFRUV9Cn0">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -6442,7 +6543,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -6646,7 +6750,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -6827,14 +6931,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -6878,9 +6986,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 
@@ -7092,7 +7207,7 @@
 
   <span class="article-metadata li-cite-author">
     
-    <span class="">Kanglei Zhou</span>, <span class="">Zhiyuan Cheng</span>, <span class="">Hubert PH Shum</span>, <span class="author-highlighted"><a href="/people/frederick-li/">Frederick W. B. Li</a></span>, <span class=""><a href="/people/xiaohui-liang/">Xiaohui Liang</a></span>
+    <span class="">Kanglei Zhou</span>, <span class="">Zhiyuan Cheng</span>, <span class=""><a href="/people/hubert/">Hubert P. H. Shum</a></span>, <span class="author-highlighted"><a href="/people/frederick-li/">Frederick W. B. Li</a></span>, <span class=""><a href="/people/xiaohui-liang/">Xiaohui Liang</a></span>
 
   </span>
   (2021).
@@ -7110,7 +7225,9 @@
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm" href="javascript:void(0)" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjFzdGdhZSwKICB0aXRsZT17U3RnYWU6IFNwYXRpYWwtdGVtcG9yYWwgZ3JhcGggYXV0by1lbmNvZGVyIGZvciBoYW5kIG1vdGlvbiBkZW5vaXNpbmd9LAogIGF1dGhvcj17WmhvdSwgS2FuZ2xlaSBhbmQgQ2hlbmcsIFpoaXl1YW4gYW5kIFNodW0sIEh1YmVydCBQSCBhbmQgTGksIEZyZWRlcmljayBXQiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZT17MjAyMSBJRUVFIEludGVybmF0aW9uYWwgU3ltcG9zaXVtIG9uIE1peGVkIGFuZCBBdWdtZW50ZWQgUmVhbGl0eSAoSVNNQVIpfSwKICBwYWdlcz17NDEtLTQ5fSwKICB5ZWFyPXsyMDIxfSwKICBvcmdhbml6YXRpb249e0lFRUV9Cn0=" onclick="return openBib(this)">
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjFzdGdhZSwKICB0aXRsZT17U3RnYWU6IFNwYXRpYWwtdGVtcG9yYWwgZ3JhcGggYXV0by1lbmNvZGVyIGZvciBoYW5kIG1vdGlvbiBkZW5vaXNpbmd9LAogIGF1dGhvcj17WmhvdSwgS2FuZ2xlaSBhbmQgQ2hlbmcsIFpoaXl1YW4gYW5kIFNodW0sIEh1YmVydCBQSCBhbmQgTGksIEZyZWRlcmljayBXQiBhbmQgTGlhbmcsIFhpYW9odWl9LAogIGJvb2t0aXRsZT17MjAyMSBJRUVFIEludGVybmF0aW9uYWwgU3ltcG9zaXVtIG9uIE1peGVkIGFuZCBBdWdtZW50ZWQgUmVhbGl0eSAoSVNNQVIpfSwKICBwYWdlcz17NDEtLTQ5fSwKICB5ZWFyPXsyMDIxfSwKICBvcmdhbml6YXRpb249e0lFRUV9Cn0">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -7118,7 +7235,10 @@
 
   
 
-  
+
+
+
+
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
@@ -7322,7 +7442,7 @@
   })();
 </script>
 
-  <script>
+<script>
     (function () {
       if (window.openBib) return;
 
@@ -7503,14 +7623,18 @@
         gbtDiv.textContent = '';
         modal.style.display = 'flex';
 
-        try {
-          var b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-          var bib = '';
-          if (b64) {
-            bib = atob(b64);
-          } else if (el && el.getAttribute) {
-            bib = el.getAttribute('data-bib') || '';
-          }
+	        try {
+	          
+	          var b64u = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
+	          var bib = '';
+	          if (b64u) {
+	            var b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	            var pad = b64.length % 4;
+	            if (pad) b64 += '===='.slice(pad);
+	            bib = atob(b64);
+	          } else if (el && el.getAttribute) {
+	            bib = el.getAttribute('data-bib') || '';
+	          }
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -7554,9 +7678,16 @@
 
         return false;
       };
+
+      
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a.js-bib-open') : null;
+        if (!a) return;
+        e.preventDefault();
+        try { window.openBib(a); } catch (err) {}
+      }, true);
     })();
   </script>
-
 
 
 

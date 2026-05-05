@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="ZKL logo">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b5ed7"/>
+      <stop offset="1" stop-color="#0aa2c0"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square badge -->
+  <rect x="56" y="56" width="400" height="400" rx="92" fill="url(#bg)" filter="url(#softShadow)"/>
+  <!-- Subtle shine to feel modern -->
+  <path d="M140 96h148c70 0 128 58 128 128v38c0 9-7 16-16 16h-38c-97 0-176-79-176-176V96z"
+        fill="url(#shine)"/>
+
+  <!-- ZKL monogram (white, geometric) -->
+  <g fill="#ffffff">
+    <!-- Z -->
+    <path d="M150 186c0-10 8-18 18-18h176c10 0 18 8 18 18v10c0 6-3 11-7 15L230 336h132c10 0 18 8 18 18v10c0 10-8 18-18 18H168c-10 0-18-8-18-18v-10c0-6 3-11 7-15l125-125H168c-10 0-18-8-18-18v-10z"/>
+    <!-- K -->
+    <path d="M150 206c0-10 8-18 18-18h18c10 0 18 8 18 18v180c0 10-8 18-18 18h-18c-10 0-18-8-18-18V206z"/>
+    <path d="M222 296l92-92c7-7 18-7 25 0l12 12c7 7 7 18 0 25l-71 71 76 76c7 7 7 18 0 25l-12 12c-7 7-18 7-25 0l-97-97z"/>
+    <!-- L -->
+    <path d="M308 206c0-10 8-18 18-18h18c10 0 18 8 18 18v154h70c10 0 18 8 18 18v8c0 10-8 18-18 18H326c-10 0-18-8-18-18V206z"/>
+  </g>
+</svg>
+

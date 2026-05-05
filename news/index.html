@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.577203f7073a3064fe6054fb82fe3cb9.css" />
+  <link rel="stylesheet" href="/css/wowchemy.9539a09e52ae832fe7127866a8e6404d.css" />
 
   
   
@@ -1084,7 +1084,7 @@
   
   
     
-      <ul><li><a href="#">Page Contents by Year </a></li>
+      <ul><li><a href="#" data-toc="year">Statistics by Year</a></li>
       <li><ul>
         
           
@@ -1103,7 +1103,7 @@
   
 	  
 	    
-	      <ul><li><a href="#">Page Contents by Tags</a></li>
+	      <ul><li><a href="#" data-toc="tags">Statistics by Tags</a></li>
 	      <li><ul>
 	        
 	          
@@ -1120,9 +1120,53 @@
 	  
 	  
 
+	  
+	  
+
   
   
 </nav>
+
+<script>
+  
+  (function () {
+    try {
+      const toc = document.getElementById('TableOfContents');
+      if (!toc) return;
+      const params = new URLSearchParams(window.location.search || '');
+      
+      let preferred = (sessionStorage.getItem('toc_open') || '').trim();
+      if (!preferred) {
+        if (params.get('co_author')) preferred = 'coauthors';
+        else if (params.get('ccf_rank') || params.get('core_rank') || params.get('jcr_rank')) preferred = 'ranks';
+      }
+
+      const headers = Array.from(toc.querySelectorAll('a[href="#"]'));
+      headers.forEach((a) => {
+        const li = a.closest('li');
+        if (!li) return;
+        const ul = li.parentElement;
+        if (!ul) return;
+        const items = Array.from(ul.children).filter((n) => n && n.tagName === 'LI');
+        if (items.length < 2) return;
+        const contentUl = items[1] ? items[1].querySelector('ul') : null;
+        if (!contentUl) return;
+
+        const key = (a.getAttribute('data-toc') || '').trim();
+        const shouldOpen = preferred && key && preferred === key;
+        contentUl.style.display = shouldOpen ? '' : 'none';
+        a.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const open = contentUl.style.display !== 'none';
+          contentUl.style.display = open ? 'none' : '';
+          a.setAttribute('aria-expanded', open ? 'false' : 'true');
+          if (key) sessionStorage.setItem('toc_open', open ? '' : key);
+        });
+      });
+    } catch (e) {}
+  })();
+</script>
 
 
 
@@ -1305,8 +1349,14 @@
 
 
 
+
+
+
+
+
 <div class="media stream-item view-compact"
   data-year="2025"
+  
   
   
   >
@@ -1468,8 +1518,14 @@
 
 
 
+
+
+
+
+
 <div class="media stream-item view-compact"
   data-year="2025"
+  
   
   
   >
@@ -1596,11 +1652,14 @@
 
 	<script>
 	  (function () {
+	    const pageType = 'news';
+	    if (!(pageType === 'publications' || pageType === 'publication_types')) return;
 	    const params = new URLSearchParams(window.location.search);
 	    const ccf = params.get('ccf_rank');
 	    const core = params.get('core_rank');
 	    const jcr = params.get('jcr_rank');
-	    if (!ccf && !core && !jcr) return;
+	    const coAuthor = params.get('co_author');
+	    if (!ccf && !core && !jcr && !coAuthor) return;
 
 	    const suffixEl = document.querySelector('.rank-title-suffix');
 	    if (suffixEl) {
@@ -1608,15 +1667,19 @@
 	      if (ccf) parts.push(`CCF ${ccf}`);
 	      if (core) parts.push(`CORE ${core}`);
 	      if (jcr) parts.push(`JCR ${jcr}`);
+	      if (coAuthor) parts.push(`${coAuthor}`);
 	      if (parts.length) suffixEl.textContent = ` - ${parts.join(', ')}`;
 	    }
 
 	    const items = document.querySelectorAll('.stream-item');
 	    items.forEach((el) => {
+	      const authors = (el.getAttribute('data-authors') || '').split('||').map(s => s.trim()).filter(Boolean);
+	      const okAuthor = (!coAuthor || authors.some(a => a.toLowerCase() === coAuthor.toLowerCase()));
 	      const ok =
 	        (!ccf || (el.getAttribute('data-ccf-rank') || '') === ccf) &&
 	        (!core || (el.getAttribute('data-core-rank') || '') === core) &&
-	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr);
+	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr) &&
+	        okAuthor;
 	      if (!ok) el.style.display = 'none';
 	    });
 
@@ -1665,6 +1728,26 @@
 	      })();
 
 	      sep.style.display = (prevItem && nextItem) ? '' : 'none';
+	    });
+
+	    
+	    const isSep = (el) => el && el.tagName === 'DIV' && (el.getAttribute('style') || '').includes('dashed');
+	    const yearHeaders = Array.from(container.querySelectorAll('h2.list-year'));
+	    yearHeaders.forEach((h) => {
+	      let cur = h.nextElementSibling;
+	      let lastWasVisibleSep = false;
+	      while (cur && !(cur.tagName === 'H2' && cur.classList.contains('list-year'))) {
+	        if (isSep(cur)) {
+	          const visible = cur.style.display !== 'none';
+	          if (visible) {
+	            if (lastWasVisibleSep) cur.style.display = 'none';
+	            lastWasVisibleSep = cur.style.display !== 'none';
+	          }
+	        } else if (isVisibleItem(cur)) {
+	          lastWasVisibleSep = false;
+	        }
+	        cur = cur.nextElementSibling;
+	      }
 	    });
 	  })();
 	</script>

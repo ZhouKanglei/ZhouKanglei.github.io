@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.577203f7073a3064fe6054fb82fe3cb9.css" />
+  <link rel="stylesheet" href="/css/wowchemy.9539a09e52ae832fe7127866a8e6404d.css" />
 
   
   
@@ -1103,7 +1103,7 @@
   
   
     
-      <ul><li><a href="#">Page Contents by Year </a></li>
+      <ul><li><a href="#" data-toc="year">Statistics by Year</a></li>
       <li><ul>
         
           
@@ -1122,7 +1122,7 @@
   
 	  
 	    
-	      <ul><li><a href="#">Page Contents by Tags</a></li>
+	      <ul><li><a href="#" data-toc="tags">Statistics by Tags</a></li>
 	      <li><ul>
 	        
 	          
@@ -1144,7 +1144,7 @@
 
 	  
 	  
-	    <ul><li><a href="#">Page Contents by Ranks</a></li>
+	    <ul><li><a href="#" data-toc="ranks">Statistics by Ranks</a></li>
 	    <li><ul>
 	      
 	        
@@ -1200,10 +1200,13 @@
 	    </ul></li></ul>
 	  
 
+	  
+	  
+
   
   
     
-      <ul><li><a href="#">Page Contents by Pub. Types</a></li>
+      <ul><li><a href="#" data-toc="types">Statistics by Pub. Types</a></li>
       <li><ul>
         
           
@@ -1214,6 +1217,47 @@
     
   
 </nav>
+
+<script>
+  
+  (function () {
+    try {
+      const toc = document.getElementById('TableOfContents');
+      if (!toc) return;
+      const params = new URLSearchParams(window.location.search || '');
+      
+      let preferred = (sessionStorage.getItem('toc_open') || '').trim();
+      if (!preferred) {
+        if (params.get('co_author')) preferred = 'coauthors';
+        else if (params.get('ccf_rank') || params.get('core_rank') || params.get('jcr_rank')) preferred = 'ranks';
+      }
+
+      const headers = Array.from(toc.querySelectorAll('a[href="#"]'));
+      headers.forEach((a) => {
+        const li = a.closest('li');
+        if (!li) return;
+        const ul = li.parentElement;
+        if (!ul) return;
+        const items = Array.from(ul.children).filter((n) => n && n.tagName === 'LI');
+        if (items.length < 2) return;
+        const contentUl = items[1] ? items[1].querySelector('ul') : null;
+        if (!contentUl) return;
+
+        const key = (a.getAttribute('data-toc') || '').trim();
+        const shouldOpen = preferred && key && preferred === key;
+        contentUl.style.display = shouldOpen ? '' : 'none';
+        a.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const open = contentUl.style.display !== 'none';
+          contentUl.style.display = open ? 'none' : '';
+          a.setAttribute('aria-expanded', open ? 'false' : 'true');
+          if (key) sessionStorage.setItem('toc_open', open ? '' : key);
+        });
+      });
+    } catch (e) {}
+  })();
+</script>
 
 
 
@@ -1411,8 +1455,24 @@
   
 
 
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
 <div class="media stream-item view-compact ccf-highlight"
   data-year="2026"
+  data-authors="Yuwen Tao||Kanglei Zhou||Chang Li||Liyuan Wang"
   data-ccf-rank="A"
   data-core-rank="A*"
   >
@@ -1557,353 +1617,9 @@ According to CCF Ranking 2026
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
-<script>
-  window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
-    const parseBibTeX = (input) => {
-      const m = (input || '').match(/@\w+\s*\{[\s\S]*?\n\}/m);
-      const body = (m ? m[0] : (input || '')) || '';
-      const fields = {};
-      const re = /\b([a-zA-Z_]+)\s*=\s*(\{[\s\S]*?\}|\"[\s\S]*?\"|[^,\n]+)\s*,?/g;
-      let mm;
-      while ((mm = re.exec(body))) {
-        const k = mm[1].toLowerCase();
-        let v = (mm[2] || '').trim();
-        if ((v.startsWith('{') && v.endsWith('}')) || (v.startsWith('"') && v.endsWith('"'))) v = v.slice(1, -1);
-        v = v.replace(/\s+/g, ' ').trim();
-        fields[k] = v;
-      }
-      return fields;
-    };
 
-    const formatAuthorsIEEE = (authorStr) => {
-      if (!authorStr) return '';
-      const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
-      const fmt = (name) => {
-        if (name.includes(',')) {
-          const [last, first] = name.split(',').map(s => s.trim());
-          const initials = (first || '').split(/\s+/).filter(Boolean).map(w => (w[0] || '').toUpperCase() + '.').join(' ');
-          return initials ? `${initials} ${last}` : last;
-        }
-        const ws = name.split(/\s+/).filter(Boolean);
-        if (ws.length === 1) return ws[0];
-        const last = ws[ws.length - 1];
-        const initials = ws.slice(0, -1).map(w => (w[0] || '').toUpperCase() + '.').join(' ');
-        return `${initials} ${last}`.trim();
-      };
-      if (parts.length === 1) return fmt(parts[0]);
-      if (parts.length === 2) return `${fmt(parts[0])} and ${fmt(parts[1])}`;
-      return parts.slice(0, -1).map(fmt).join(', ') + ', and ' + fmt(parts[parts.length - 1]);
-    };
 
-    const toIEEEtran = (bibtex) => {
-      const f = parseBibTeX(bibtex || '');
-      const authors = formatAuthorsIEEE(f.author || f.authors || '');
-      const title = f.title ? `"${f.title.replace(/\{\s*|\s*\}/g, '')},"` : '';
-      const year = f.year || '';
-      const pages = f.pages ? `pp. ${f.pages.replace(/--/g, '–')}, ` : '';
-      const volume = f.volume ? `vol. ${f.volume}, ` : '';
-      const number = f.number ? `no. ${f.number}, ` : '';
-      const journal = f.journal || '';
-      const booktitle = f.booktitle || '';
-      const publisher = f.publisher ? `${f.publisher}, ` : '';
 
-      if (journal) {
-        const parts = [authors ? `${authors},` : '', title, journal ? `${journal}, ` : '', volume, number, pages, year ? `${year}.` : ''].filter(Boolean).join(' ');
-        return parts.replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ').trim();
-      }
-      const inProc = booktitle ? `in ${booktitle}, ` : '';
-      const parts = [authors ? `${authors},` : '', title, inProc, publisher, pages, year ? `${year}.` : ''].filter(Boolean).join(' ');
-      return parts.replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ').trim();
-    };
-
-    const formatAuthorsGB = (authorStr) => {
-      if (!authorStr) return '';
-      const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
-      const fmt = (name) => {
-        if (name.includes(',')) {
-          const [last, first] = name.split(',').map(s => s.trim());
-          return [last, first].filter(Boolean).join(' ');
-        }
-        return name;
-      };
-      return parts.map(fmt).join(', ');
-    };
-
-    const toGBT7714 = (bibtex) => {
-      const f = parseBibTeX(bibtex || '');
-      const authors = formatAuthorsGB(f.author || f.authors || '');
-      const titleRaw = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
-      const year = (f.year || '').trim();
-      const pages = (f.pages || '').trim().replace(/--/g, '–');
-      const volume = (f.volume || '').trim();
-      const number = (f.number || f.issue || '').trim();
-      const journal = (f.journal || '').trim();
-      const booktitle = (f.booktitle || '').trim();
-      const publisher = (f.publisher || '').trim();
-      const address = (f.address || '').trim();
-
-      const title = titleRaw ? `${titleRaw}` : '';
-      const volIssue = volume ? (number ? `${volume}(${number})` : `${volume}`) : (number ? `(${number})` : '');
-
-      if (journal) {
-        const parts = [];
-        if (authors) parts.push(authors + '.');
-        if (title) parts.push(title + '[J].');
-        parts.push(journal + ((year || volIssue || pages) ? ',' : '.'));
-        if (year) parts.push(year + ((volIssue || pages) ? ',' : '.'));
-        if (volIssue) parts.push(volIssue + (pages ? ':' : '.'));
-        if (pages) parts.push(pages + '.');
-        return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-      }
-
-      if (booktitle) {
-        const parts = [];
-        if (authors) parts.push(authors + '.');
-        if (title) parts.push(title + '[C]//' + booktitle + '.');
-        const pubParts = [address, publisher].filter(Boolean).join(': ');
-        if (pubParts) parts.push(pubParts + (year ? ',' : '.'));
-        if (year) parts.push(year + '.');
-        if (pages) parts.push(pages + '.');
-        return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-      }
-
-      
-      const parts = [];
-      if (authors) parts.push(authors + '.');
-      if (title) parts.push(title + '.');
-      if (year) parts.push(year + '.');
-      return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-    };
-
-    const toPlaintext = (bibtex, style) => {
-      if (style === 'ieeetran') return toIEEEtran(bibtex);
-      if (style === 'gbt7714') return toGBT7714(bibtex);
-      return (bibtex || '').trim();
-    };
-
-    return { toPlaintext };
-  })();
-</script>
-
-<script>
-  function openBib(el) {
-
-    const ensureModal = () => {
-      let modal = document.getElementById('bib-modal');
-      if (modal) return modal;
-
-      modal = document.createElement('div');
-      modal.id = 'bib-modal';
-      modal.style.cssText = [
-        'position:fixed','inset:0','z-index:9999',
-        'background:rgba(0,0,0,.55)',
-        'align-items:center','justify-content:center',
-        'padding:0'
-      ].join(';');
-      modal.style.display = 'none';
-
-      modal.innerHTML = `
-        <div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">
-          <style>
-            #bib-modal .bib-icon-btn{transition:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
-            #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
-             
-            #bib-modal .btn{transform:none !important}
-            #bib-modal .btn:hover{transform:none !important}
-          </style>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
-            <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-              <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">BibTeX</div>
-              <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                  <i class="fas fa-download" aria-hidden="true"></i>
-                </button>
-                <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                  <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
-
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
-              <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                <i class="fas fa-copy" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
-
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
-              <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                <i class="fas fa-copy" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
-
-            <div style="height:0;position:relative;"></div>
-          </div>
-        </div>
-      `;
-
-      document.body.appendChild(modal);
-      // Theme tokens (reuse body.dark used elsewhere in the site).
-      const updateTheme = () => {
-        const dark = document.body.classList.contains('dark');
-        const panel = modal.querySelector('#bib-modal-panel');
-        panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
-        panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
-        panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
-        panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
-        panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
-      };
-      updateTheme();
-
-      const close = () => { modal.style.display = 'none'; };
-      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-      modal.querySelector('#bib-close').addEventListener('click', close);
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-
-      const copyText = async (text, label, toastId) => {
-        const toast = modal.querySelector(toastId);
-        const showToast = (msg, kind) => {
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(() => {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
-          clearTimeout(showToast._t);
-          showToast._t = setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(() => { toast.style.display = 'none'; }, 140);
-          }, 1400);
-        };
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast(`Copied ${label}`, 'success');
-        } catch (err) {
-          try {
-            if (label === 'IEEEtran') {
-              const range = document.createRange();
-              range.selectNodeContents(modal.querySelector('#ieee-text'));
-              const sel = window.getSelection();
-              sel.removeAllRanges();
-              sel.addRange(range);
-            } else {
-              const ta = modal.querySelector('#bib-text');
-              ta.focus();
-              ta.select();
-            }
-            document.execCommand('copy');
-            showToast(`Copied ${label}`, 'success');
-          } catch (err2) {
-            showToast('Copy failed', 'error');
-          }
-        }
-      };
-
-      modal.querySelector('#bib-copy-bibtex').addEventListener('click', () => {
-        copyText(modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
-      });
-      modal.querySelector('#bib-copy-ieee').addEventListener('click', () => {
-        copyText(modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
-      });
-      modal.querySelector('#bib-copy-gbt').addEventListener('click', () => {
-        copyText(modal.querySelector('#gbt-text').textContent || '', 'GBT7714-2015', '#bib-toast-gbt');
-      });
-      modal.querySelector('#bib-download-bibtex').addEventListener('click', () => {
-        const text = modal.querySelector('#bib-text').value || '';
-        const blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'cite.bib';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-      });
-
-      
-      modal.querySelectorAll('.bib-icon-btn').forEach((btn) => {
-        btn.addEventListener('mouseup', () => btn.blur());
-        btn.addEventListener('keyup', (e) => { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
-      });
-
-      return modal;
-    };
-
-    const modal = ensureModal();
-    const textarea = modal.querySelector('#bib-text');
-    const ieeeDiv = modal.querySelector('#ieee-text');
-    const gbtDiv = modal.querySelector('#gbt-text');
-    textarea.value = 'Loading...';
-    ieeeDiv.textContent = '';
-    gbtDiv.textContent = '';
-    modal.style.display = 'flex';
-
-    try {
-      const b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-      let bib = '';
-      if (b64) {
-        bib = atob(b64);
-      } else if (el && el.getAttribute) {
-        bib = el.getAttribute('data-bib') || '';
-      }
-      if (!bib) {
-        textarea.value = 'Failed to load BibTeX.';
-      } else {
-        textarea.value = bib;
-        ieeeDiv.textContent = window.__bibtex_plaintext.toPlaintext(bib, 'ieeetran');
-        gbtDiv.textContent = window.__bibtex_plaintext.toPlaintext(bib, 'gbt7714');
-      }
-    } catch (e) {
-      textarea.value = 'Failed to load BibTeX.';
-    }
-
-    
-    try {
-      const maxPx = Math.round(window.innerHeight * 0.42);
-      textarea.style.height = 'auto';
-      const next = Math.min(textarea.scrollHeight + 2, maxPx);
-      textarea.style.height = `${Math.max(120, next)}px`;
-      textarea.style.overflowY = 'auto';
-    } catch (e) {}
-
-    
-    try {
-      const lines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-      const target = Math.max(3, Math.min(10, lines));
-      ieeeDiv.style.minHeight = `${target * 1.55}em`;
-    } catch (e) {}
-
-    try {
-      const lines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-      const target = Math.max(3, Math.min(8, lines));
-      gbtDiv.style.minHeight = `${target * 1.55}em`;
-    } catch (e) {}
-
-    return false;
-  }
-</script>
 
 
 
@@ -2044,8 +1760,24 @@ According to CCF Ranking 2026
   
 
 
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
 <div class="media stream-item view-compact"
   data-year="2026"
+  data-authors="Yuwen Tao||Kanglei Zhou||Xin Tan||Yuan Xie"
   data-ccf-rank="B"
   data-core-rank="A"
   >
@@ -2196,353 +1928,9 @@ According to CCF Ranking 2026
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
-<script>
-  window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
-    const parseBibTeX = (input) => {
-      const m = (input || '').match(/@\w+\s*\{[\s\S]*?\n\}/m);
-      const body = (m ? m[0] : (input || '')) || '';
-      const fields = {};
-      const re = /\b([a-zA-Z_]+)\s*=\s*(\{[\s\S]*?\}|\"[\s\S]*?\"|[^,\n]+)\s*,?/g;
-      let mm;
-      while ((mm = re.exec(body))) {
-        const k = mm[1].toLowerCase();
-        let v = (mm[2] || '').trim();
-        if ((v.startsWith('{') && v.endsWith('}')) || (v.startsWith('"') && v.endsWith('"'))) v = v.slice(1, -1);
-        v = v.replace(/\s+/g, ' ').trim();
-        fields[k] = v;
-      }
-      return fields;
-    };
 
-    const formatAuthorsIEEE = (authorStr) => {
-      if (!authorStr) return '';
-      const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
-      const fmt = (name) => {
-        if (name.includes(',')) {
-          const [last, first] = name.split(',').map(s => s.trim());
-          const initials = (first || '').split(/\s+/).filter(Boolean).map(w => (w[0] || '').toUpperCase() + '.').join(' ');
-          return initials ? `${initials} ${last}` : last;
-        }
-        const ws = name.split(/\s+/).filter(Boolean);
-        if (ws.length === 1) return ws[0];
-        const last = ws[ws.length - 1];
-        const initials = ws.slice(0, -1).map(w => (w[0] || '').toUpperCase() + '.').join(' ');
-        return `${initials} ${last}`.trim();
-      };
-      if (parts.length === 1) return fmt(parts[0]);
-      if (parts.length === 2) return `${fmt(parts[0])} and ${fmt(parts[1])}`;
-      return parts.slice(0, -1).map(fmt).join(', ') + ', and ' + fmt(parts[parts.length - 1]);
-    };
 
-    const toIEEEtran = (bibtex) => {
-      const f = parseBibTeX(bibtex || '');
-      const authors = formatAuthorsIEEE(f.author || f.authors || '');
-      const title = f.title ? `"${f.title.replace(/\{\s*|\s*\}/g, '')},"` : '';
-      const year = f.year || '';
-      const pages = f.pages ? `pp. ${f.pages.replace(/--/g, '–')}, ` : '';
-      const volume = f.volume ? `vol. ${f.volume}, ` : '';
-      const number = f.number ? `no. ${f.number}, ` : '';
-      const journal = f.journal || '';
-      const booktitle = f.booktitle || '';
-      const publisher = f.publisher ? `${f.publisher}, ` : '';
 
-      if (journal) {
-        const parts = [authors ? `${authors},` : '', title, journal ? `${journal}, ` : '', volume, number, pages, year ? `${year}.` : ''].filter(Boolean).join(' ');
-        return parts.replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ').trim();
-      }
-      const inProc = booktitle ? `in ${booktitle}, ` : '';
-      const parts = [authors ? `${authors},` : '', title, inProc, publisher, pages, year ? `${year}.` : ''].filter(Boolean).join(' ');
-      return parts.replace(/\s+,/g, ',').replace(/\s{2,}/g, ' ').trim();
-    };
-
-    const formatAuthorsGB = (authorStr) => {
-      if (!authorStr) return '';
-      const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
-      const fmt = (name) => {
-        if (name.includes(',')) {
-          const [last, first] = name.split(',').map(s => s.trim());
-          return [last, first].filter(Boolean).join(' ');
-        }
-        return name;
-      };
-      return parts.map(fmt).join(', ');
-    };
-
-    const toGBT7714 = (bibtex) => {
-      const f = parseBibTeX(bibtex || '');
-      const authors = formatAuthorsGB(f.author || f.authors || '');
-      const titleRaw = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
-      const year = (f.year || '').trim();
-      const pages = (f.pages || '').trim().replace(/--/g, '–');
-      const volume = (f.volume || '').trim();
-      const number = (f.number || f.issue || '').trim();
-      const journal = (f.journal || '').trim();
-      const booktitle = (f.booktitle || '').trim();
-      const publisher = (f.publisher || '').trim();
-      const address = (f.address || '').trim();
-
-      const title = titleRaw ? `${titleRaw}` : '';
-      const volIssue = volume ? (number ? `${volume}(${number})` : `${volume}`) : (number ? `(${number})` : '');
-
-      if (journal) {
-        const parts = [];
-        if (authors) parts.push(authors + '.');
-        if (title) parts.push(title + '[J].');
-        parts.push(journal + ((year || volIssue || pages) ? ',' : '.'));
-        if (year) parts.push(year + ((volIssue || pages) ? ',' : '.'));
-        if (volIssue) parts.push(volIssue + (pages ? ':' : '.'));
-        if (pages) parts.push(pages + '.');
-        return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-      }
-
-      if (booktitle) {
-        const parts = [];
-        if (authors) parts.push(authors + '.');
-        if (title) parts.push(title + '[C]//' + booktitle + '.');
-        const pubParts = [address, publisher].filter(Boolean).join(': ');
-        if (pubParts) parts.push(pubParts + (year ? ',' : '.'));
-        if (year) parts.push(year + '.');
-        if (pages) parts.push(pages + '.');
-        return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-      }
-
-      
-      const parts = [];
-      if (authors) parts.push(authors + '.');
-      if (title) parts.push(title + '.');
-      if (year) parts.push(year + '.');
-      return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
-    };
-
-    const toPlaintext = (bibtex, style) => {
-      if (style === 'ieeetran') return toIEEEtran(bibtex);
-      if (style === 'gbt7714') return toGBT7714(bibtex);
-      return (bibtex || '').trim();
-    };
-
-    return { toPlaintext };
-  })();
-</script>
-
-<script>
-  function openBib(el) {
-
-    const ensureModal = () => {
-      let modal = document.getElementById('bib-modal');
-      if (modal) return modal;
-
-      modal = document.createElement('div');
-      modal.id = 'bib-modal';
-      modal.style.cssText = [
-        'position:fixed','inset:0','z-index:9999',
-        'background:rgba(0,0,0,.55)',
-        'align-items:center','justify-content:center',
-        'padding:0'
-      ].join(';');
-      modal.style.display = 'none';
-
-      modal.innerHTML = `
-        <div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">
-          <style>
-            #bib-modal .bib-icon-btn{transition:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}
-            #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}
-            #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
-             
-            #bib-modal .btn{transform:none !important}
-            #bib-modal .btn:hover{transform:none !important}
-          </style>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">
-            <div style="font-weight:700;font-size:24px;letter-spacing:.01em;">Cite</div>
-            <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-              <i class="fas fa-times" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">BibTeX</div>
-              <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                  <i class="fas fa-download" aria-hidden="true"></i>
-                </button>
-                <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                  <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-            <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>
-
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">IEEEtran</div>
-              <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                <i class="fas fa-copy" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
-
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">
-              <div style="font-weight:600;font-size:18px;">GBT7714-2015</div>
-              <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>
-              <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">
-                <i class="fas fa-copy" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>
-
-            <div style="height:0;position:relative;"></div>
-          </div>
-        </div>
-      `;
-
-      document.body.appendChild(modal);
-      // Theme tokens (reuse body.dark used elsewhere in the site).
-      const updateTheme = () => {
-        const dark = document.body.classList.contains('dark');
-        const panel = modal.querySelector('#bib-modal-panel');
-        panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
-        panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
-        panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
-        panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
-        panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
-      };
-      updateTheme();
-
-      const close = () => { modal.style.display = 'none'; };
-      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-      modal.querySelector('#bib-close').addEventListener('click', close);
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-
-      const copyText = async (text, label, toastId) => {
-        const toast = modal.querySelector(toastId);
-        const showToast = (msg, kind) => {
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(() => {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
-          clearTimeout(showToast._t);
-          showToast._t = setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(() => { toast.style.display = 'none'; }, 140);
-          }, 1400);
-        };
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast(`Copied ${label}`, 'success');
-        } catch (err) {
-          try {
-            if (label === 'IEEEtran') {
-              const range = document.createRange();
-              range.selectNodeContents(modal.querySelector('#ieee-text'));
-              const sel = window.getSelection();
-              sel.removeAllRanges();
-              sel.addRange(range);
-            } else {
-              const ta = modal.querySelector('#bib-text');
-              ta.focus();
-              ta.select();
-            }
-            document.execCommand('copy');
-            showToast(`Copied ${label}`, 'success');
-          } catch (err2) {
-            showToast('Copy failed', 'error');
-          }
-        }
-      };
-
-      modal.querySelector('#bib-copy-bibtex').addEventListener('click', () => {
-        copyText(modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
-      });
-      modal.querySelector('#bib-copy-ieee').addEventListener('click', () => {
-        copyText(modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
-      });
-      modal.querySelector('#bib-copy-gbt').addEventListener('click', () => {
-        copyText(modal.querySelector('#gbt-text').textContent || '', 'GBT7714-2015', '#bib-toast-gbt');
-      });
-      modal.querySelector('#bib-download-bibtex').addEventListener('click', () => {
-        const text = modal.querySelector('#bib-text').value || '';
-        const blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'cite.bib';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-      });
-
-      
-      modal.querySelectorAll('.bib-icon-btn').forEach((btn) => {
-        btn.addEventListener('mouseup', () => btn.blur());
-        btn.addEventListener('keyup', (e) => { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
-      });
-
-      return modal;
-    };
-
-    const modal = ensureModal();
-    const textarea = modal.querySelector('#bib-text');
-    const ieeeDiv = modal.querySelector('#ieee-text');
-    const gbtDiv = modal.querySelector('#gbt-text');
-    textarea.value = 'Loading...';
-    ieeeDiv.textContent = '';
-    gbtDiv.textContent = '';
-    modal.style.display = 'flex';
-
-    try {
-      const b64 = (el && el.getAttribute) ? (el.getAttribute('data-bib64') || '') : '';
-      let bib = '';
-      if (b64) {
-        bib = atob(b64);
-      } else if (el && el.getAttribute) {
-        bib = el.getAttribute('data-bib') || '';
-      }
-      if (!bib) {
-        textarea.value = 'Failed to load BibTeX.';
-      } else {
-        textarea.value = bib;
-        ieeeDiv.textContent = window.__bibtex_plaintext.toPlaintext(bib, 'ieeetran');
-        gbtDiv.textContent = window.__bibtex_plaintext.toPlaintext(bib, 'gbt7714');
-      }
-    } catch (e) {
-      textarea.value = 'Failed to load BibTeX.';
-    }
-
-    
-    try {
-      const maxPx = Math.round(window.innerHeight * 0.42);
-      textarea.style.height = 'auto';
-      const next = Math.min(textarea.scrollHeight + 2, maxPx);
-      textarea.style.height = `${Math.max(120, next)}px`;
-      textarea.style.overflowY = 'auto';
-    } catch (e) {}
-
-    
-    try {
-      const lines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-      const target = Math.max(3, Math.min(10, lines));
-      ieeeDiv.style.minHeight = `${target * 1.55}em`;
-    } catch (e) {}
-
-    try {
-      const lines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-      const target = Math.max(3, Math.min(8, lines));
-      gbtDiv.style.minHeight = `${target * 1.55}em`;
-    } catch (e) {}
-
-    return false;
-  }
-</script>
 
 
 
@@ -2634,11 +2022,14 @@ According to CCF Ranking 2026
 
 	<script>
 	  (function () {
+	    const pageType = 'tags';
+	    if (!(pageType === 'publications' || pageType === 'publication_types')) return;
 	    const params = new URLSearchParams(window.location.search);
 	    const ccf = params.get('ccf_rank');
 	    const core = params.get('core_rank');
 	    const jcr = params.get('jcr_rank');
-	    if (!ccf && !core && !jcr) return;
+	    const coAuthor = params.get('co_author');
+	    if (!ccf && !core && !jcr && !coAuthor) return;
 
 	    const suffixEl = document.querySelector('.rank-title-suffix');
 	    if (suffixEl) {
@@ -2646,15 +2037,19 @@ According to CCF Ranking 2026
 	      if (ccf) parts.push(`CCF ${ccf}`);
 	      if (core) parts.push(`CORE ${core}`);
 	      if (jcr) parts.push(`JCR ${jcr}`);
+	      if (coAuthor) parts.push(`${coAuthor}`);
 	      if (parts.length) suffixEl.textContent = ` - ${parts.join(', ')}`;
 	    }
 
 	    const items = document.querySelectorAll('.stream-item');
 	    items.forEach((el) => {
+	      const authors = (el.getAttribute('data-authors') || '').split('||').map(s => s.trim()).filter(Boolean);
+	      const okAuthor = (!coAuthor || authors.some(a => a.toLowerCase() === coAuthor.toLowerCase()));
 	      const ok =
 	        (!ccf || (el.getAttribute('data-ccf-rank') || '') === ccf) &&
 	        (!core || (el.getAttribute('data-core-rank') || '') === core) &&
-	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr);
+	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr) &&
+	        okAuthor;
 	      if (!ok) el.style.display = 'none';
 	    });
 
@@ -2703,6 +2098,26 @@ According to CCF Ranking 2026
 	      })();
 
 	      sep.style.display = (prevItem && nextItem) ? '' : 'none';
+	    });
+
+	    
+	    const isSep = (el) => el && el.tagName === 'DIV' && (el.getAttribute('style') || '').includes('dashed');
+	    const yearHeaders = Array.from(container.querySelectorAll('h2.list-year'));
+	    yearHeaders.forEach((h) => {
+	      let cur = h.nextElementSibling;
+	      let lastWasVisibleSep = false;
+	      while (cur && !(cur.tagName === 'H2' && cur.classList.contains('list-year'))) {
+	        if (isSep(cur)) {
+	          const visible = cur.style.display !== 'none';
+	          if (visible) {
+	            if (lastWasVisibleSep) cur.style.display = 'none';
+	            lastWasVisibleSep = cur.style.display !== 'none';
+	          }
+	        } else if (isVisibleItem(cur)) {
+	          lastWasVisibleSep = false;
+	        }
+	        cur = cur.nextElementSibling;
+	      }
 	    });
 	  })();
 	</script>

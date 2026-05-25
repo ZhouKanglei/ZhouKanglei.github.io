@@ -38,3 +38,22 @@ body.dark .ccf-highlight {
   background: rgba(255, 193, 7, 0.10);
   border: 1px solid rgba(255, 193, 7, 0.18);
 }
+
+/* Publication list: oral label styling. */
+.pub-title-line {
+  line-height: 1.35;
+}
+
+.pub-oral-label {
+  color: #ba6bf7;
+  font-weight: 400;
+}
+
+.pub-oral-prefix {
+  color: inherit;
+}
+
+.pub-oral-label p {
+  display: inline;
+  margin: 0;
+}

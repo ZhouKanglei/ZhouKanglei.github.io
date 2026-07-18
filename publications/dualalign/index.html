@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.90306eb499d005f926ff11e033da0b3e.css" />
+  <link rel="stylesheet" href="/css/wowchemy.a9aecfe870ccfbcf08fce920adb649b2.css" />
 
   
   
@@ -1092,7 +1092,7 @@
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">\
   <style>\
-    #bib-modal .bib-icon-btn{transition:none;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
     #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
@@ -1101,9 +1101,9 @@
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-      <i class="fas fa-times" aria-hidden="true" style="font-size:18px;"></i>\
+    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+      <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
   <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
@@ -1111,16 +1111,16 @@
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -1131,13 +1131,13 @@
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -1148,13 +1148,13 @@
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -1165,13 +1165,13 @@
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -1263,6 +1263,22 @@
 	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
 	        }
 
+	        function referenceContext(el) {
+	          if (el && el.getAttribute) {
+	            var attr = el.getAttribute('data-cite-context') || '';
+	            if (attr) return attr;
+	          }
+	          if (typeof window.__publicationFilterSummary === 'function') {
+	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
+	          }
+	          return '';
+	        }
+
+	        function referenceLabel(modalEl, label) {
+	          var context = (modalEl && modalEl.getAttribute('data-reference-context')) || '';
+	          return context ? label + ' - ' + context : label;
+	        }
+
 	        function wrapCanvasText(ctx, text, maxWidth) {
 	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
 	            if (!paragraph) return [''];
@@ -1331,40 +1347,40 @@
         modal.querySelector('#bib-copy-gbt').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#gbt-text').textContent || '', 'GBT7714-2015', '#bib-toast-gbt');
         });
-        modal.querySelector('#bib-download-bibtex').addEventListener('click', function () {
-          var text = modal.querySelector('#bib-text').value || '';
-          var blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
-          var a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'cite.bib';
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
+	        modal.querySelector('#bib-download-bibtex').addEventListener('click', function () {
+	          var text = modal.querySelector('#bib-text').value || '';
+	          var blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
+	          var a = document.createElement('a');
+	          a.href = URL.createObjectURL(blob);
+	          a.download = referenceSlug(referenceLabel(modal, 'cite')) + '.bib';
+	          document.body.appendChild(a);
+	          a.click();
+	          a.remove();
 	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
 	        });
 	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
-	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	          openReferenceText(referenceLabel(modal, 'BibTeX'), modal.querySelector('#bib-text').value || '');
 	        });
 	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
-	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	          exportReferenceImage(referenceLabel(modal, 'BibTeX'), modal.querySelector('#bib-text').value || '');
 	        });
 	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
-	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'IEEEtran'), modal.querySelector('#ieee-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
-	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'IEEEtran'), modal.querySelector('#ieee-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
-	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'APA'), modal.querySelector('#apa-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
-	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'APA'), modal.querySelector('#apa-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
-	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'GBT7714-2015'), modal.querySelector('#gbt-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
-	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'GBT7714-2015'), modal.querySelector('#gbt-text').textContent || '');
 	        });
 
 	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
@@ -1375,12 +1391,27 @@
         return modal;
       }
 
+      function getReferenceContext(el) {
+        if (el && el.getAttribute) {
+          var attr = el.getAttribute('data-cite-context') || '';
+          if (attr) return attr;
+        }
+        if (typeof window.__publicationFilterSummary === 'function') {
+          try { return window.__publicationFilterSummary() || ''; } catch (e) {}
+        }
+        return '';
+      }
+
       window.openBib = function (el) {
         var modal = ensureBibModal();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
         var gbtDiv = modal.querySelector('#gbt-text');
+        var context = getReferenceContext(el);
+        modal.setAttribute('data-reference-context', context);
+        var titleEl = modal.querySelector('#bib-modal-title');
+        if (titleEl) titleEl.textContent = context ? 'Cite - ' + context : 'Cite';
 
         textarea.value = 'Loading...';
         ieeeDiv.textContent = '';
@@ -2597,7 +2628,7 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">\
   <style>\
-    #bib-modal .bib-icon-btn{transition:none;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
     #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
@@ -2606,9 +2637,9 @@ According to CCF Ranking 2026
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-      <i class="fas fa-times" aria-hidden="true" style="font-size:18px;"></i>\
+    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+      <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
   <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
@@ -2616,16 +2647,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -2636,13 +2667,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -2653,13 +2684,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -2670,13 +2701,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -2768,6 +2799,22 @@ According to CCF Ranking 2026
 	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
 	        }
 
+	        function referenceContext(el) {
+	          if (el && el.getAttribute) {
+	            var attr = el.getAttribute('data-cite-context') || '';
+	            if (attr) return attr;
+	          }
+	          if (typeof window.__publicationFilterSummary === 'function') {
+	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
+	          }
+	          return '';
+	        }
+
+	        function referenceLabel(modalEl, label) {
+	          var context = (modalEl && modalEl.getAttribute('data-reference-context')) || '';
+	          return context ? label + ' - ' + context : label;
+	        }
+
 	        function wrapCanvasText(ctx, text, maxWidth) {
 	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
 	            if (!paragraph) return [''];
@@ -2836,40 +2883,40 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-copy-gbt').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#gbt-text').textContent || '', 'GBT7714-2015', '#bib-toast-gbt');
         });
-        modal.querySelector('#bib-download-bibtex').addEventListener('click', function () {
-          var text = modal.querySelector('#bib-text').value || '';
-          var blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
-          var a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'cite.bib';
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
+	        modal.querySelector('#bib-download-bibtex').addEventListener('click', function () {
+	          var text = modal.querySelector('#bib-text').value || '';
+	          var blob = new Blob([text], { type: 'application/x-bibtex;charset=utf-8' });
+	          var a = document.createElement('a');
+	          a.href = URL.createObjectURL(blob);
+	          a.download = referenceSlug(referenceLabel(modal, 'cite')) + '.bib';
+	          document.body.appendChild(a);
+	          a.click();
+	          a.remove();
 	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
 	        });
 	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
-	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	          openReferenceText(referenceLabel(modal, 'BibTeX'), modal.querySelector('#bib-text').value || '');
 	        });
 	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
-	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	          exportReferenceImage(referenceLabel(modal, 'BibTeX'), modal.querySelector('#bib-text').value || '');
 	        });
 	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
-	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'IEEEtran'), modal.querySelector('#ieee-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
-	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'IEEEtran'), modal.querySelector('#ieee-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
-	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'APA'), modal.querySelector('#apa-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
-	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'APA'), modal.querySelector('#apa-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
-	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	          openReferenceText(referenceLabel(modal, 'GBT7714-2015'), modal.querySelector('#gbt-text').textContent || '');
 	        });
 	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
-	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	          exportReferenceImage(referenceLabel(modal, 'GBT7714-2015'), modal.querySelector('#gbt-text').textContent || '');
 	        });
 
 	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
@@ -2880,12 +2927,27 @@ According to CCF Ranking 2026
         return modal;
       }
 
+      function getReferenceContext(el) {
+        if (el && el.getAttribute) {
+          var attr = el.getAttribute('data-cite-context') || '';
+          if (attr) return attr;
+        }
+        if (typeof window.__publicationFilterSummary === 'function') {
+          try { return window.__publicationFilterSummary() || ''; } catch (e) {}
+        }
+        return '';
+      }
+
       window.openBib = function (el) {
         var modal = ensureBibModal();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
         var gbtDiv = modal.querySelector('#gbt-text');
+        var context = getReferenceContext(el);
+        modal.setAttribute('data-reference-context', context);
+        var titleEl = modal.querySelector('#bib-modal-title');
+        if (titleEl) titleEl.textContent = context ? 'Cite - ' + context : 'Cite';
 
         textarea.value = 'Loading...';
         ieeeDiv.textContent = '';

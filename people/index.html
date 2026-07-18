@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.90306eb499d005f926ff11e033da0b3e.css" />
+  <link rel="stylesheet" href="/css/wowchemy.a9aecfe870ccfbcf08fce920adb649b2.css" />
 
   
   
@@ -1902,19 +1902,18 @@
     .publication-filter-bar .btn{white-space:nowrap}
     .publication-export-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:.55rem}
     .publication-export-toolbar[hidden]{display:none}
-    .publication-export-toolbar .btn{padding:.3rem;white-space:nowrap}
-    .publication-export-toolbar .btn:hover{padding:.3rem}
+    .publication-export-toolbar .btn{white-space:nowrap}
     .publication-export-count{display:inline-flex;align-items:center;font-size:.95rem;line-height:1;opacity:.72}
     .publication-stat-tabs{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin-bottom:12px}
-    .publication-stat-tabs .btn{height:34px;display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0 .72rem;white-space:nowrap}
+    .publication-stat-tabs .btn{white-space:nowrap}
     .publication-stat-panel .stat-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);transition:none;box-shadow:none;box-sizing:border-box}
     .publication-stat-panel .stat-icon-btn:hover,
-    .publication-stat-panel .stat-icon-btn:active{background:transparent;border-color:var(--stat-border,rgba(127,127,127,.25));transform:none;box-shadow:none}
+    .publication-stat-panel .stat-icon-btn:active{background:transparent;border-color:var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);transform:none;box-shadow:none}
     .publication-stat-panel .stat-icon-btn:focus{outline:0;box-shadow:none}
     .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
     .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
     .publication-stat-section ul{list-style:none;margin:0;padding:0;max-height:420px;overflow:auto}
-    .publication-stat-section li{display:grid;grid-template-columns:minmax(5.5rem, 10rem) minmax(14rem, 1fr) 2.5rem;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
+    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, clamp(8rem, 26%, 15rem)) minmax(6rem, 1fr) max-content;align-items:center;gap:clamp(8px, 1.8vw, 18px);padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
     .publication-stat-section .stat-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .publication-stat-section a.stat-name{color:inherit;text-decoration:none}
     .publication-stat-section a.stat-name:hover{text-decoration:underline}
@@ -4597,6 +4596,7 @@
 	      
 	    };
 	    const ownerName = "Kanglei Zhou";
+	    const baseFilterLabel = "";
 
 	    const decodeBib = (link) => {
 	      const b64u = (link && link.getAttribute('data-bib64')) || '';
@@ -4721,10 +4721,12 @@
 	      ctx.fillText(`${entries.length} item${entries.length === 1 ? '' : 's'}`, 48, 86);
 	      const max = entries.reduce((largest, entry) => Math.max(largest, entry[1]), 0) || 1;
 	      const labelX = 48;
-	      const labelW = 250;
-	      const barX = 340;
-	      const barW = 700;
-	      const countX = 1080;
+	      const countW = 72;
+	      const countX = width - 48 - countW;
+	      const gap = Math.max(28, Math.round(width * 0.03));
+	      const labelW = Math.max(220, Math.min(340, Math.round(width * 0.25)));
+	      const barX = labelX + labelW + gap;
+	      const barW = Math.max(220, countX - gap - barX);
 	      entries.forEach(([name, count], index) => {
 	        const y = top + index * rowHeight;
 	        ctx.fillStyle = fg;
@@ -4768,11 +4770,12 @@
 	        h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:700;}
 	        .meta{font-size:15px;color:var(--muted);margin-bottom:22px;}
 	        ul{list-style:none;margin:0;padding:0;}
-	        li{display:grid;grid-template-columns:minmax(8rem,14rem) minmax(16rem,1fr) 3rem;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
+	        li{display:grid;grid-template-columns:minmax(8rem,clamp(10rem,26%,16rem)) minmax(8rem,1fr) max-content;align-items:center;gap:clamp(10px,2vw,18px);padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
 	        .stat-name{overflow-wrap:anywhere;}
 	        .stat-track{height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
 	        .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:var(--bar);}
 	        .stat-count{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
+	        @media (max-width:640px){li{grid-template-columns:minmax(0,1fr) 3rem;gap:8px 10px;}.stat-track{grid-column:1 / -1;}}
 	        @media print{body{padding:18px;}main{max-width:none;}li{break-inside:avoid;}}
 	      </style></head><body><main><h1>Statistics - ${escapeHtml(displayTitle)}</h1><div class="meta">${entries.length} item${entries.length === 1 ? '' : 's'}</div><ul>${rows}</ul></main></body></html>`);
 	      printWindow.document.close();
@@ -4780,19 +4783,21 @@
 	    const currentFilterSummary = () => {
 	      const params = new URLSearchParams(window.location.search);
 	      const parts = [];
+	      if (baseFilterLabel) parts.push(baseFilterLabel);
 	      if (params.get('year')) parts.push(params.get('year'));
 	      if (params.get('publication_type')) {
 	        const type = params.get('publication_type');
 	        parts.push(publicationTypeNames[type] || `Type ${type}`);
 	      }
 	      if (params.get('venue')) parts.push(params.get('venue'));
-	      if (params.get('tag')) parts.push(params.get('tag'));
+	      if (params.get('tag') && params.get('tag') !== baseFilterLabel) parts.push(params.get('tag'));
 	      if (params.get('ccf_rank')) parts.push(`CCF ${params.get('ccf_rank')}`);
 	      if (params.get('core_rank')) parts.push(`CORE ${params.get('core_rank')}`);
 	      if (params.get('jcr_rank')) parts.push(`JCR ${params.get('jcr_rank')}`);
 	      if (params.get('co_author')) parts.push(params.get('co_author'));
 	      return parts.join(' / ');
 	    };
+	    window.__publicationFilterSummary = currentFilterSummary;
 	    const sectionHtml = (entries, hrefForEntry) => {
 	      if (!entries.length) return '';
 	      const max = entries.reduce((largest, entry) => Math.max(largest, entry[1]), 0) || 1;
@@ -4816,7 +4821,7 @@
 	      modal.innerHTML = '<div class="publication-stat-panel" style="width:min(920px, calc(100vw - 48px));max-height:min(82vh, 760px);overflow:auto;background:var(--stat-bg,#fff);color:var(--stat-fg,#212529);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);">\
 	        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--stat-border,rgba(127,127,127,.25));">\
 	          <div data-stat-title style="font-weight:700;font-size:20px;">Statistics</div>\
-	          <button type="button" data-stat-close class="btn btn-sm" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);"><i class="fas fa-times" aria-hidden="true"></i></button>\
+	          <button type="button" data-stat-close class="btn btn-sm stat-icon-btn" aria-label="Close" title="Close"><i class="fas fa-times" aria-hidden="true"></i></button>\
 	        </div>\
 	        <div data-stat-body style="padding:14px 16px;"></div>\
 	      </div>';
@@ -4872,13 +4877,13 @@
 	      ].filter((section) => section[2].length);
 	      let activeSectionIndex = 0;
 	      const tabs = sections.map(([title, icon], index) =>
-	        `<button type="button" class="btn btn-sm ${index === 0 ? 'btn-primary' : 'btn-outline-primary'}" data-stat-tab="${index}"><i class="fas ${escapeHtml(icon)} mr-1" aria-hidden="true"></i>${escapeHtml(title)}</button>`
+	        `<button type="button" class="btn ${index === 0 ? 'btn-primary' : 'btn-outline-primary'} btn-page-header btn-sm" data-stat-tab="${index}"><i class="fas ${escapeHtml(icon)} mr-1" aria-hidden="true"></i>${escapeHtml(title)}</button>`
 	      ).join('');
 	      const panes = sections.map(([title, icon, entries, hrefForEntry], index) =>
 	        `<div data-stat-pane="${index}"${index === 0 ? '' : ' style="display:none;"'}>${sectionHtml(entries, hrefForEntry)}</div>`
 	      ).join('');
 	      const body = modal.querySelector('[data-stat-body]');
-	      body.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;"><div style="font-size:.9rem;opacity:.78;">${items.length} entr${items.length === 1 ? 'y' : 'ies'}</div><div style="display:flex;gap:8px;align-items:center;"><button type="button" class="btn btn-sm stat-icon-btn" data-stat-export-image aria-label="Export statistics image" title="Export statistics image"><i class="fas fa-image" aria-hidden="true"></i></button><button type="button" class="btn btn-sm stat-icon-btn" data-stat-print-image aria-label="Open statistics text" title="Open statistics text"><i class="fas fa-print" aria-hidden="true"></i></button></div></div><div class="publication-stat-tabs">${tabs}</div><div class="publication-stat-panes">${panes}</div>`;
+	      body.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;"><div style="font-size:.9rem;opacity:.78;">${items.length} entr${items.length === 1 ? 'y' : 'ies'}</div><div style="display:flex;gap:8px;align-items:center;"><button type="button" class="btn btn-sm stat-icon-btn" data-stat-export-image aria-label="Export statistics image" title="Export statistics image"><i class="fas fa-image" aria-hidden="true"></i></button><button type="button" class="btn btn-sm stat-icon-btn" data-stat-print-image aria-label="Open statistics text" title="Open statistics text"><i class="fas fa-print" aria-hidden="true"></i></button></div></div><div class="publication-stat-tabs btn-links">${tabs}</div><div class="publication-stat-panes">${panes}</div>`;
 	      const exportImageBtn = body.querySelector('[data-stat-export-image]');
 	      if (exportImageBtn) {
 	        exportImageBtn.addEventListener('click', () => {

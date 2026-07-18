@@ -7482,7 +7482,7 @@
             </button>
             
             <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-statistics-open>
-              <i class="fas fa-chart-bar mr-1" aria-hidden="true"></i>Statistics
+              <i class="fas fa-chart-line mr-1" aria-hidden="true"></i>Statistics
             </button>
             <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-export-open>
               <i class="fas fa-file-export mr-1" aria-hidden="true"></i>Export
@@ -7520,7 +7520,7 @@
     .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
     .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
     .publication-stat-section ul{list-style:none;margin:0;padding:0 18px 0 0;max-height:420px;overflow:auto;scrollbar-gutter:stable;box-sizing:border-box}
-    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, 24%) minmax(0, 1fr) 3.25rem;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
+    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, 24%) minmax(0, 1fr) 3ch;align-items:center;gap:8px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
     .publication-stat-section .stat-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .publication-stat-section a.stat-name{color:inherit;text-decoration:none}
     .publication-stat-section a.stat-name:hover{text-decoration:underline}
@@ -7537,7 +7537,7 @@
     body.dark .publication-stat-section .stat-bar-track{background:rgba(142,197,255,.18);box-shadow:inset 0 0 0 1px rgba(142,197,255,.10)}
     body.dark .publication-stat-section .stat-bar{background:#4da3ff}
     @media (max-width: 640px){
-      .publication-stat-section li{grid-template-columns:minmax(4.5rem, 26%) minmax(0, 1fr) 2.75rem;gap:8px}
+      .publication-stat-section li{grid-template-columns:minmax(4.5rem, 26%) minmax(0, 1fr) 3ch;gap:6px}
       .publication-stat-section .stat-bar-track{grid-column:auto}
     }
   </style>
@@ -8614,6 +8614,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -8623,7 +8626,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -8642,7 +8645,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -8659,7 +8662,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -8676,7 +8679,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -8693,7 +8696,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -8971,25 +8974,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -9615,6 +9637,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -9624,7 +9649,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -9643,7 +9668,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -9660,7 +9685,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -9677,7 +9702,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -9694,7 +9719,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -9972,25 +9997,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -10642,6 +10686,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -10651,7 +10698,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -10670,7 +10717,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -10687,7 +10734,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -10704,7 +10751,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -10721,7 +10768,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -10999,25 +11046,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -11682,6 +11748,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -11691,7 +11760,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -11710,7 +11779,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -11727,7 +11796,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -11744,7 +11813,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -11761,7 +11830,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -12039,25 +12108,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -12682,6 +12770,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -12691,7 +12782,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -12710,7 +12801,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -12727,7 +12818,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -12744,7 +12835,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -12761,7 +12852,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -13039,25 +13130,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -13676,6 +13786,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -13685,7 +13798,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -13704,7 +13817,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -13721,7 +13834,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -13738,7 +13851,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -13755,7 +13868,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -14033,25 +14146,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -14648,6 +14780,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -14657,7 +14792,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -14676,7 +14811,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -14693,7 +14828,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -14710,7 +14845,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -14727,7 +14862,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -15005,25 +15140,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -15654,6 +15808,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -15663,7 +15820,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -15682,7 +15839,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -15699,7 +15856,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -15716,7 +15873,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -15733,7 +15890,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -16011,25 +16168,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -16646,6 +16822,9 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -16655,7 +16834,7 @@ According to CCF Ranking 2026
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -16674,7 +16853,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -16691,7 +16870,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -16708,7 +16887,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -16725,7 +16904,7 @@ According to CCF Ranking 2026
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -17003,25 +17182,44 @@ According to CCF Ranking 2026
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -17621,6 +17819,9 @@ According to Core Ranking 2023
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -17630,7 +17831,7 @@ According to Core Ranking 2023
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -17649,7 +17850,7 @@ According to Core Ranking 2023
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -17666,7 +17867,7 @@ According to Core Ranking 2023
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -17683,7 +17884,7 @@ According to Core Ranking 2023
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -17700,7 +17901,7 @@ According to Core Ranking 2023
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -17978,25 +18179,44 @@ According to Core Ranking 2023
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -18804,6 +19024,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -18813,7 +19036,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -18832,7 +19055,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -18849,7 +19072,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -18866,7 +19089,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -18883,7 +19106,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -19161,25 +19384,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -19830,6 +20072,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -19839,7 +20084,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -19858,7 +20103,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -19875,7 +20120,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -19892,7 +20137,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -19909,7 +20154,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -20187,25 +20432,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -20877,6 +21141,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -20886,7 +21153,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -20905,7 +21172,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -20922,7 +21189,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -20939,7 +21206,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -20956,7 +21223,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -21234,25 +21501,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -21834,6 +22120,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -21843,7 +22132,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -21862,7 +22151,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -21879,7 +22168,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -21896,7 +22185,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -21913,7 +22202,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -22191,25 +22480,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -22805,6 +23113,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -22814,7 +23125,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -22833,7 +23144,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -22850,7 +23161,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -22867,7 +23178,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -22884,7 +23195,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -23162,25 +23473,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -23925,6 +24255,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -23934,7 +24267,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -23953,7 +24286,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -23970,7 +24303,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -23987,7 +24320,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -24004,7 +24337,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -24282,25 +24615,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -24962,6 +25314,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -24971,7 +25326,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -24990,7 +25345,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -25007,7 +25362,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -25024,7 +25379,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -25041,7 +25396,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -25319,25 +25674,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -26197,6 +26571,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -26206,7 +26583,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -26225,7 +26602,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -26242,7 +26619,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -26259,7 +26636,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -26276,7 +26653,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -26554,25 +26931,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -27235,6 +27631,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -27244,7 +27643,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -27263,7 +27662,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -27280,7 +27679,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -27297,7 +27696,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -27314,7 +27713,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -27592,25 +27991,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -28263,6 +28681,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -28272,7 +28693,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -28291,7 +28712,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -28308,7 +28729,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -28325,7 +28746,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -28342,7 +28763,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -28620,25 +29041,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -29273,6 +29713,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -29282,7 +29725,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -29301,7 +29744,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -29318,7 +29761,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -29335,7 +29778,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -29352,7 +29795,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -29630,25 +30073,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -30288,6 +30750,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -30297,7 +30762,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -30316,7 +30781,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -30333,7 +30798,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -30350,7 +30815,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -30367,7 +30832,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -30645,25 +31110,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -31375,6 +31859,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -31384,7 +31871,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -31403,7 +31890,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -31420,7 +31907,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -31437,7 +31924,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -31454,7 +31941,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -31732,25 +32219,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -32373,6 +32879,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -32382,7 +32891,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -32401,7 +32910,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -32418,7 +32927,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -32435,7 +32944,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -32452,7 +32961,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -32730,25 +33239,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -33431,6 +33959,9 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -33440,7 +33971,7 @@ According to CCF Ranking 2022
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -33459,7 +33990,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -33476,7 +34007,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -33493,7 +34024,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -33510,7 +34041,7 @@ According to CCF Ranking 2022
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -33788,25 +34319,44 @@ According to CCF Ranking 2022
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -34469,6 +35019,9 @@ Source: JCR 2026 (2025 JIF)
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -34478,7 +35031,7 @@ Source: JCR 2026 (2025 JIF)
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -34497,7 +35050,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -34514,7 +35067,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -34531,7 +35084,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -34548,7 +35101,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -34826,25 +35379,44 @@ Source: JCR 2026 (2025 JIF)
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -35509,6 +36081,9 @@ Source: JCR 2026 (2025 JIF)
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -35518,7 +36093,7 @@ Source: JCR 2026 (2025 JIF)
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -35537,7 +36112,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -35554,7 +36129,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -35571,7 +36146,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -35588,7 +36163,7 @@ Source: JCR 2026 (2025 JIF)
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -35866,25 +36441,44 @@ Source: JCR 2026 (2025 JIF)
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -36381,12 +36975,12 @@ Source: JCR 2026 (2025 JIF)
 	        h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:700;}
 	        .meta{font-size:15px;color:var(--muted);margin-bottom:22px;}
 	        ul{list-style:none;margin:0;padding:0;}
-	        li{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr) 3.5rem;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
+	        li{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr) 3ch;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
 	        .stat-name{overflow-wrap:anywhere;}
 	        .stat-track{width:100%;min-width:0;height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
 	        .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:var(--bar);}
 	        .stat-count{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
-	        @media (max-width:640px){li{grid-template-columns:minmax(4.5rem,26%) minmax(0,1fr) 3rem;gap:8px;}.stat-track{grid-column:auto;}}
+	        @media (max-width:640px){li{grid-template-columns:minmax(4.5rem,26%) minmax(0,1fr) 3ch;gap:6px;}.stat-track{grid-column:auto;}}
 	        @media print{body{padding:18px;}main{max-width:none;}li{break-inside:avoid;}}
 	      </style></head><body><main><h1>Statistics - ${escapeHtml(displayTitle)}</h1><div class="meta">${entries.length} item${entries.length === 1 ? '' : 's'}</div><ul>${rows}</ul></main></body></html>`);
 	      printWindow.document.close();

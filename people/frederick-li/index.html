@@ -3001,6 +3001,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -3010,7 +3013,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -3029,7 +3032,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -3046,7 +3049,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -3063,7 +3066,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -3080,7 +3083,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -3358,25 +3361,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -3874,6 +3896,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -3883,7 +3908,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -3902,7 +3927,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -3919,7 +3944,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -3936,7 +3961,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -3953,7 +3978,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -4231,25 +4256,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -4720,6 +4764,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -4729,7 +4776,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -4748,7 +4795,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -4765,7 +4812,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -4782,7 +4829,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -4799,7 +4846,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -5077,25 +5124,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -5567,6 +5633,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -5576,7 +5645,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -5595,7 +5664,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -5612,7 +5681,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -5629,7 +5698,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -5646,7 +5715,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -5924,25 +5993,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -6485,6 +6573,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -6494,7 +6585,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -6513,7 +6604,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -6530,7 +6621,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -6547,7 +6638,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -6564,7 +6655,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -6842,25 +6933,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -7377,6 +7487,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -7386,7 +7499,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -7405,7 +7518,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -7422,7 +7535,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -7439,7 +7552,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -7456,7 +7569,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -7734,25 +7847,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -8257,6 +8389,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -8266,7 +8401,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -8285,7 +8420,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -8302,7 +8437,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -8319,7 +8454,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -8336,7 +8471,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -8614,25 +8749,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;
@@ -9158,6 +9312,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -9167,7 +9324,7 @@
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
-  <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;">\
+  <div class="bib-modal-body">\
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
@@ -9186,7 +9343,7 @@
         </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" class="bib-ref-box" readonly></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
@@ -9203,7 +9360,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="ieee-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
@@ -9220,7 +9377,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="apa-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
@@ -9237,7 +9394,7 @@
         </button>\
       </div>\
     </div>\
-    <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
+    <div id="gbt-text" class="bib-ref-box" style="white-space:pre-wrap;word-break:break-word;"></div>\
 \
     <div style="height:0;position:relative;"></div>\
   </div>\
@@ -9515,25 +9672,44 @@
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
           textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
+          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
           var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
           var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          if (isAggregate) {
+            ieeeDiv.style.height = maxPx + 'px';
+            ieeeDiv.style.minHeight = maxPx + 'px';
+          } else {
+            ieeeDiv.style.height = '';
+            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
+          }
         } catch (e3) {}
 
         try {
           var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
           var apaTarget = Math.max(3, Math.min(10, apaLines));
-          apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          if (isAggregate) {
+            apaDiv.style.height = maxPx + 'px';
+            apaDiv.style.minHeight = maxPx + 'px';
+          } else {
+            apaDiv.style.height = '';
+            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
+          }
         } catch (e3b) {}
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
           var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          if (isAggregate) {
+            gbtDiv.style.height = maxPx + 'px';
+            gbtDiv.style.minHeight = maxPx + 'px';
+          } else {
+            gbtDiv.style.height = '';
+            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
+          }
         } catch (e4) {}
 
         return false;

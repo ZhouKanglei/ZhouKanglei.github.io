@@ -548,7 +548,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link " href="/#news"><span>News</span></a>
+            <a class="nav-link " href="/#research"><span>Research</span></a>
           </li>
 
           
@@ -630,7 +630,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link " href="/#gallery"><span>Research</span></a>
+            <a class="nav-link " href="/#news"><span>News</span></a>
           </li>
 
           
@@ -4688,6 +4688,7 @@
 
 
 
+
   
 
 
@@ -5180,7 +5181,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -5535,48 +5536,26 @@ According to CCF Ranking 2026
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -5626,6 +5605,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -5675,6 +5655,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
 </div>
 
 
@@ -5686,6 +5667,7 @@ According to CCF Ranking 2026
 
       
       
+
 
 
 
@@ -6205,7 +6187,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -6560,48 +6542,26 @@ According to CCF Ranking 2026
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -6711,6 +6671,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -6728,6 +6689,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
 </div>
 
 
@@ -6741,6 +6703,7 @@ According to CCF Ranking 2026
 
       
       
+
 
 
 
@@ -7267,7 +7230,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -7622,48 +7585,26 @@ According to CCF Ranking 2026
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -7741,6 +7682,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -7758,6 +7700,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
 </div>
 
 
@@ -7769,6 +7712,7 @@ According to CCF Ranking 2026
 
       
       
+
 
 
 
@@ -8289,7 +8233,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -8644,48 +8588,26 @@ According to CCF Ranking 2026
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -8761,6 +8683,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -8778,6 +8701,7 @@ According to CCF Ranking 2026
     
 
   </div>
+  
 </div>
 
 
@@ -8789,6 +8713,7 @@ According to CCF Ranking 2026
 
       
       
+
 
 
 
@@ -9292,7 +9217,7 @@ According to Core Ranking 2023
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -9647,48 +9572,26 @@ According to Core Ranking 2023
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -9764,6 +9667,7 @@ According to Core Ranking 2023
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -9781,6 +9685,7 @@ According to Core Ranking 2023
     
 
   </div>
+  
 </div>
 
 
@@ -9907,6 +9812,7 @@ According to Core Ranking 2023
 
       
       
+
 
 
 
@@ -10429,7 +10335,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -10784,48 +10690,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -10931,6 +10815,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -10948,6 +10833,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -10961,6 +10847,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -11454,7 +11341,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -11809,48 +11696,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -11926,6 +11791,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -11943,6 +11809,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -11956,6 +11823,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -12447,7 +12315,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -12802,48 +12670,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -12919,6 +12765,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -12968,6 +12815,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -13064,6 +12912,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -13589,7 +13438,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -13944,48 +13793,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -14091,6 +13918,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -14108,6 +13936,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -14119,6 +13948,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -14648,7 +14478,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -15003,48 +14833,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -15180,6 +14988,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -15197,6 +15006,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -15293,6 +15103,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -15823,7 +15634,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -16178,48 +15989,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -16327,6 +16116,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -16344,6 +16134,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 
@@ -16355,6 +16146,7 @@ According to CCF Ranking 2022
 
       
       
+
 
 
 
@@ -16873,7 +16665,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -17228,48 +17020,26 @@ According to CCF Ranking 2022
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -17361,6 +17131,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -17378,6 +17149,7 @@ According to CCF Ranking 2022
     
 
   </div>
+  
 </div>
 
 

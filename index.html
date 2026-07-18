@@ -328,7 +328,7 @@
     <meta property="twitter:image" content="https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta property="og:updated_time" content="2026-07-08T00:00:00&#43;08:00" />
+      <meta property="og:updated_time" content="2026-07-18T00:00:00&#43;00:00" />
     
   
 
@@ -578,7 +578,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link " href="/#news" data-target="#news"><span>News</span></a>
+            <a class="nav-link " href="/#research" data-target="#research"><span>Research</span></a>
           </li>
 
           
@@ -660,7 +660,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link " href="/#gallery" data-target="#gallery"><span>Research</span></a>
+            <a class="nav-link " href="/#news" data-target="#news"><span>News</span></a>
           </li>
 
           
@@ -1090,8 +1090,8 @@
 
    <div class="article-style">
       <div class="main-content"><h3 id="about-me">About Me</h3>
-<!-- I am a final-year PhD candidate at the State Key Lab of VR Technology and Systems, SCSE, Beihang University. I am expected to graduate in June 2025. <a href="#gallery" style="text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">My research</a> primarily focuses on utilizing structured human knowledge to enhance human motion analysis. -->
-<p>I am currently a Postdoctoral Researcher in the Department of Psychological and Cognitive Sciences at Tsinghua University. <a href="#gallery" style="text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">My research</a> primarily focuses on utilizing structured human knowledge to enhance human motion analysis.</p>
+<!-- I am a final-year PhD candidate at the State Key Lab of VR Technology and Systems, SCSE, Beihang University. I am expected to graduate in June 2025. <a href="#research" style="text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">My research</a> primarily focuses on utilizing structured human knowledge to enhance human motion analysis. -->
+<p>I am currently a Postdoctoral Researcher in the Department of Psychological and Cognitive Sciences at Tsinghua University. <a href="#research" style="text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">My research</a> primarily focuses on utilizing structured human knowledge to enhance human motion analysis.</p>
 <blockquote>
 <p><strong>Announcement:</strong> I am seeking research opportunities and am open to collaborations. I would be happy to discuss how my expertise can contribute to your team — please feel free to contact me.</p>
 </blockquote>
@@ -2110,7 +2110,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -2465,48 +2465,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -2869,7 +2847,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -3224,48 +3202,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -3684,7 +3640,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -4039,48 +3995,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -4503,7 +4437,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -4858,48 +4792,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -5290,7 +5202,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -5645,48 +5557,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -6075,7 +5965,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
-    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;min-height:120px;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
+    #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
@@ -6430,48 +6320,26 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
-          textarea.style.minHeight = isAggregate ? String(maxPx) + 'px' : '120px';
+          textarea.style.height = String(next) + 'px';
+          textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
         try {
-          var ieeeLines = (ieeeDiv.textContent || '').split(/\r?\n/).length || 1;
-          var ieeeTarget = Math.max(3, Math.min(10, ieeeLines));
-          if (isAggregate) {
-            ieeeDiv.style.height = maxPx + 'px';
-            ieeeDiv.style.minHeight = maxPx + 'px';
-          } else {
-            ieeeDiv.style.height = '';
-            ieeeDiv.style.minHeight = String(ieeeTarget * 1.55) + 'em';
-          }
+          ieeeDiv.style.height = '';
+          ieeeDiv.style.minHeight = '0';
         } catch (e3) {}
 
         try {
-          var apaLines = (apaDiv.textContent || '').split(/\r?\n/).length || 1;
-          var apaTarget = Math.max(3, Math.min(10, apaLines));
-          if (isAggregate) {
-            apaDiv.style.height = maxPx + 'px';
-            apaDiv.style.minHeight = maxPx + 'px';
-          } else {
-            apaDiv.style.height = '';
-            apaDiv.style.minHeight = String(apaTarget * 1.55) + 'em';
-          }
+          apaDiv.style.height = '';
+          apaDiv.style.minHeight = '0';
         } catch (e3b) {}
 
         try {
-          var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
-          if (isAggregate) {
-            gbtDiv.style.height = maxPx + 'px';
-            gbtDiv.style.minHeight = maxPx + 'px';
-          } else {
-            gbtDiv.style.height = '';
-            gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
-          }
+          gbtDiv.style.height = '';
+          gbtDiv.style.minHeight = '0';
         } catch (e4) {}
 
         return false;
@@ -6544,6 +6412,1306 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     <div class="see-all">
       <a href="/tag/highlights/">See all <i class="fas fa-angle-right"></i></a>
     </div>
+  
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="research" class="home-section wg-portfolio  "  >
+   <div class="home-section-bg " >
+     
+   </div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+            <h1 class="mb-0">Research</h1>
+            <p class="mt-1">Thoughts and ideas</p>
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+
+
+<div class="col-12 col-lg-8" >
+
+  
+
+  
+
+  <div class=" row js-layout-row ">
+
+    
+    
+
+    
+    
+      
+      
+    
+    
+    
+    
+    
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+            <div class="col-12 isotope-item js-id-Research js-id-Tutorial">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+<div class="pub-list-item view-citation" style="margin-bottom: 1rem"  data-year="2026">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+
+  
+  
+
+  <span class="article-metadata li-cite-author">
+    
+    
+
+  </span>
+  (2026).
+  <a href="/research/research_figure_checklist/">科研论文绘图教程（案例分析）</a>.
+  
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://zhoukanglei.github.io/Research-Figure-Checklist/" target="_blank" rel="noopener">
+    <i class="fab fa-github mr-1"></i>Research Figure Checklist</a>
+
+
+  </div>
+  
+
+  
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="col-12 isotope-item ">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+<div class="pub-list-item view-citation" style="margin-bottom: 1rem"  data-year="2026">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+
+  
+  
+
+  <span class="article-metadata li-cite-author">
+    
+    
+
+  </span>
+  (2025).
+  <a href="/research/phd_thesis_writing/">从选题到闭环：博士大论文写作的全流程经验分享</a>.
+  
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://mp.weixin.qq.com/s/n43F9o6XIpqU59rJFrJuwg" target="_blank" rel="noopener">
+    <i class="fab fa-weixin mr-1"></i>WeChat Article</a>
+
+
+  </div>
+  
+
+  
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="col-12 isotope-item ">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+<div class="pub-list-item view-citation" style="margin-bottom: 1rem"  data-year="2025">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+
+  
+  
+
+  <span class="article-metadata li-cite-author">
+    
+    
+
+  </span>
+  (2025).
+  <a href="/research/methods/">My Previous Work</a>.
+  
+  
+
+  
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="col-12 isotope-item ">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+<div class="pub-list-item view-citation" style="margin-bottom: 1rem"  data-year="2025">
+  <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+
+  
+  
+
+  <span class="article-metadata li-cite-author">
+    
+    
+
+  </span>
+  (2025).
+  <a href="/research/proposal/">Research Proposal</a>.
+  
+  
+
+  
+  
+</div>
+
+        </div>
+      
+    
+
+  </div>
+
+  
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="people" class="home-section wg-portfolio  "  >
+   <div class="home-section-bg " >
+     
+   </div>
+    <div class="container">
+
+    
+      <div class="row  justify-content-center">
+      
+        
+          <div class="section-heading col-12 mb-3 text-center">
+            <h1 class="mb-0">Collaborators</h1>
+            <p class="mt-1">Heartfelt gratitude for their invaluable assistance and support!</p>
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+
+
+<div class="col-12 " >
+
+  
+
+  
+
+  <div class="isotope projects-container js-layout-masonry ">
+
+    
+    
+
+    
+    
+      
+      
+    
+    
+    
+    
+    
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item js-id-People">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Jun 2, 2026
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/ziyi-chang/" >
+        <img src="/people/ziyi-chang/featured_hue18a6902333b04fc9ea1d5ce065a605b_1016780_150x150_fill_lanczos_center_3.png"
+             alt="Ziyi Chang"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/ziyi-chang/" >Ziyi Chang</a>
+    </div>
+
+    
+      <a href="/people/ziyi-chang/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Postdoctoral Researcher @ Inria Rennes</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ch4n9zy.github.io/" target="_blank" rel="noopener">
+    <i class="fas fa-home mr-1"></i>Homepage</a>
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=gHhQNlYAAAAJ" target="_blank" rel="noopener">
+    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item js-id-People">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Apr 25, 2026
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/ruizhi-cai/" >
+        <img src="/people/ruizhi-cai/featured_hudaf434dfe61e64aa966fb98e76966758_262903_150x150_fill_q75_lanczos_center.jpg"
+             alt="Ruizhi Cai"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/ruizhi-cai/" >Ruizhi Cai</a>
+    </div>
+
+    
+      <a href="/people/ruizhi-cai/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Postgraduate Student @ BUAA</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=IGdJlqgAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">
+    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item js-id-People">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Apr 25, 2026
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/chang-li/" >
+        <img src="/people/chang-li/featured_hu4464013670839c348b7737b0d43833c6_729018_150x150_fill_q75_lanczos_center.jpg"
+             alt="Chang Li"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/chang-li/" >Chang Li</a>
+    </div>
+
+    
+      <a href="/people/chang-li/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Researcher @ Bytedance</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ivcylc.github.io/" target="_blank" rel="noopener">
+    <i class="fas fa-home mr-1"></i>Homepage</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item js-id-Supervisor">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Apr 25, 2026
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/frederick-li/" >
+        <img src="/people/frederick-li/featured_hu7df2990e9e2fc1783c5f84f2299e57b7_177669_150x150_fill_lanczos_center_3.png"
+             alt="Frederick W. B. Li"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/frederick-li/" >Frederick W. B. Li</a>
+    </div>
+
+    
+      <a href="/people/frederick-li/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Associate Professor @ Durham University</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://frederickli.webspace.durham.ac.uk/" target="_blank" rel="noopener">
+    <i class="fas fa-home mr-1"></i>Homepage</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item ">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Apr 25, 2026
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/hongwei-yan/" >
+        <img src="/people/hongwei-yan/featured_hu9d26c1878730a4b84591cc12b0e911f5_477816_150x150_fill_lanczos_center_3.png"
+             alt="Hongwei Yan"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/hongwei-yan/" >Hongwei Yan</a>
+    </div>
+
+    
+      <a href="/people/hongwei-yan/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Postgraduate Student @ THU</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://anapplecore.github.io/" target="_blank" rel="noopener">
+    <i class="fas fa-home mr-1"></i>Homepage</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+        
+          
+            <div class="project-card project-item isotope-item js-id-Co-Supervised-Student">
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple view-card">
+
+  
+     
+
+<div class="article-metadata">
+    
+  <span class="article-date">
+       Posted Aug 20, 2025
+  </span>
+
+  <span class="article-date">
+       
+  </span>
+     
+        
+</div>
+
+  
+
+  
+  
+  
+
+  
+    
+      
+      <a href="/people/ruisheng-han/" >
+        <img src="/people/ruisheng-han/featured_hud40a01150a707e90ad515e80fc38609f_6646_150x150_fill_q75_lanczos_center.jpg"
+             alt="Ruisheng Han"
+             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
+             class="article-banner" loading="lazy">
+      </a>
+    
+
+    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
+      <a href="/people/ruisheng-han/" >Ruisheng Han</a>
+    </div>
+
+    
+      <a href="/people/ruisheng-han/"  class="summary-link">
+        <div class="article-style" style="text-align:center;">
+          <p>Postgraduate Student @ Durham University</p>
+        </div>
+      </a>
+    
+
+    
+      <div class="btn-links" style="text-align:center;">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://www.durham.ac.uk/staff/ruisheng-han/" target="_blank" rel="noopener">
+    <i class="fas fa-school mr-1"></i>University Homepage</a>
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=b7U0EqIAAAAJ" target="_blank" rel="noopener">
+    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
+
+
+      </div>
+    
+  
+</div>
+
+        </div>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+
+  </div>
+
+  
+    
+    
+      
+    
+    
+    
+    <div class="see-all">
+      <a href="/people/">
+        See all
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+    
   
 </div>
 
@@ -6735,6 +7903,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+
   
 
 
@@ -6884,6 +8053,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -6901,6 +8071,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
 
   </div>
+  
 </div>
 
         </div>
@@ -6913,6 +8084,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
             <div class="col-12 isotope-item js-id-Personal">
           
           
+
 
 
 
@@ -7089,6 +8261,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
 
   </div>
+  
   <div class="ml-3">
  
 
@@ -7099,1226 +8272,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     
 
   </div>
-</div>
-
-        </div>
-      
-    
-
-  </div>
-
   
-</div>
-
-
-    
-      </div>
-    
-
-    </div>
-  </section>
-
-  
-
-  
-  
-  
-  
-
-  
-
-  
-
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-  <section id="people" class="home-section wg-portfolio  "  >
-   <div class="home-section-bg " >
-     
-   </div>
-    <div class="container">
-
-    
-      <div class="row  justify-content-center">
-      
-        
-          <div class="section-heading col-12 mb-3 text-center">
-            <h1 class="mb-0">Collaborators</h1>
-            <p class="mt-1">Heartfelt gratitude for their invaluable assistance and support!</p>
-          </div>
-        
-      
-    
-
-      
-
-
-
-
-
-
-
-
-
-
-<div class="col-12 " >
-
-  
-
-  
-
-  <div class="isotope projects-container js-layout-masonry ">
-
-    
-    
-
-    
-    
-      
-      
-    
-    
-    
-    
-    
-      
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item js-id-People">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Jun 2, 2026
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/ziyi-chang/" >
-        <img src="/people/ziyi-chang/featured_hue18a6902333b04fc9ea1d5ce065a605b_1016780_150x150_fill_lanczos_center_3.png"
-             alt="Ziyi Chang"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/ziyi-chang/" >Ziyi Chang</a>
-    </div>
-
-    
-      <a href="/people/ziyi-chang/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Postdoctoral Researcher @ Inria Rennes</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ch4n9zy.github.io/" target="_blank" rel="noopener">
-    <i class="fas fa-home mr-1"></i>Homepage</a>
-
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=gHhQNlYAAAAJ" target="_blank" rel="noopener">
-    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item js-id-People">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Apr 25, 2026
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/ruizhi-cai/" >
-        <img src="/people/ruizhi-cai/featured_hudaf434dfe61e64aa966fb98e76966758_262903_150x150_fill_q75_lanczos_center.jpg"
-             alt="Ruizhi Cai"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/ruizhi-cai/" >Ruizhi Cai</a>
-    </div>
-
-    
-      <a href="/people/ruizhi-cai/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Postgraduate Student @ BUAA</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=IGdJlqgAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">
-    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item js-id-People">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Apr 25, 2026
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/chang-li/" >
-        <img src="/people/chang-li/featured_hu4464013670839c348b7737b0d43833c6_729018_150x150_fill_q75_lanczos_center.jpg"
-             alt="Chang Li"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/chang-li/" >Chang Li</a>
-    </div>
-
-    
-      <a href="/people/chang-li/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Researcher @ Bytedance</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://ivcylc.github.io/" target="_blank" rel="noopener">
-    <i class="fas fa-home mr-1"></i>Homepage</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item js-id-Supervisor">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Apr 25, 2026
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/frederick-li/" >
-        <img src="/people/frederick-li/featured_hu7df2990e9e2fc1783c5f84f2299e57b7_177669_150x150_fill_lanczos_center_3.png"
-             alt="Frederick W. B. Li"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/frederick-li/" >Frederick W. B. Li</a>
-    </div>
-
-    
-      <a href="/people/frederick-li/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Associate Professor @ Durham University</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://frederickli.webspace.durham.ac.uk/" target="_blank" rel="noopener">
-    <i class="fas fa-home mr-1"></i>Homepage</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item ">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Apr 25, 2026
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/hongwei-yan/" >
-        <img src="/people/hongwei-yan/featured_hu9d26c1878730a4b84591cc12b0e911f5_477816_150x150_fill_lanczos_center_3.png"
-             alt="Hongwei Yan"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/hongwei-yan/" >Hongwei Yan</a>
-    </div>
-
-    
-      <a href="/people/hongwei-yan/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Postgraduate Student @ THU</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://anapplecore.github.io/" target="_blank" rel="noopener">
-    <i class="fas fa-home mr-1"></i>Homepage</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="project-card project-item isotope-item js-id-Co-Supervised-Student">
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="card-simple view-card">
-
-  
-     
-
-<div class="article-metadata">
-    
-  <span class="article-date">
-       Posted Aug 20, 2025
-  </span>
-
-  <span class="article-date">
-       
-  </span>
-     
-        
-</div>
-
-  
-
-  
-  
-
-  
-    
-      
-      <a href="/people/ruisheng-han/" >
-        <img src="/people/ruisheng-han/featured_hud40a01150a707e90ad515e80fc38609f_6646_150x150_fill_q75_lanczos_center.jpg"
-             alt="Ruisheng Han"
-             style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block; margin:0 auto;"
-             class="article-banner" loading="lazy">
-      </a>
-    
-
-    <div class="section-subheading article-title mb-1 mt-3" style="text-align:center;">
-      <a href="/people/ruisheng-han/" >Ruisheng Han</a>
-    </div>
-
-    
-      <a href="/people/ruisheng-han/"  class="summary-link">
-        <div class="article-style" style="text-align:center;">
-          <p>Postgraduate Student @ Durham University</p>
-        </div>
-      </a>
-    
-
-    
-      <div class="btn-links" style="text-align:center;">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://www.durham.ac.uk/staff/ruisheng-han/" target="_blank" rel="noopener">
-    <i class="fas fa-school mr-1"></i>University Homepage</a>
-
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://scholar.google.com/citations?user=b7U0EqIAAAAJ" target="_blank" rel="noopener">
-    <i class="ai ai-google-scholar mr-1"></i>Google Scholar</a>
-
-
-      </div>
-    
-  
-</div>
-
-
-        </div>
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-
-  </div>
-
-  
-    
-    
-      
-    
-    
-    
-    <div class="see-all">
-      <a href="/people/">
-        See all
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
-    
-  
-</div>
-
-
-    
-      </div>
-    
-
-    </div>
-  </section>
-
-  
-
-  
-  
-  
-  
-
-  
-
-  
-
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-  <section id="gallery" class="home-section wg-portfolio  "  >
-   <div class="home-section-bg " >
-     
-   </div>
-    <div class="container">
-
-    
-      <div class="row  justify-content-center">
-      
-        
-          <div class="section-heading col-12 mb-3 text-center">
-            <h1 class="mb-0">Research</h1>
-            <p class="mt-1">Human Motion Analysis</p>
-          </div>
-        
-      
-    
-
-      
-
-
-
-
-
-
-
-
-
-
-<div class="col-12 " >
-
-  
-
-  
-
-  <div class=" row js-layout-row ">
-
-    
-    
-
-    
-    
-      
-      
-    
-    
-    
-    
-    
-      
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-      
-      
-        
-          
-            <div class="col-12 isotope-item ">
-          
-          
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-<div class="col-lg-12 mb-5 view-showcase">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-6">
-      <div class="section-subheading article-title mb-0 mt-0"><a href="/gallery/methods/" >My Previous Work</a></div>
-
-      
-      <div class="article-style">
-        This research tackles three key challenges in human motion analysis - <strong>motion perception anomalies</strong>, <strong>negative transfer due to limited samples</strong>, and <strong>catastrophic forgetting in non-stationary data distributions</strong>. By leveraging spatiotemporal graph models, domain adaptation, and continual learning, innovative methods were developed to address these issues, achieving significant advancements in aerospace training and medical rehabilitation applications.
-      </div>
-      
-
-      <div class="btn-links">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-
-    </div>
-    <div class="col-12 col-md-6 order-first ">
-      
-      
-      
-      <a href="/gallery/methods/" >
-        <img src="/gallery/methods/featured_hu35587d582be2a19ececa534704f7cde9_687734_540x0_resize_q75_h2_lanczos_3.webp" height="283" width="540"
-             alt="My Previous Work" loading="lazy">
-      </a>
-      
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-    
-      
-      
-        
-          
-            <div class="col-12 isotope-item ">
-          
-          
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-<div class="col-lg-12 mb-5 view-showcase">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-6">
-      <div class="section-subheading article-title mb-0 mt-0"><a href="/gallery/proposal/" >Research Proposal</a></div>
-
-      
-      <div class="article-style">
-        This proposal explores innovative solutions for Multi-Modal Action Quality Assessment, focusing on addressing challenges such as modality heterogeneity, missing data, and lack of interpretability in current methods.
-      </div>
-      
-
-      <div class="btn-links">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-
-    </div>
-    <div class="col-12 col-md-6 order-first ">
-      
-      
-      
-      <a href="/gallery/proposal/" >
-        <img src="/gallery/proposal/featured_hu4b221fbe9f2fc8f70c5fc706377f7f7b_173183_540x0_resize_q75_h2_lanczos_3.webp" height="246" width="540"
-             alt="Research Proposal" loading="lazy">
-      </a>
-      
-    </div>
-  </div>
 </div>
 
         </div>

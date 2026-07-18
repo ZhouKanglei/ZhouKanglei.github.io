@@ -5341,13 +5341,15 @@
           
           <div class="publication-export-toolbar btn-links" data-publication-export hidden>
             
-            <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-filter-clear>Clear</button>
+            <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-filter-clear>
+              <i class="fas fa-eraser mr-1" aria-hidden="true"></i>Clear
+            </button>
             
             <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-statistics-open>
               <i class="fas fa-chart-bar mr-1" aria-hidden="true"></i>Statistics
             </button>
             <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-export-open>
-              <i class="fas fa-file-export mr-1" aria-hidden="true"></i>Export Reference
+              <i class="fas fa-file-export mr-1" aria-hidden="true"></i>Export
             </button>
             <span class="publication-export-count" data-export-count></span>
           </div>
@@ -5381,13 +5383,13 @@
     .publication-stat-panel .stat-icon-btn:focus{outline:0;box-shadow:none}
     .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
     .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
-    .publication-stat-section ul{list-style:none;margin:0;padding:0;max-height:420px;overflow:auto}
-    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, clamp(8rem, 26%, 15rem)) minmax(6rem, 1fr) max-content;align-items:center;gap:clamp(8px, 1.8vw, 18px);padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
+    .publication-stat-section ul{list-style:none;margin:0;padding:0 18px 0 0;max-height:420px;overflow:auto;scrollbar-gutter:stable;box-sizing:border-box}
+    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, 24%) minmax(0, 1fr) max-content;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
     .publication-stat-section .stat-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .publication-stat-section a.stat-name{color:inherit;text-decoration:none}
     .publication-stat-section a.stat-name:hover{text-decoration:underline}
-    .publication-stat-section .stat-count{font-variant-numeric:tabular-nums;opacity:.72}
-    .publication-stat-section .stat-bar-track{height:.62rem;border-radius:999px;background:rgba(0,95,204,.16);box-shadow:inset 0 0 0 1px rgba(0,95,204,.08);overflow:hidden}
+    .publication-stat-section .stat-count{font-variant-numeric:tabular-nums;opacity:.72;text-align:right;white-space:nowrap}
+    .publication-stat-section .stat-bar-track{width:100%;min-width:0;height:.62rem;border-radius:999px;background:rgba(0,95,204,.16);box-shadow:inset 0 0 0 1px rgba(0,95,204,.08);overflow:hidden}
     .publication-stat-section a.stat-bar-track{display:block;text-decoration:none}
     .publication-stat-section .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:#004a9f}
     body.dark .publication-filter-bar .form-control{color:#d7dde7;background:#111c2f;border-color:rgba(142,197,255,.45)}
@@ -5399,8 +5401,8 @@
     body.dark .publication-stat-section .stat-bar-track{background:rgba(142,197,255,.18);box-shadow:inset 0 0 0 1px rgba(142,197,255,.10)}
     body.dark .publication-stat-section .stat-bar{background:#4da3ff}
     @media (max-width: 640px){
-      .publication-stat-section li{grid-template-columns:minmax(0, 1fr) 2.5rem;gap:8px 10px}
-      .publication-stat-section .stat-bar-track{grid-column:1 / -1}
+      .publication-stat-section li{grid-template-columns:minmax(4.5rem, 26%) minmax(0, 1fr) max-content;gap:8px}
+      .publication-stat-section .stat-bar-track{grid-column:auto}
     }
   </style>
   
@@ -6343,8 +6345,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -6510,6 +6512,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -6638,6 +6641,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -7342,8 +7346,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -7509,6 +7513,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -7637,6 +7642,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -8367,8 +8373,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -8534,6 +8540,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -8662,6 +8669,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -9405,8 +9413,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -9572,6 +9580,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -9700,6 +9709,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -10403,8 +10413,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -10570,6 +10580,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -10698,6 +10709,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -11395,8 +11407,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -11562,6 +11574,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -11690,6 +11703,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -12365,8 +12379,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -12532,6 +12546,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -12660,6 +12675,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -13369,8 +13385,8 @@ According to CCF Ranking 2026
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -13536,6 +13552,7 @@ According to CCF Ranking 2026
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -13664,6 +13681,7 @@ According to CCF Ranking 2026
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -14452,8 +14470,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -14619,6 +14637,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -14747,6 +14766,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -15476,8 +15496,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -15643,6 +15663,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -15771,6 +15792,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -16620,8 +16642,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -16787,6 +16809,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -16915,6 +16938,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -17655,8 +17679,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -17822,6 +17846,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -17950,6 +17975,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -18854,8 +18880,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -19021,6 +19047,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -19149,6 +19176,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -19890,8 +19918,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -20057,6 +20085,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -20185,6 +20214,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -20916,8 +20946,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -21083,6 +21113,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -21211,6 +21242,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -21935,8 +21967,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -22102,6 +22134,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -22230,6 +22263,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -22995,8 +23029,8 @@ According to CCF Ranking 2022
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -23162,6 +23196,7 @@ According to CCF Ranking 2022
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -23290,6 +23325,7 @@ According to CCF Ranking 2022
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -23862,12 +23898,12 @@ According to CCF Ranking 2022
 	        h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:700;}
 	        .meta{font-size:15px;color:var(--muted);margin-bottom:22px;}
 	        ul{list-style:none;margin:0;padding:0;}
-	        li{display:grid;grid-template-columns:minmax(8rem,clamp(10rem,26%,16rem)) minmax(8rem,1fr) max-content;align-items:center;gap:clamp(10px,2vw,18px);padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
+	        li{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr) max-content;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
 	        .stat-name{overflow-wrap:anywhere;}
-	        .stat-track{height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
+	        .stat-track{width:100%;min-width:0;height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
 	        .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:var(--bar);}
 	        .stat-count{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
-	        @media (max-width:640px){li{grid-template-columns:minmax(0,1fr) 3rem;gap:8px 10px;}.stat-track{grid-column:1 / -1;}}
+	        @media (max-width:640px){li{grid-template-columns:minmax(4.5rem,26%) minmax(0,1fr) max-content;gap:8px;}.stat-track{grid-column:auto;}}
 	        @media print{body{padding:18px;}main{max-width:none;}li{break-inside:avoid;}}
 	      </style></head><body><main><h1>Statistics - ${escapeHtml(displayTitle)}</h1><div class="meta">${entries.length} item${entries.length === 1 ? '' : 's'}</div><ul>${rows}</ul></main></body></html>`);
 	      printWindow.document.close();

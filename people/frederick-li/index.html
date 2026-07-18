@@ -3004,8 +3004,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -3171,6 +3171,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -3299,6 +3300,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -3589,7 +3591,7 @@
   </span>
   (2025).
   <a href="/publications/probhmi/">Uncertainty-aware Probabilistic 3D Human Motion Forecasting via Invertible Networks</a>.
-  ICRA 2025.
+  ICRA.
   
   
   <div class="btn-links">
@@ -3875,8 +3877,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -4042,6 +4044,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -4170,6 +4173,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -4719,8 +4723,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -4886,6 +4890,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -5014,6 +5019,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -5564,8 +5570,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -5731,6 +5737,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -5859,6 +5866,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -6480,8 +6488,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -6647,6 +6655,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -6775,6 +6784,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -7370,8 +7380,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -7537,6 +7547,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -7665,6 +7676,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -8248,8 +8260,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -8415,6 +8427,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -8543,6 +8556,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -9147,8 +9161,8 @@
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
-    <div id="bib-modal-title" style="font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
+    <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
     <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
@@ -9314,6 +9328,7 @@
 	          if (el && el.getAttribute) {
 	            var attr = el.getAttribute('data-cite-context') || '';
 	            if (attr) return attr;
+	            if (!el.getAttribute('data-aggregate')) return '';
 	          }
 	          if (typeof window.__publicationFilterSummary === 'function') {
 	            try { return window.__publicationFilterSummary() || ''; } catch (e) {}
@@ -9442,6 +9457,7 @@
         if (el && el.getAttribute) {
           var attr = el.getAttribute('data-cite-context') || '';
           if (attr) return attr;
+          if (!el.getAttribute('data-aggregate')) return '';
         }
         if (typeof window.__publicationFilterSummary === 'function') {
           try { return window.__publicationFilterSummary() || ''; } catch (e) {}

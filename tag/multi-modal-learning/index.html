@@ -1671,7 +1671,7 @@
     .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
     .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
     .publication-stat-section ul{list-style:none;margin:0;padding:0 18px 0 0;max-height:420px;overflow:auto;scrollbar-gutter:stable;box-sizing:border-box}
-    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, 24%) minmax(0, 1fr) max-content;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
+    .publication-stat-section li{display:grid;grid-template-columns:minmax(7rem, 24%) minmax(0, 1fr) 3.25rem;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
     .publication-stat-section .stat-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .publication-stat-section a.stat-name{color:inherit;text-decoration:none}
     .publication-stat-section a.stat-name:hover{text-decoration:underline}
@@ -1688,7 +1688,7 @@
     body.dark .publication-stat-section .stat-bar-track{background:rgba(142,197,255,.18);box-shadow:inset 0 0 0 1px rgba(142,197,255,.10)}
     body.dark .publication-stat-section .stat-bar{background:#4da3ff}
     @media (max-width: 640px){
-      .publication-stat-section li{grid-template-columns:minmax(4.5rem, 26%) minmax(0, 1fr) max-content;gap:8px}
+      .publication-stat-section li{grid-template-columns:minmax(4.5rem, 26%) minmax(0, 1fr) 2.75rem;gap:8px}
       .publication-stat-section .stat-bar-track{grid-column:auto}
     }
   </style>
@@ -3147,12 +3147,12 @@ According to CCF Ranking 2026
 	        h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:700;}
 	        .meta{font-size:15px;color:var(--muted);margin-bottom:22px;}
 	        ul{list-style:none;margin:0;padding:0;}
-	        li{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr) max-content;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
+	        li{display:grid;grid-template-columns:minmax(8rem,24%) minmax(0,1fr) 3.5rem;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
 	        .stat-name{overflow-wrap:anywhere;}
 	        .stat-track{width:100%;min-width:0;height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
 	        .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:var(--bar);}
 	        .stat-count{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
-	        @media (max-width:640px){li{grid-template-columns:minmax(4.5rem,26%) minmax(0,1fr) max-content;gap:8px;}.stat-track{grid-column:auto;}}
+	        @media (max-width:640px){li{grid-template-columns:minmax(4.5rem,26%) minmax(0,1fr) 3rem;gap:8px;}.stat-track{grid-column:auto;}}
 	        @media print{body{padding:18px;}main{max-width:none;}li{break-inside:avoid;}}
 	      </style></head><body><main><h1>Statistics - ${escapeHtml(displayTitle)}</h1><div class="meta">${entries.length} item${entries.length === 1 ? '' : 's'}</div><ul>${rows}</ul></main></body></html>`);
 	      printWindow.document.close();

@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.6b20fdbe325be453106dc1028dd6eeb4.css" />
+  <link rel="stylesheet" href="/css/wowchemy.90306eb499d005f926ff11e033da0b3e.css" />
 
   
   
@@ -468,6 +468,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/index.html"><span>Home</span></a>
           </li>
@@ -498,8 +502,12 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
-            <a class="nav-link " href="/tag/highlights"><span>Publications</span></a>
+            <a class="nav-link " href="/publications/?tag=Highlights"><span>Publications</span></a>
           </li>
 
           
@@ -533,6 +541,10 @@
               
               
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -572,6 +584,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/#people"><span>Collaborators</span></a>
           </li>
@@ -609,6 +625,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/#gallery"><span>Research</span></a>
           </li>
@@ -639,6 +659,10 @@
               
             
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -673,6 +697,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/AQA-Survey/" target="_blank" rel="noopener"><span>Awesome AQA</span></a>
           </li>
@@ -703,6 +731,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/files/CV_en.pdf"><span>CV</span></a>
           </li>
@@ -731,6 +763,10 @@
               
             
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -902,6 +938,25 @@
 	    
 	  
 
+	  
+	  
+	  
+
+	  
+	  
+	  
+	    
+	    
+	    
+	    
+	    
+	  
+	    
+	    
+	    
+	    
+	    
+	  
 	  
 	  
 	  
@@ -1119,7 +1174,13 @@
     
   
 
-  
+	  
+	  
+
+	  
+	  
+
+	  
 	  
 
 	  
@@ -1127,9 +1188,10 @@
 
 	  
 	  
+	  
+	  
+	  
 
-  
-  
 </nav>
 
 <script>
@@ -1142,8 +1204,12 @@
       
       let preferred = (sessionStorage.getItem('toc_open') || '').trim();
       if (!preferred) {
-        if (params.get('co_author')) preferred = 'coauthors';
+        if (params.get('year')) preferred = 'year';
+        else if (params.get('publication_type')) preferred = 'types';
+        else if (params.get('venue')) preferred = 'venues';
+        else if (params.get('tag')) preferred = 'tags';
         else if (params.get('ccf_rank') || params.get('core_rank') || params.get('jcr_rank')) preferred = 'ranks';
+        else if (params.get('co_author')) preferred = 'coauthors';
       }
 
       const headers = Array.from(toc.querySelectorAll('a[href="#"]'));
@@ -1193,6 +1259,20 @@
       <article class="article" >
         <div class="article-container article-container-list pt-3">
           <h1 class="page-title">Galleries<span class="rank-title-suffix"></span></h1>
+          
+          
+          
+          <div class="publication-export-toolbar btn-links" data-publication-export hidden>
+            
+            <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-statistics-open>
+              <i class="fas fa-chart-bar mr-1" aria-hidden="true"></i>Statistics
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-page-header btn-sm" data-export-open>
+              <i class="fas fa-file-export mr-1" aria-hidden="true"></i>Export Reference
+            </button>
+            <span class="publication-export-count" data-export-count></span>
+          </div>
+          
         </div>
         
 <div class="article-container article-container-list">
@@ -1204,6 +1284,46 @@
     .docs-toc a[href^="?ccf_rank="],
     .docs-toc a[href^="?core_rank="],
     .docs-toc a[href^="?jcr_rank="]{font-family:inherit;font-variant:normal;letter-spacing:normal}
+    .publication-filter-bar{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem .55rem;margin-top:.75rem}
+    .publication-filter-bar .form-control{width:10.75rem;min-width:10.75rem;max-width:100%}
+    .publication-filter-bar .form-control.is-empty{color:rgba(33,37,41,.58)}
+    .publication-filter-bar .form-control option{color:#212529}
+    .publication-filter-bar .form-control option[value=""]{color:rgba(33,37,41,.58)}
+    .publication-filter-bar .btn{white-space:nowrap}
+    .publication-export-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:.55rem}
+    .publication-export-toolbar[hidden]{display:none}
+    .publication-export-toolbar .btn{padding:.3rem;white-space:nowrap}
+    .publication-export-toolbar .btn:hover{padding:.3rem}
+    .publication-export-count{display:inline-flex;align-items:center;font-size:.95rem;line-height:1;opacity:.72}
+    .publication-stat-tabs{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin-bottom:12px}
+    .publication-stat-tabs .btn{height:34px;display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0 .72rem;white-space:nowrap}
+    .publication-stat-panel .stat-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);transition:none;box-shadow:none;box-sizing:border-box}
+    .publication-stat-panel .stat-icon-btn:hover,
+    .publication-stat-panel .stat-icon-btn:active{background:transparent;border-color:var(--stat-border,rgba(127,127,127,.25));transform:none;box-shadow:none}
+    .publication-stat-panel .stat-icon-btn:focus{outline:0;box-shadow:none}
+    .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+    .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
+    .publication-stat-section ul{list-style:none;margin:0;padding:0;max-height:420px;overflow:auto}
+    .publication-stat-section li{display:grid;grid-template-columns:minmax(5.5rem, 10rem) minmax(14rem, 1fr) 2.5rem;align-items:center;gap:12px;padding:.28rem 0;border-bottom:1px solid rgba(127,127,127,.12);font-size:.86rem}
+    .publication-stat-section .stat-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .publication-stat-section a.stat-name{color:inherit;text-decoration:none}
+    .publication-stat-section a.stat-name:hover{text-decoration:underline}
+    .publication-stat-section .stat-count{font-variant-numeric:tabular-nums;opacity:.72}
+    .publication-stat-section .stat-bar-track{height:.62rem;border-radius:999px;background:rgba(0,95,204,.16);box-shadow:inset 0 0 0 1px rgba(0,95,204,.08);overflow:hidden}
+    .publication-stat-section a.stat-bar-track{display:block;text-decoration:none}
+    .publication-stat-section .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:#004a9f}
+    body.dark .publication-filter-bar .form-control{color:#d7dde7;background:#111c2f;border-color:rgba(142,197,255,.45)}
+    body.dark .publication-filter-bar .form-control.is-empty{color:rgba(215,221,231,.58)}
+    body.dark .publication-filter-bar .form-control option{color:#d7dde7;background:#111c2f}
+    body.dark .publication-filter-bar .form-control option[value=""]{color:rgba(215,221,231,.58)}
+    body.dark .publication-export-count{color:rgba(215,221,231,.78)}
+    body.dark .publication-stat-section li{border-bottom-color:rgba(255,255,255,.10)}
+    body.dark .publication-stat-section .stat-bar-track{background:rgba(142,197,255,.18);box-shadow:inset 0 0 0 1px rgba(142,197,255,.10)}
+    body.dark .publication-stat-section .stat-bar{background:#4da3ff}
+    @media (max-width: 640px){
+      .publication-stat-section li{grid-template-columns:minmax(0, 1fr) 2.5rem;gap:8px 10px}
+      .publication-stat-section .stat-bar-track{grid-column:1 / -1}
+    }
   </style>
   
   
@@ -1329,10 +1449,21 @@
 
 
 
+
+
   
   
   
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1366,6 +1497,9 @@
 
 <div class="media stream-item view-compact"
   data-year="2025"
+  
+  
+  
   
   
   
@@ -1469,10 +1603,21 @@
 
 
 
+
+
   
   
   
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1506,6 +1651,9 @@
 
 <div class="media stream-item view-compact"
   data-year="2025"
+  
+  
+  
   
   
   
@@ -1592,18 +1740,49 @@
 
 	<script>
 	  (function () {
+	    const publicationTypeNames = {
+	      
+	      "0": "Uncategorized",
+	      
+	      "1": "Conference Paper",
+	      
+	      "2": "Journal Article",
+	      
+	      "3": "Preprint",
+	      
+	      "4": "Report",
+	      
+	      "5": "Book",
+	      
+	      "6": "Book Section",
+	      
+	      "7": "Thesis",
+	      
+	      "8": "Patent",
+	      
+	    };
+	    const ownerName = "Kanglei Zhou";
 	    const pageType = 'gallery';
-	    if (!(pageType === 'publications' || pageType === 'publication_types')) return;
 	    const params = new URLSearchParams(window.location.search);
+	    const year = params.get('year');
+	    const tag = params.get('tag');
+	    const venue = params.get('venue');
+	    const publicationType = params.get('publication_type');
 	    const ccf = params.get('ccf_rank');
 	    const core = params.get('core_rank');
 	    const jcr = params.get('jcr_rank');
 	    const coAuthor = params.get('co_author');
-	    if (!ccf && !core && !jcr && !coAuthor) return;
+	    if (!year && !tag && !venue && !publicationType && !ccf && !core && !jcr && !coAuthor) return;
+	    const publicationFilter = venue || publicationType || ccf || core || jcr || coAuthor;
+	    if (publicationFilter && !(pageType === 'publications' || pageType === 'publication_types' || pageType === 'tags')) return;
 
 	    const suffixEl = document.querySelector('.rank-title-suffix');
 	    if (suffixEl) {
 	      const parts = [];
+	      if (year) parts.push(`${year}`);
+	      if (tag) parts.push(`${tag}`);
+	      if (venue) parts.push(`${venue}`);
+	      if (publicationType) parts.push(publicationTypeNames[publicationType] || `Type ${publicationType}`);
 	      if (ccf) parts.push(`CCF ${ccf}`);
 	      if (core) parts.push(`CORE ${core}`);
 	      if (jcr) parts.push(`JCR ${jcr}`);
@@ -1613,9 +1792,19 @@
 
 	    const items = document.querySelectorAll('.stream-item');
 	    items.forEach((el) => {
+	      const tags = (el.getAttribute('data-tags') || '').split('||').map(s => s.trim()).filter(Boolean);
+	      const publicationTypes = (el.getAttribute('data-publication-types') || '').split('||').map(s => s.trim()).filter(Boolean);
 	      const authors = (el.getAttribute('data-authors') || '').split('||').map(s => s.trim()).filter(Boolean);
+	      const okYear = (!year || (el.getAttribute('data-year') || '') === year);
+	      const okTag = (!tag || tags.some(t => t.toLowerCase() === tag.toLowerCase()));
+	      const okVenue = (!venue || (el.getAttribute('data-publication-venue') || '').toLowerCase() === venue.toLowerCase());
+	      const okPublicationType = (!publicationType || publicationTypes.some(t => t === publicationType));
 	      const okAuthor = (!coAuthor || authors.some(a => a.toLowerCase() === coAuthor.toLowerCase()));
 	      const ok =
+	        okYear &&
+	        okTag &&
+	        okVenue &&
+	        okPublicationType &&
 	        (!ccf || (el.getAttribute('data-ccf-rank') || '') === ccf) &&
 	        (!core || (el.getAttribute('data-core-rank') || '') === core) &&
 	        (!jcr || (el.getAttribute('data-jcr-rank') || '') === jcr) &&
@@ -1689,6 +1878,391 @@
 	        cur = cur.nextElementSibling;
 	      }
 	    });
+	  })();
+	</script>
+
+	<script>
+	  (function () {
+	    const bar = document.querySelector('[data-publication-filter-bar]');
+	    if (!bar) return;
+	    const params = new URLSearchParams(window.location.search);
+	    const selects = Array.from(bar.querySelectorAll('select[data-filter-param]'));
+	    selects.forEach((select) => {
+	      const key = select.getAttribute('data-filter-param');
+	      if (!key) return;
+	      select.value = params.get(key) || '';
+	      select.classList.toggle('is-empty', !select.value);
+	      select.addEventListener('change', () => {
+	        select.classList.toggle('is-empty', !select.value);
+	        const next = new URLSearchParams(window.location.search);
+	        if (select.value) next.set(key, select.value);
+	        else next.delete(key);
+	        const query = next.toString();
+	        window.location.href = `${window.location.pathname}${query ? '?' + query : ''}`;
+	      });
+	    });
+	    const clear = document.querySelector('[data-filter-clear]');
+	    if (clear) {
+	      clear.addEventListener('click', () => {
+	        window.location.href = window.location.pathname;
+	      });
+	    }
+	  })();
+	</script>
+
+	<script>
+	  (function () {
+	    const toolbar = document.querySelector('[data-publication-export]');
+	    if (!toolbar) return;
+
+	    const countEl = toolbar.querySelector('[data-export-count]');
+	    const openBtn = toolbar.querySelector('[data-export-open]');
+	    const statsBtn = toolbar.querySelector('[data-statistics-open]');
+	    const publicationTypeNames = {
+	      
+	      "0": "Uncategorized",
+	      
+	      "1": "Conference Paper",
+	      
+	      "2": "Journal Article",
+	      
+	      "3": "Preprint",
+	      
+	      "4": "Report",
+	      
+	      "5": "Book",
+	      
+	      "6": "Book Section",
+	      
+	      "7": "Thesis",
+	      
+	      "8": "Patent",
+	      
+	    };
+	    const ownerName = "Kanglei Zhou";
+
+	    const decodeBib = (link) => {
+	      const b64u = (link && link.getAttribute('data-bib64')) || '';
+	      if (b64u) {
+	        let b64 = String(b64u).replace(/-/g, '+').replace(/_/g, '/');
+	        const pad = b64.length % 4;
+	        if (pad) b64 += '===='.slice(pad);
+	        return atob(b64).trim();
+	      }
+	      return ((link && link.getAttribute('data-bib')) || '').trim();
+	    };
+
+	    const visibleBibEntries = () => {
+	      return Array.from(document.querySelectorAll('.stream-item'))
+	        .filter((item) => item.style.display !== 'none')
+	        .map((item) => item.querySelector('a.js-bib-open'))
+	        .filter(Boolean)
+	        .map(decodeBib)
+	        .filter(Boolean);
+	    };
+
+	    const currentBibText = () => visibleBibEntries().join('\n\n') + '\n';
+	    const visibleItems = () => Array.from(document.querySelectorAll('.stream-item'))
+	      .filter((item) => item.style.display !== 'none');
+
+	    const updateToolbar = () => {
+	      const count = visibleItems().length;
+	      toolbar.hidden = false;
+	      if (countEl) countEl.textContent = `${count} entr${count === 1 ? 'y' : 'ies'}`;
+	      if (openBtn) openBtn.disabled = visibleBibEntries().length === 0;
+	      if (statsBtn) statsBtn.disabled = count === 0;
+	    };
+
+	    const splitAttr = (item, name) => (item.getAttribute(name) || '').split('||').map((s) => s.trim()).filter(Boolean);
+	    const addCount = (map, key) => {
+	      if (!key) return;
+	      map.set(key, (map.get(key) || 0) + 1);
+	    };
+	    const sortedEntries = (map) => Array.from(map.entries()).sort((a, b) => {
+	      if (b[1] !== a[1]) return b[1] - a[1];
+	      return a[0].localeCompare(b[0]);
+	    });
+	    const typeIdForName = (name) => Object.keys(publicationTypeNames).find((id) => publicationTypeNames[id] === name) || '';
+	    const statHref = (param, value) => {
+	      const next = new URLSearchParams(window.location.search);
+	      next.set(param, value);
+	      const query = next.toString();
+	      return `${window.location.pathname}${query ? '?' + query : ''}`;
+	    };
+	    const rankHref = (rank) => {
+	      const match = String(rank).match(/^(CCF|CORE|JCR)\s+(.+)$/);
+	      if (!match) return '#';
+	      const param = `${match[1].toLowerCase()}_rank`;
+	      return statHref(param, match[2]);
+	    };
+	    const truncateCanvasText = (ctx, text, maxWidth) => {
+	      const value = String(text);
+	      if (ctx.measureText(value).width <= maxWidth) return value;
+	      let lo = 0;
+	      let hi = value.length;
+	      while (lo < hi) {
+	        const mid = Math.ceil((lo + hi) / 2);
+	        if (ctx.measureText(`${value.slice(0, mid)}...`).width <= maxWidth) lo = mid;
+	        else hi = mid - 1;
+	      }
+	      return `${value.slice(0, lo)}...`;
+	    };
+	    const fillRoundRect = (ctx, x, y, width, height, radius) => {
+	      if (ctx.roundRect) {
+	        ctx.beginPath();
+	        ctx.roundRect(x, y, width, height, radius);
+	        ctx.fill();
+	        return;
+	      }
+	      const r = Math.min(radius, width / 2, height / 2);
+	      ctx.beginPath();
+	      ctx.moveTo(x + r, y);
+	      ctx.lineTo(x + width - r, y);
+	      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+	      ctx.lineTo(x + width, y + height - r);
+	      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+	      ctx.lineTo(x + r, y + height);
+	      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+	      ctx.lineTo(x, y + r);
+	      ctx.quadraticCurveTo(x, y, x + r, y);
+	      ctx.fill();
+	    };
+	    const statsDisplayTitle = (title) => {
+	      const summary = currentFilterSummary();
+	      return summary ? `${title} - ${summary}` : title;
+	    };
+	    const statsSlug = (value) => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+	    const statsImageData = (title, entries) => {
+	      if (!entries || !entries.length) return null;
+	      const displayTitle = statsDisplayTitle(title);
+	      const dark = document.body.classList.contains('dark');
+	      const scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	      const width = 1200;
+	      const rowHeight = 38;
+	      const top = 112;
+	      const bottom = 42;
+	      const height = Math.max(260, top + bottom + entries.length * rowHeight);
+	      const canvas = document.createElement('canvas');
+	      canvas.width = width * scale;
+	      canvas.height = height * scale;
+	      canvas.style.width = `${width}px`;
+	      canvas.style.height = `${height}px`;
+	      const ctx = canvas.getContext('2d');
+	      ctx.scale(scale, scale);
+	      const bg = dark ? '#111c2f' : '#ffffff';
+	      const fg = dark ? '#d7dde7' : '#212529';
+	      const muted = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	      const track = dark ? 'rgba(142,197,255,.18)' : 'rgba(0,95,204,.16)';
+	      const bar = dark ? '#4da3ff' : '#004a9f';
+	      ctx.fillStyle = bg;
+	      ctx.fillRect(0, 0, width, height);
+	      ctx.fillStyle = fg;
+	      ctx.font = '700 34px Arial, sans-serif';
+	      ctx.fillText(`Statistics - ${displayTitle}`, 48, 54);
+	      ctx.fillStyle = muted;
+	      ctx.font = '20px Arial, sans-serif';
+	      ctx.fillText(`${entries.length} item${entries.length === 1 ? '' : 's'}`, 48, 86);
+	      const max = entries.reduce((largest, entry) => Math.max(largest, entry[1]), 0) || 1;
+	      const labelX = 48;
+	      const labelW = 250;
+	      const barX = 340;
+	      const barW = 700;
+	      const countX = 1080;
+	      entries.forEach(([name, count], index) => {
+	        const y = top + index * rowHeight;
+	        ctx.fillStyle = fg;
+	        ctx.font = '20px Arial, sans-serif';
+	        ctx.fillText(truncateCanvasText(ctx, name, labelW), labelX, y + 20);
+	        ctx.fillStyle = track;
+	        fillRoundRect(ctx, barX, y + 6, barW, 14, 7);
+	        ctx.fillStyle = bar;
+	        fillRoundRect(ctx, barX, y + 6, Math.max(4, Math.round((count / max) * barW)), 14, 7);
+	        ctx.fillStyle = muted;
+	        ctx.font = '20px Arial, sans-serif';
+	        ctx.fillText(String(count), countX, y + 20);
+	      });
+	      const filename = `statistics-${statsSlug(displayTitle) || 'chart'}.png`;
+	      return { filename, url: canvas.toDataURL('image/png') };
+	    };
+	    const downloadStatsImage = (title, entries) => {
+	      const image = statsImageData(title, entries);
+	      if (!image) return;
+	      const link = document.createElement('a');
+	      link.download = image.filename;
+	      link.href = image.url;
+	      link.click();
+	    };
+	    const printStatsImage = (title, entries) => {
+	      if (!entries || !entries.length) return;
+	      const printWindow = window.open('', '_blank');
+	      if (!printWindow) return;
+	      const displayTitle = statsDisplayTitle(title);
+	      const dark = document.body.classList.contains('dark');
+	      const max = entries.reduce((largest, entry) => Math.max(largest, entry[1]), 0) || 1;
+	      const rows = entries.map(([name, count]) => {
+	        const pct = Math.max(3, Math.round((count / max) * 100));
+	        return `<li><span class="stat-name">${escapeHtml(name)}</span><span class="stat-track"><span class="stat-bar" style="width:${pct}%;"></span></span><span class="stat-count">${count}</span></li>`;
+	      }).join('');
+	      printWindow.document.write(`<!doctype html><html><head><title>Statistics - ${escapeHtml(displayTitle)}</title><style>
+	        :root{--bg:${dark ? '#111c2f' : '#fff'};--fg:${dark ? '#d7dde7' : '#212529'};--muted:${dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)'};--track:${dark ? 'rgba(142,197,255,.18)' : 'rgba(0,95,204,.16)'};--bar:${dark ? '#4da3ff' : '#004a9f'};--border:${dark ? 'rgba(255,255,255,.12)' : 'rgba(127,127,127,.18)'};}
+	        html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}
+	        body{padding:32px;}
+	        main{max-width:980px;margin:0 auto;}
+	        h1{font-size:30px;line-height:1.2;margin:0 0 8px;font-weight:700;}
+	        .meta{font-size:15px;color:var(--muted);margin-bottom:22px;}
+	        ul{list-style:none;margin:0;padding:0;}
+	        li{display:grid;grid-template-columns:minmax(8rem,14rem) minmax(16rem,1fr) 3rem;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:15px;}
+	        .stat-name{overflow-wrap:anywhere;}
+	        .stat-track{height:12px;border-radius:999px;background:var(--track);overflow:hidden;}
+	        .stat-bar{display:block;height:100%;min-width:3px;border-radius:999px;background:var(--bar);}
+	        .stat-count{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
+	        @media print{body{padding:18px;}main{max-width:none;}li{break-inside:avoid;}}
+	      </style></head><body><main><h1>Statistics - ${escapeHtml(displayTitle)}</h1><div class="meta">${entries.length} item${entries.length === 1 ? '' : 's'}</div><ul>${rows}</ul></main></body></html>`);
+	      printWindow.document.close();
+	    };
+	    const currentFilterSummary = () => {
+	      const params = new URLSearchParams(window.location.search);
+	      const parts = [];
+	      if (params.get('year')) parts.push(params.get('year'));
+	      if (params.get('publication_type')) {
+	        const type = params.get('publication_type');
+	        parts.push(publicationTypeNames[type] || `Type ${type}`);
+	      }
+	      if (params.get('venue')) parts.push(params.get('venue'));
+	      if (params.get('tag')) parts.push(params.get('tag'));
+	      if (params.get('ccf_rank')) parts.push(`CCF ${params.get('ccf_rank')}`);
+	      if (params.get('core_rank')) parts.push(`CORE ${params.get('core_rank')}`);
+	      if (params.get('jcr_rank')) parts.push(`JCR ${params.get('jcr_rank')}`);
+	      if (params.get('co_author')) parts.push(params.get('co_author'));
+	      return parts.join(' / ');
+	    };
+	    const sectionHtml = (entries, hrefForEntry) => {
+	      if (!entries.length) return '';
+	      const max = entries.reduce((largest, entry) => Math.max(largest, entry[1]), 0) || 1;
+	      return `<section class="publication-stat-section"><ul>${entries.map(([name, count]) => {
+	        const href = hrefForEntry ? hrefForEntry(name) : '';
+	        const label = href ? `<a class="stat-name" href="${escapeHtml(href)}" title="${escapeHtml(name)}">${escapeHtml(name)}</a>` : `<span class="stat-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>`;
+	        const bar = `<span class="stat-bar" style="width:${Math.max(3, Math.round((count / max) * 100))}%;"></span>`;
+	        const track = href ? `<a class="stat-bar-track" href="${escapeHtml(href)}" aria-label="${escapeHtml(name)}">${bar}</a>` : `<span class="stat-bar-track" aria-hidden="true">${bar}</span>`;
+	        return `<li>${label}${track}<span class="stat-count">${count}</span></li>`;
+	      }).join('')}</ul></section>`;
+	    };
+	    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (ch) => ({
+	      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+	    }[ch]));
+	    const ensureStatsModal = () => {
+	      let modal = document.getElementById('publication-stat-modal');
+	      if (modal) return modal;
+	      modal = document.createElement('div');
+	      modal.id = 'publication-stat-modal';
+	      modal.style.cssText = 'position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:24px;';
+	      modal.innerHTML = '<div class="publication-stat-panel" style="width:min(920px, calc(100vw - 48px));max-height:min(82vh, 760px);overflow:auto;background:var(--stat-bg,#fff);color:var(--stat-fg,#212529);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);">\
+	        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--stat-border,rgba(127,127,127,.25));">\
+	          <div data-stat-title style="font-weight:700;font-size:20px;">Statistics</div>\
+	          <button type="button" data-stat-close class="btn btn-sm" aria-label="Close" title="Close" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);"><i class="fas fa-times" aria-hidden="true"></i></button>\
+	        </div>\
+	        <div data-stat-body style="padding:14px 16px;"></div>\
+	      </div>';
+	      document.body.appendChild(modal);
+	      const close = () => { modal.style.display = 'none'; };
+	      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+	      modal.querySelector('[data-stat-close]').addEventListener('click', close);
+	      return modal;
+	    };
+	    const updateStatsTheme = (modal) => {
+	      const panel = modal.querySelector('.publication-stat-panel');
+	      const dark = document.body.classList.contains('dark');
+	      panel.style.setProperty('--stat-bg', dark ? '#111c2f' : '#fff');
+	      panel.style.setProperty('--stat-fg', dark ? '#d7dde7' : '#212529');
+	      panel.style.setProperty('--stat-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
+	    };
+	    const openStats = () => {
+	      const items = visibleItems();
+	      if (!items.length) return;
+	      const years = new Map();
+	      const tags = new Map();
+	      const types = new Map();
+	      const venues = new Map();
+	      const ccf = new Map();
+	      const core = new Map();
+	      const jcr = new Map();
+	      const authors = new Map();
+	      items.forEach((item) => {
+	        addCount(venues, item.getAttribute('data-publication-venue') || '');
+	        addCount(years, item.getAttribute('data-year') || '');
+	        splitAttr(item, 'data-tags').forEach((tag) => addCount(tags, tag));
+	        splitAttr(item, 'data-publication-types').forEach((type) => addCount(types, publicationTypeNames[type] || `Type ${type}`));
+	        addCount(ccf, item.getAttribute('data-ccf-rank') ? `CCF ${item.getAttribute('data-ccf-rank')}` : '');
+	        addCount(core, item.getAttribute('data-core-rank') ? `CORE ${item.getAttribute('data-core-rank')}` : '');
+	        addCount(jcr, item.getAttribute('data-jcr-rank') ? `JCR ${item.getAttribute('data-jcr-rank')}` : '');
+	        splitAttr(item, 'data-authors').forEach((author) => {
+	          if (ownerName && author.toLowerCase() === ownerName.toLowerCase()) return;
+	          addCount(authors, author);
+	        });
+	      });
+	      const modal = ensureStatsModal();
+	      updateStatsTheme(modal);
+	      const filterSummary = currentFilterSummary();
+	      const titleEl = modal.querySelector('[data-stat-title]');
+	      if (titleEl) titleEl.textContent = filterSummary ? `Statistics - ${filterSummary}` : 'Statistics';
+	      const sections = [
+	        ['Years', 'fa-calendar-alt', sortedEntries(years), (name) => statHref('year', name)],
+	        ['Pub. Types', 'fa-file-alt', sortedEntries(types), (name) => statHref('publication_type', typeIdForName(name) || name)],
+	        ['Venues', 'fa-university', sortedEntries(venues), (name) => statHref('venue', name)],
+	        ['Tags', 'fa-tags', sortedEntries(tags), (name) => statHref('tag', name)],
+	        ['Ranks', 'fa-award', [...sortedEntries(ccf), ...sortedEntries(core), ...sortedEntries(jcr)], rankHref],
+	        ['Co-Authors', 'fa-users', sortedEntries(authors).slice(0, 80), (name) => statHref('co_author', name)]
+	      ].filter((section) => section[2].length);
+	      let activeSectionIndex = 0;
+	      const tabs = sections.map(([title, icon], index) =>
+	        `<button type="button" class="btn btn-sm ${index === 0 ? 'btn-primary' : 'btn-outline-primary'}" data-stat-tab="${index}"><i class="fas ${escapeHtml(icon)} mr-1" aria-hidden="true"></i>${escapeHtml(title)}</button>`
+	      ).join('');
+	      const panes = sections.map(([title, icon, entries, hrefForEntry], index) =>
+	        `<div data-stat-pane="${index}"${index === 0 ? '' : ' style="display:none;"'}>${sectionHtml(entries, hrefForEntry)}</div>`
+	      ).join('');
+	      const body = modal.querySelector('[data-stat-body]');
+	      body.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;"><div style="font-size:.9rem;opacity:.78;">${items.length} entr${items.length === 1 ? 'y' : 'ies'}</div><div style="display:flex;gap:8px;align-items:center;"><button type="button" class="btn btn-sm stat-icon-btn" data-stat-export-image aria-label="Export statistics image" title="Export statistics image"><i class="fas fa-image" aria-hidden="true"></i></button><button type="button" class="btn btn-sm stat-icon-btn" data-stat-print-image aria-label="Open statistics text" title="Open statistics text"><i class="fas fa-print" aria-hidden="true"></i></button></div></div><div class="publication-stat-tabs">${tabs}</div><div class="publication-stat-panes">${panes}</div>`;
+	      const exportImageBtn = body.querySelector('[data-stat-export-image]');
+	      if (exportImageBtn) {
+	        exportImageBtn.addEventListener('click', () => {
+	          const section = sections[activeSectionIndex];
+	          if (section) downloadStatsImage(section[0], section[2]);
+	        });
+	      }
+	      const printImageBtn = body.querySelector('[data-stat-print-image]');
+	      if (printImageBtn) {
+	        printImageBtn.addEventListener('click', () => {
+	          const section = sections[activeSectionIndex];
+	          if (section) printStatsImage(section[0], section[2]);
+	        });
+	      }
+	      body.querySelectorAll('[data-stat-tab]').forEach((button) => {
+	        button.addEventListener('click', () => {
+	          const index = button.getAttribute('data-stat-tab');
+	          activeSectionIndex = Number(index) || 0;
+	          body.querySelectorAll('[data-stat-tab]').forEach((tab) => {
+	            const active = tab === button;
+	            tab.classList.toggle('btn-primary', active);
+	            tab.classList.toggle('btn-outline-primary', !active);
+	          });
+	          body.querySelectorAll('[data-stat-pane]').forEach((pane) => {
+	            pane.style.display = pane.getAttribute('data-stat-pane') === index ? '' : 'none';
+	          });
+	        });
+	      });
+	      modal.style.display = 'flex';
+	    };
+
+	    if (openBtn) {
+	      openBtn.addEventListener('click', () => {
+	        const bib = currentBibText();
+	        if (!bib.trim() || !window.openBib) return;
+	        window.openBib({ getAttribute: (name) => name === 'data-bib' ? bib : (name === 'data-aggregate' ? '1' : '') });
+	      });
+	    }
+	    if (statsBtn) statsBtn.addEventListener('click', openStats);
+
+	    updateToolbar();
 	  })();
 	</script>
   </div>

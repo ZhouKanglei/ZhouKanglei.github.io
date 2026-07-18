@@ -119,6 +119,14 @@
     </item>
     
     <item>
+      <title>A Mixed Reality Training System for Hand-Object Interaction in Simulated Microgravity Environments</title>
+      <link>https://zhoukanglei.github.io/publications/mr_hoi/</link>
+      <pubDate>Sat, 11 Nov 2023 19:00:00 +0000</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/mr_hoi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Hierarchical Graph Convolutional Networks for Action Quality Assessment</title>
       <link>https://zhoukanglei.github.io/publications/hgcn_aqa/</link>
       <pubDate>Thu, 01 Jun 2023 19:43:47 +0800</pubDate>
@@ -131,6 +139,14 @@
       <link>https://zhoukanglei.github.io/publications/jdm_aqa/</link>
       <pubDate>Thu, 11 May 2023 15:51:23 +0800</pubDate>
       <guid>https://zhoukanglei.github.io/publications/jdm_aqa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>STGAE: Spatial-Temporal Graph Auto-Encoder for Hand Motion Denoising</title>
+      <link>https://zhoukanglei.github.io/publications/stgae/</link>
+      <pubDate>Thu, 14 Oct 2021 10:25:09 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/stgae/</guid>
       <description></description>
     </item>
     

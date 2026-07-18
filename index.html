@@ -244,7 +244,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.6b20fdbe325be453106dc1028dd6eeb4.css" />
+  <link rel="stylesheet" href="/css/wowchemy.90306eb499d005f926ff11e033da0b3e.css" />
 
   
   
@@ -498,6 +498,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/index.html"><span>Home</span></a>
           </li>
@@ -528,8 +532,12 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
-            <a class="nav-link " href="/tag/highlights"><span>Publications</span></a>
+            <a class="nav-link " href="/publications/?tag=Highlights"><span>Publications</span></a>
           </li>
 
           
@@ -563,6 +571,10 @@
               
               
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -602,6 +614,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/#people" data-target="#people"><span>Collaborators</span></a>
           </li>
@@ -639,6 +655,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/#gallery" data-target="#gallery"><span>Research</span></a>
           </li>
@@ -669,6 +689,10 @@
               
             
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -703,6 +727,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/AQA-Survey/" target="_blank" rel="noopener"><span>Awesome AQA</span></a>
           </li>
@@ -733,6 +761,10 @@
             
           
 
+          
+          
+          
+
           <li class="nav-item">
             <a class="nav-link " href="/files/CV_en.pdf"><span>CV</span></a>
           </li>
@@ -761,6 +793,10 @@
               
             
             
+          
+
+          
+          
           
 
           <li class="nav-item">
@@ -1708,10 +1744,6 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
       
       
     
-      
-      
-      
-    
 
     
     
@@ -1757,7 +1789,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           
           
             <a href="/tag/highlights/" style="font-size:1.500rem">
-              Highlights <sup>15</sup>
+              Highlights <sup>17</sup>
             </a>
           
         
@@ -1837,6 +1869,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         fields[k] = v;
       }
       return fields;
+    };
+
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
     };
 
     const formatAuthorsIEEE = (authorStr) => {
@@ -2014,6 +2067,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -2070,34 +2127,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -2144,9 +2231,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -2156,12 +2243,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -2181,10 +2350,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -2233,10 +2426,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -2254,7 +2448,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -2278,8 +2472,14 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
   
+    
+  
 
 
+
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://arxiv.org/pdf/2607.07438" target="_blank" rel="noopener">
+  <i class="fas fa-file-pdf mr-1" aria-hidden="true"></i>PDF
+</a>
 
 
 
@@ -2371,6 +2571,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
       return fields;
     };
 
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -2546,6 +2767,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -2602,34 +2827,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -2676,9 +2931,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -2688,12 +2943,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -2713,10 +3050,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -2765,10 +3126,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -2786,7 +3148,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -2965,6 +3327,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
       return fields;
     };
 
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -3140,6 +3523,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -3196,34 +3583,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -3270,9 +3687,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -3282,12 +3699,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -3307,10 +3806,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -3359,10 +3882,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -3380,7 +3904,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -3533,7 +4057,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmNlNGwsCiAgdGl0bGUgICAgICAgID0ge0NFJF40JEw6IENvbnRpbnVhbCBFZ28sIEV4bywgYW5kIEVnby1FeG8gTGVhcm5pbmd9LAogIGF1dGhvciAgICAgICA9IHtZYW4sIEhvbmd3ZWkgYW5kIFpob3UsIEthbmdsZWkgYW5kIExpdSwgWXVjaGVuIGFuZCBTaGksIFFpbmd5dSBhbmQgWmhvbmcsIFlpIGFuZCBXYW5nLCBMaXl1YW59LAogIGJvb2t0aXRsZSAgICA9IHtQcm9jZWVkaW5ncyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIE1hY2hpbmUgTGVhcm5pbmcgKElDTUwpfSwKICB5ZWFyICAgICAgICAgPSB7MjAyNn0sCiAgbm90ZSAgICAgICAgID0ge3RvIGFwcGVhcn0sCn0K">
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7eWFuMjAyNmNlNGwsCiAgdGl0bGUgICAgID0ge0NFJF40JEw6IENvbnRpbnVhbCBFZ28sIEV4bywgYW5kIEVnby1FeG8gTGVhcm5pbmd9LAogIGF1dGhvciAgICA9IHtZYW4sIEhvbmd3ZWkgYW5kIFpob3UsIEthbmdsZWkgYW5kIExpdSwgWXVjaGVuIGFuZCBTaGksIFFpbmd5dSBhbmQgWmhvbmcsIFlpIGFuZCBXYW5nLCBMaXl1YW59LAogIGJvb2t0aXRsZSA9IHtQcm9jZWVkaW5ncyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb25mZXJlbmNlIG9uIE1hY2hpbmUgTGVhcm5pbmcgKElDTUwpfSwKICB5ZWFyICAgICAgPSB7MjAyNn0sCiAgdXJsICAgICAgID0ge2h0dHBzOi8vb3BlbnJldmlldy5uZXQvZm9ydW0_aWQ9U2hiNGx0QjNKMn0KfQo">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -3561,6 +4085,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         fields[k] = v;
       }
       return fields;
+    };
+
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
     };
 
     const formatAuthorsIEEE = (authorStr) => {
@@ -3738,6 +4283,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -3794,34 +4343,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -3868,9 +4447,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -3880,12 +4459,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -3905,10 +4566,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -3957,10 +4642,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -3978,7 +4664,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -4002,6 +4688,14 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
   
+    
+  
+
+
+
+<a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openreview.net/pdf?id=Shb4ltB3J2" target="_blank" rel="noopener">
+  <i class="fas fa-file-pdf mr-1" aria-hidden="true"></i>PDF
+</a>
 
 
 
@@ -4016,7 +4710,33 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/AnAppleCore/CE4L" target="_blank" rel="noopener">
+    <i class="fab fa-github mr-1"></i>GitHub</a>
 
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header btn-sm" href="https://openreview.net/forum?id=Shb4ltB3J2" target="_blank" rel="noopener">
+    <i class="fas fa-external-link-alt mr-1"></i>OpenReview</a>
 
 </p>
 
@@ -4095,6 +4815,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
       return fields;
     };
 
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -4270,6 +5011,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -4326,34 +5071,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -4400,9 +5175,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -4412,12 +5187,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -4437,10 +5294,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -4489,10 +5370,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -4510,7 +5392,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -4659,6 +5541,27 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
       return fields;
     };
 
+    const splitBibTeXEntries = (input) => {
+      const text = String(input || '').trim();
+      if (!text) return [];
+      const entries = [];
+      let start = -1;
+      let depth = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text[i];
+        if (ch === '@' && depth === 0) start = i;
+        if (start >= 0 && ch === '{') depth += 1;
+        if (start >= 0 && ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            entries.push(text.slice(start, i + 1).trim());
+            start = -1;
+          }
+        }
+      }
+      return entries.length ? entries : [text];
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -4834,6 +5737,10 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
     };
 
     const toPlaintext = (bibtex, style) => {
+      const entries = splitBibTeXEntries(bibtex);
+      if (entries.length > 1) {
+        return entries.map((entry) => toPlaintext(entry, style)).filter(Boolean).join('\n\n');
+      }
       if (style === 'ieeetran') return toIEEEtran(bibtex);
       if (style === 'gbt7714') return toGBT7714(bibtex);
       if (style === 'apa') return toAPA(bibtex);
@@ -4890,34 +5797,64 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
+        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
       </div>\
     </div>\
-    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:42vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
+    <textarea id="bib-text" readonly style="width:100%;min-height:120px;max-height:38vh;overflow:auto;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px;line-height:1.5;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);"></textarea>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="ieee-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="apa-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;position:relative;">\
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
-      <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
-        <i class="fas fa-copy" aria-hidden="true"></i>\
-      </button>\
+      <div style="display:flex;gap:8px;align-items:center;">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-copy" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-image" aria-hidden="true"></i>\
+        </button>\
+        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);">\
+          <i class="fas fa-print" aria-hidden="true"></i>\
+        </button>\
+      </div>\
     </div>\
     <div id="gbt-text" style="width:100%;min-height:120px;max-height:38vh;white-space:pre-wrap;word-break:break-word;overflow:auto;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55;"></div>\
 \
@@ -4964,9 +5901,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           }, 1400);
         }
 
-        function copyText(modalEl, text, label, toastId) {
-          return navigator.clipboard.writeText(text).then(function () {
-            showToast(modalEl, toastId, 'Copied ' + label, 'success');
+	        function copyText(modalEl, text, label, toastId) {
+	          return navigator.clipboard.writeText(text).then(function () {
+	            showToast(modalEl, toastId, 'Copied ' + label, 'success');
           }).catch(function () {
             try {
               var ta = modalEl.querySelector('#bib-text');
@@ -4976,12 +5913,94 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
               showToast(modalEl, toastId, 'Copied ' + label, 'success');
             } catch (e2) {
               showToast(modalEl, toastId, 'Copy failed', 'error');
-            }
-          });
-        }
+	            }
+	          });
+	        }
 
-        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
-          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
+	        function escapeHtml(value) {
+	          return String(value).replace(/[&<>"']/g, function (ch) {
+	            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+	          });
+	        }
+
+	        function openReferenceText(label, text) {
+	          var win = window.open('', '_blank');
+	          if (!win) return;
+	          var dark = document.body.classList.contains('dark');
+	          win.document.write('<!doctype html><html><head><title>' + escapeHtml(label) + '</title><style>\
+	            :root{--bg:' + (dark ? '#111c2f' : '#fff') + ';--fg:' + (dark ? '#d7dde7' : '#212529') + ';--muted:' + (dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)') + ';--surface:' + (dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)') + ';--border:' + (dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.25)') + ';}\
+	            html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,sans-serif;}\
+	            body{padding:32px;}\
+	            main{max-width:980px;margin:0 auto;}\
+	            h1{font-size:28px;line-height:1.25;margin:0 0 18px;font-weight:700;}\
+	            pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--fg);font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;}\
+	            @media print{body{padding:18px;}main{max-width:none;}}\
+	          </style></head><body><main><h1>' + escapeHtml(label) + '</h1><pre>' + escapeHtml(text || '') + '</pre></main></body></html>');
+	          win.document.close();
+	        }
+
+	        function referenceSlug(value) {
+	          return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'reference';
+	        }
+
+	        function wrapCanvasText(ctx, text, maxWidth) {
+	          return String(text || '').split(/\r?\n/).flatMap(function (paragraph) {
+	            if (!paragraph) return [''];
+	            var words = paragraph.split(/(\s+)/);
+	            var lines = [];
+	            var line = '';
+	            words.forEach(function (word) {
+	              var next = line + word;
+	              if (line && ctx.measureText(next).width > maxWidth) {
+	                lines.push(line.trimEnd());
+	                line = word.trimStart();
+	              } else {
+	                line = next;
+	              }
+	            });
+	            lines.push(line.trimEnd());
+	            return lines;
+	          });
+	        }
+
+	        function exportReferenceImage(label, text) {
+	          if (!text) return;
+	          var dark = document.body.classList.contains('dark');
+	          var scale = Math.max(2, Math.min(3, window.devicePixelRatio || 2));
+	          var width = 1200;
+	          var padding = 48;
+	          var canvas = document.createElement('canvas');
+	          var ctx = canvas.getContext('2d');
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          var lines = wrapCanvasText(ctx, text, width - padding * 2);
+	          var lineHeight = 34;
+	          var height = Math.max(260, 124 + lines.length * lineHeight + padding);
+	          canvas.width = width * scale;
+	          canvas.height = height * scale;
+	          canvas.style.width = width + 'px';
+	          canvas.style.height = height + 'px';
+	          ctx.scale(scale, scale);
+	          ctx.fillStyle = dark ? '#111c2f' : '#ffffff';
+	          ctx.fillRect(0, 0, width, height);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '700 34px Arial, sans-serif';
+	          ctx.fillText(label, padding, 56);
+	          ctx.fillStyle = dark ? 'rgba(215,221,231,.68)' : 'rgba(33,37,41,.62)';
+	          ctx.font = '18px Arial, sans-serif';
+	          ctx.fillText('Reference text', padding, 88);
+	          ctx.fillStyle = dark ? '#d7dde7' : '#212529';
+	          ctx.font = '24px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace';
+	          lines.forEach(function (line, index) {
+	            ctx.fillText(line, padding, 132 + index * lineHeight);
+	          });
+	          var a = document.createElement('a');
+	          a.download = referenceSlug(label) + '.png';
+	          a.href = canvas.toDataURL('image/png');
+	          a.click();
+	        }
+
+	        modal.querySelector('#bib-copy-bibtex').addEventListener('click', function () {
+	          copyText(modal, modal.querySelector('#bib-text').value || '', 'BibTeX', '#bib-toast-bibtex');
         });
         modal.querySelector('#bib-copy-ieee').addEventListener('click', function () {
           copyText(modal, modal.querySelector('#ieee-text').textContent || '', 'IEEEtran', '#bib-toast-ieee');
@@ -5001,10 +6020,34 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           document.body.appendChild(a);
           a.click();
           a.remove();
-          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-        });
+	          setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+	        });
+	        modal.querySelector('#bib-open-bibtex').addEventListener('click', function () {
+	          openReferenceText('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-image-bibtex').addEventListener('click', function () {
+	          exportReferenceImage('BibTeX', modal.querySelector('#bib-text').value || '');
+	        });
+	        modal.querySelector('#bib-open-ieee').addEventListener('click', function () {
+	          openReferenceText('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-ieee').addEventListener('click', function () {
+	          exportReferenceImage('IEEEtran', modal.querySelector('#ieee-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-apa').addEventListener('click', function () {
+	          openReferenceText('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-apa').addEventListener('click', function () {
+	          exportReferenceImage('APA', modal.querySelector('#apa-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-open-gbt').addEventListener('click', function () {
+	          openReferenceText('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
+	        modal.querySelector('#bib-image-gbt').addEventListener('click', function () {
+	          exportReferenceImage('GBT7714-2015', modal.querySelector('#gbt-text').textContent || '');
+	        });
 
-        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
+	        modal.querySelectorAll('.bib-icon-btn').forEach(function (btn) {
           btn.addEventListener('mouseup', function () { btn.blur(); });
           btn.addEventListener('keyup', function (e) { if (e.key === 'Enter' || e.key === ' ') btn.blur(); });
         });
@@ -5053,10 +6096,11 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         }
 
         try {
-          var maxPx = Math.round(window.innerHeight * 0.42);
+          var maxPx = Math.round(window.innerHeight * 0.38);
+          var isAggregate = !!(el && el.getAttribute && el.getAttribute('data-aggregate'));
           textarea.style.height = 'auto';
           var next = Math.min(textarea.scrollHeight + 2, maxPx);
-          textarea.style.height = String(Math.max(120, next)) + 'px';
+          textarea.style.height = String(isAggregate ? maxPx : Math.max(120, next)) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -5074,7 +6118,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
         try {
           var gbtLines = (gbtDiv.textContent || '').split(/\r?\n/).length || 1;
-          var gbtTarget = Math.max(3, Math.min(8, gbtLines));
+          var gbtTarget = Math.max(3, Math.min(10, gbtLines));
           gbtDiv.style.minHeight = String(gbtTarget * 1.55) + 'em';
         } catch (e4) {}
 
@@ -5350,6 +6394,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+
+
   
   
   
@@ -5378,6 +6424,17 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -5387,6 +6444,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 <div class="media stream-item view-compact"
   data-year="2025"
+  data-tags="Personal"
+  
+  
   
   
   
@@ -5525,6 +6585,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+
+
   
   
   
@@ -5553,6 +6615,17 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 
 
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -5562,6 +6635,9 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
 <div class="media stream-item view-compact"
   data-year="2025"
+  data-tags="Personal"
+  
+  
   
   
   

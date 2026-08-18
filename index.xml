@@ -5,7 +5,7 @@
     <link>https://zhoukanglei.github.io/</link>
       <atom:link href="https://zhoukanglei.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Kanglei Zhou</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 18 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 18 Aug 2026 00:00:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Kanglei Zhou</title>
@@ -33,6 +33,14 @@
       <link>https://zhoukanglei.github.io/people/xiaohui-liang/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
       <guid>https://zhoukanglei.github.io/people/xiaohui-liang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NeuroPath: Brain-Inspired Dual-Pathway Graph Convolutional Networks for Skeleton-Based Action Recognition</title>
+      <link>https://zhoukanglei.github.io/publications/neuropath/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/neuropath/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EEG | Kanglei Zhou</title>
+    <link>https://zhoukanglei.github.io/tag/eeg/</link>
+      <atom:link href="https://zhoukanglei.github.io/tag/eeg/index.xml" rel="self" type="application/rss+xml" />
+    <description>EEG</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 04 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <image>
+      <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
+      <title>EEG</title>
+      <link>https://zhoukanglei.github.io/tag/eeg/</link>
+    </image>
+    
+    <item>
+      <title>ProCA: Progressive Contrastive Alignment for Robust EEG Visual Decoding</title>
+      <link>https://zhoukanglei.github.io/publications/proca/</link>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/proca/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

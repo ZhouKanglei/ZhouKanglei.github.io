@@ -72,7 +72,7 @@
   
     
   
-  <meta name="description" content="Progressive contrastive alignment for robust EEG visual decoding across diverse settings." />
+  <meta name="description" content="Electroencephalogram (EEG) visual decoding aims to recover visual semantics from non-invasive neural time-series signals, for which robust alignment between noisy neural responses and stable semantic representations is key to achieving high-performance decoding. Despite recent advances in contrastive learning, robust EEG decoding remains challenging because existing methods rely on fixed visual or textual anchors whose semantic relations may become misaligned with EEG representations that vary across trials, subjects, and learning stages. Our empirical evidence shows that this instability appears across both standard EEG decoding protocols and more challenging robustness settings, including strict cross-subject transfer and realistic personalized continual adaptation. We provide a formal analysis showing that fixed semantic supervision can bias optimization when EEG-specific relations evolve, and that structure-agnostic perturbations may distort semantically important EEG components. To address these issues, we propose Progressive Contrastive Alignment (ProCA), a unified and model-agnostic framework for adaptive neural-semantic alignment. ProCA progressively refines class-level contrastive supervision from frozen vision-language priors to EEG-aware semantic relations, and introduces structure-consistent interpolation to constrain feature mixing according to channel-wise and temporal importance. Across subject-dependent, subject-independent, strict cross-subject transfer, and continual adaptation settings, ProCA achieves average relative Top-1/Top-5 gains of 7.4%/3.9%, 10.0%/4.6%, 28.1%/17.8%, and 16.8%/11.6%, respectively." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://zhoukanglei.github.io/publications/proca/" />
@@ -289,6 +289,7 @@
   
   
     
+    
   
   
 
@@ -297,7 +298,7 @@
     
     
   
-  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:card" content="summary" />
   
     <meta property="twitter:site" content="@Gravellesimon" />
     <meta property="twitter:creator" content="@Gravellesimon" />
@@ -305,8 +306,8 @@
   <meta property="og:site_name" content="Kanglei Zhou" />
   <meta property="og:url" content="https://zhoukanglei.github.io/publications/proca/" />
   <meta property="og:title" content="ProCA: Progressive Contrastive Alignment for Robust EEG Visual Decoding | Kanglei Zhou" />
-  <meta property="og:description" content="Progressive contrastive alignment for robust EEG visual decoding across diverse settings." /><meta property="og:image" content="https://zhoukanglei.github.io/publications/proca/featured.png" />
-    <meta property="twitter:image" content="https://zhoukanglei.github.io/publications/proca/featured.png" /><meta property="og:locale" content="en-us" />
+  <meta property="og:description" content="Electroencephalogram (EEG) visual decoding aims to recover visual semantics from non-invasive neural time-series signals, for which robust alignment between noisy neural responses and stable semantic representations is key to achieving high-performance decoding. Despite recent advances in contrastive learning, robust EEG decoding remains challenging because existing methods rely on fixed visual or textual anchors whose semantic relations may become misaligned with EEG representations that vary across trials, subjects, and learning stages. Our empirical evidence shows that this instability appears across both standard EEG decoding protocols and more challenging robustness settings, including strict cross-subject transfer and realistic personalized continual adaptation. We provide a formal analysis showing that fixed semantic supervision can bias optimization when EEG-specific relations evolve, and that structure-agnostic perturbations may distort semantically important EEG components. To address these issues, we propose Progressive Contrastive Alignment (ProCA), a unified and model-agnostic framework for adaptive neural-semantic alignment. ProCA progressively refines class-level contrastive supervision from frozen vision-language priors to EEG-aware semantic relations, and introduces structure-consistent interpolation to constrain feature mixing according to channel-wise and temporal importance. Across subject-dependent, subject-independent, strict cross-subject transfer, and continual adaptation settings, ProCA achieves average relative Top-1/Top-5 gains of 7.4%/3.9%, 10.0%/4.6%, 28.1%/17.8%, and 16.8%/11.6%, respectively." /><meta property="og:image" content="https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png" />
+    <meta property="twitter:image" content="https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta

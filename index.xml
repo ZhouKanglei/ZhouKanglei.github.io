@@ -5,7 +5,7 @@
     <link>https://zhoukanglei.github.io/</link>
       <atom:link href="https://zhoukanglei.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Kanglei Zhou</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 04 Sep 2026 00:00:00 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Mar 2027 00:00:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Kanglei Zhou</title>
@@ -37,6 +37,14 @@
     </item>
     
     <item>
+      <title>NeuroPath: Brain-Inspired Dual-Pathway Graph Convolutional Networks for Skeleton-Based Action Recognition</title>
+      <link>https://zhoukanglei.github.io/publications/neuropath/</link>
+      <pubDate>Mon, 01 Mar 2027 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/neuropath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>MePo&#43;&#43;: Unifying Representation Refinement and Reconciliation for General Continual Learning</title>
       <link>https://zhoukanglei.github.io/publications/mepopp/</link>
       <pubDate>Fri, 04 Sep 2026 00:00:00 +0800</pubDate>
@@ -57,14 +65,6 @@
       <link>https://zhoukanglei.github.io/publications/dualalign/</link>
       <pubDate>Tue, 01 Sep 2026 00:00:00 +0800</pubDate>
       <guid>https://zhoukanglei.github.io/publications/dualalign/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NeuroPath: Brain-Inspired Dual-Pathway Graph Convolutional Networks for Skeleton-Based Action Recognition</title>
-      <link>https://zhoukanglei.github.io/publications/neuropath/</link>
-      <pubDate>Tue, 18 Aug 2026 00:00:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/neuropath/</guid>
       <description></description>
     </item>
     

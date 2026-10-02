@@ -2650,6 +2650,8 @@
       const params = new URLSearchParams(window.location.search || '');
       
       let preferred = (sessionStorage.getItem('toc_open') || '').trim();
+      
+      if (preferred === 'tags' && !params.get('tag')) preferred = '';
       if (!preferred) {
         if (params.get('year')) preferred = 'year';
         else if (params.get('publication_type')) preferred = 'types';

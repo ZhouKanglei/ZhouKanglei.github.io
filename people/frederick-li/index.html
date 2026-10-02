@@ -3035,9 +3035,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -3184,13 +3184,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -3405,6 +3409,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -4161,9 +4166,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -4310,13 +4315,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -4531,6 +4540,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -5102,9 +5112,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -5251,13 +5261,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -5472,6 +5486,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -6016,9 +6031,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -6165,13 +6180,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -6386,6 +6405,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -6931,9 +6951,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -7080,13 +7100,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -7301,6 +7325,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -7917,9 +7942,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -8066,13 +8091,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -8287,6 +8316,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -8877,9 +8907,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -9026,13 +9056,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -9247,6 +9281,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -9825,9 +9860,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -9974,13 +10009,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -10195,6 +10234,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -10794,9 +10834,9 @@
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid #0d6efd;color:#0d6efd;background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:#0a58ca;color:#0a58ca;background:rgba(13,110,253,.08);box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:#0d6efd;color:#fff;background:#0d6efd;box-shadow:none}\
+    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
+    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
+    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -10943,13 +10983,17 @@
         })();
 
         function updateTheme() {
-          var dark = document.body.classList.contains('dark');
+          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
           var panel = modal.querySelector('#bib-modal-panel');
           panel.style.setProperty('--bib-bg', dark ? '#111c2f' : '#ffffff');
           panel.style.setProperty('--bib-fg', dark ? '#d7dde7' : '#212529');
           panel.style.setProperty('--bib-surface', dark ? 'rgba(255,255,255,.06)' : 'rgba(127,127,127,.08)');
           panel.style.setProperty('--bib-border', dark ? 'rgba(255,255,255,.14)' : 'rgba(127,127,127,.25)');
           panel.style.setProperty('--bib-border-strong', dark ? 'rgba(255,255,255,.18)' : 'rgba(127,127,127,.35)');
+          panel.style.setProperty('--bib-accent', dark ? '#6ea8fe' : '#0d6efd');
+          panel.style.setProperty('--bib-accent-hover', dark ? '#9ec5fe' : '#0a58ca');
+          panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
+          panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
         updateTheme();
 
@@ -11164,6 +11208,7 @@
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
+        updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');

@@ -1636,10 +1636,10 @@
     .publication-export-count{display:inline-flex;align-items:center;font-size:.95rem;line-height:1;opacity:.72}
     .publication-stat-tabs{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;margin-bottom:12px}
     .publication-stat-tabs .btn{white-space:nowrap}
-    .publication-stat-panel .stat-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);transition:none;box-shadow:none;box-sizing:border-box}
+    .publication-stat-panel .stat-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}
     .publication-stat-panel .stat-icon-btn:hover,
-    .publication-stat-panel .stat-icon-btn:active{background:transparent;border-color:var(--stat-border,rgba(127,127,127,.25));color:var(--stat-fg,#212529);transform:none;box-shadow:none}
-    .publication-stat-panel .stat-icon-btn:focus{outline:0;box-shadow:none}
+    .publication-stat-panel .stat-icon-btn:active{transform:none}
+    .publication-stat-panel .stat-icon-btn:focus{outline:0}
     .publication-stat-panel .stat-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}
     .publication-stat-section h3{font-size:1rem;margin:.1rem 0 .45rem}
     .publication-stat-section ul{list-style:none;margin:0;padding:0 18px 0 0;max-height:420px;overflow:auto;scrollbar-gutter:stable;box-sizing:border-box}
@@ -3245,7 +3245,7 @@
 	      modal.innerHTML = '<div class="publication-stat-panel" style="width:min(920px, calc(100vw - 48px));max-height:min(82vh, 760px);overflow:auto;background:var(--stat-bg,#fff);color:var(--stat-fg,#212529);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);">\
 	        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--stat-border,rgba(127,127,127,.25));">\
 	          <div data-stat-title style="font-weight:700;font-size:20px;">Statistics</div>\
-	          <button type="button" data-stat-close class="btn btn-sm stat-icon-btn" aria-label="Close" title="Close"><i class="fas fa-times" aria-hidden="true"></i></button>\
+          <button type="button" data-stat-close class="btn btn-outline-primary btn-page-header btn-sm stat-icon-btn" aria-label="Close" title="Close"><i class="fas fa-times" aria-hidden="true"></i></button>\
 	        </div>\
 	        <div data-stat-body style="padding:14px 16px;"></div>\
 	      </div>';
@@ -3307,7 +3307,7 @@
 	        `<div data-stat-pane="${index}"${index === 0 ? '' : ' style="display:none;"'}>${sectionHtml(entries, hrefForEntry)}</div>`
 	      ).join('');
 	      const body = modal.querySelector('[data-stat-body]');
-	      body.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;"><div style="font-size:.9rem;opacity:.78;">${items.length} entr${items.length === 1 ? 'y' : 'ies'}</div><div style="display:flex;gap:8px;align-items:center;"><button type="button" class="btn btn-sm stat-icon-btn" data-stat-export-image aria-label="Export statistics image" title="Export statistics image"><i class="fas fa-image" aria-hidden="true"></i></button><button type="button" class="btn btn-sm stat-icon-btn" data-stat-print-image aria-label="Open statistics text" title="Open statistics text"><i class="fas fa-print" aria-hidden="true"></i></button></div></div><div class="publication-stat-tabs btn-links">${tabs}</div><div class="publication-stat-panes">${panes}</div>`;
+	      body.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;"><div style="font-size:.9rem;opacity:.78;">${items.length} entr${items.length === 1 ? 'y' : 'ies'}</div><div style="display:flex;gap:8px;align-items:center;"><button type="button" class="btn btn-outline-primary btn-page-header btn-sm stat-icon-btn" data-stat-export-image aria-label="Export statistics image" title="Export statistics image"><i class="fas fa-image" aria-hidden="true"></i></button><button type="button" class="btn btn-outline-primary btn-page-header btn-sm stat-icon-btn" data-stat-print-image aria-label="Open statistics text" title="Open statistics text"><i class="fas fa-print" aria-hidden="true"></i></button></div></div><div class="publication-stat-tabs btn-links">${tabs}</div><div class="publication-stat-panes">${panes}</div>`;
 	      const exportImageBtn = body.querySelector('[data-stat-export-image]');
 	      if (exportImageBtn) {
 	        exportImageBtn.addEventListener('click', () => {

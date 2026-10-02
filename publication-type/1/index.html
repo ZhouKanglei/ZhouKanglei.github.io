@@ -230,7 +230,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.92ca2a8f441373f83fc71b22e032889b.css" />
+  <link rel="stylesheet" href="/css/wowchemy.a46642a54b426c4a135722a651366fe7.css" />
 
   
   
@@ -5966,12 +5966,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -5979,7 +5982,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -5988,16 +5991,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -6008,13 +6011,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -6025,13 +6028,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -6042,13 +6045,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -6090,7 +6093,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -6104,7 +6107,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -6371,6 +6374,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -7032,12 +7040,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -7045,7 +7056,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -7054,16 +7065,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -7074,13 +7085,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -7091,13 +7102,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -7108,13 +7119,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -7156,7 +7167,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -7170,7 +7181,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -7437,6 +7448,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -8092,12 +8108,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -8105,7 +8124,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -8114,16 +8133,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -8134,13 +8153,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -8151,13 +8170,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -8168,13 +8187,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -8216,7 +8235,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -8230,7 +8249,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -8497,6 +8516,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -9130,12 +9154,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -9143,7 +9170,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -9152,16 +9179,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -9172,13 +9199,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -9189,13 +9216,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -9206,13 +9233,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -9254,7 +9281,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -9268,7 +9295,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -9535,6 +9562,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -10202,12 +10234,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -10215,7 +10250,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -10224,16 +10259,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -10244,13 +10279,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -10261,13 +10296,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -10278,13 +10313,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -10326,7 +10361,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -10340,7 +10375,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -10607,6 +10642,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -11260,12 +11300,15 @@ According to CCF Ranking 2026
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -11273,7 +11316,7 @@ According to CCF Ranking 2026
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -11282,16 +11325,16 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -11302,13 +11345,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -11319,13 +11362,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -11336,13 +11379,13 @@ According to CCF Ranking 2026
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -11384,7 +11427,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -11398,7 +11441,7 @@ According to CCF Ranking 2026
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -11665,6 +11708,11 @@ According to CCF Ranking 2026
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -12301,12 +12349,15 @@ According to Core Ranking 2023
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -12314,7 +12365,7 @@ According to Core Ranking 2023
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -12323,16 +12374,16 @@ According to Core Ranking 2023
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -12343,13 +12394,13 @@ According to Core Ranking 2023
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -12360,13 +12411,13 @@ According to Core Ranking 2023
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -12377,13 +12428,13 @@ According to Core Ranking 2023
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -12425,7 +12476,7 @@ According to Core Ranking 2023
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -12439,7 +12490,7 @@ According to Core Ranking 2023
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -12706,6 +12757,11 @@ According to Core Ranking 2023
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -13437,12 +13493,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -13450,7 +13509,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -13459,16 +13518,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -13479,13 +13538,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -13496,13 +13555,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -13513,13 +13572,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -13561,7 +13620,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -13575,7 +13634,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -13842,6 +13901,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -14460,12 +14524,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -14473,7 +14540,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -14482,16 +14549,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -14502,13 +14569,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -14519,13 +14586,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -14536,13 +14603,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -14584,7 +14651,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -14598,7 +14665,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -14865,6 +14932,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -15614,12 +15686,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -15627,7 +15702,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -15636,16 +15711,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -15656,13 +15731,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -15673,13 +15748,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -15690,13 +15765,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -15738,7 +15813,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -15752,7 +15827,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -16019,6 +16094,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -16456,7 +16536,7 @@ According to CCF Ranking 2022
 
 
 
-<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjRtYWdyLAogIGF1dGhvciAgICA9IHtaaG91LCBLYW5nbGVpIGFuZCBXYW5nLCBMaXl1YW4gYW5kIFpoYW5nLCBYaW5neGluZyBhbmQgU2h1bSwgSHViZXJ0IFAuIEguIGFuZCBMaSwgRnJlZGVyaWNrIFcuIEIuIGFuZCBMaSwgSmlhbmd1byBhbmQgTGlhbmcsIFhpYW9odWl9LAogIHRpdGxlICAgICA9IHtNQUdSOiBNYW5pZm9sZC1BbGlnbmVkIEdyYXBoIFJlZ3VsYXJpemF0aW9uIGZvciBDb250aW51YWwgQWN0aW9uIFF1YWxpdHkgQXNzZXNzbWVudH0sCiAgYm9va3RpdGxlID0ge1Byb2NlZWRpbmdzIG9mIHRoZSBFdXJvcGVhbiBDb25mZXJlbmNlIG9uIENvbXB1dGVyIFZpc2lvbn0sCiAgeWVhciAgICAgID0gezIwMjR9LAogIHBhZ2VzICAgICA9IHszNzUtLTM5Mn0sCiAgZG9pICAgICAgID0gezEwLjEwMDcvOTc4LTMtMDMxLTczMjQ3LThfMjJ9Cn0K">
+<a class="btn btn-outline-primary btn-page-header btn-sm js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7emhvdTIwMjRtYWdyLAogIGF1dGhvciAgICA9IHtaaG91LCBLYW5nbGVpIGFuZCBXYW5nLCBMaXl1YW4gYW5kIFpoYW5nLCBYaW5neGluZyBhbmQgU2h1bSwgSHViZXJ0IFAuIEguIGFuZCBMaSwgRnJlZGVyaWNrIFcuIEIuIGFuZCBMaSwgSmlhbmd1byBhbmQgTGlhbmcsIFhpYW9odWl9LAogIHRpdGxlICAgICA9IHtNQUdSOiBNYW5pZm9sZC1BbGlnbmVkIEdyYXBoIFJlZ3VsYXJpemF0aW9uIGZvciBDb250aW51YWwgQWN0aW9uIFF1YWxpdHkgQXNzZXNzbWVudH0sCiAgYm9va3RpdGxlID0ge1Byb2NlZWRpbmdzIG9mIHRoZSBFdXJvcGVhbiBDb25mZXJlbmNlIG9uIENvbXB1dGVyIFZpc2lvbn0sCiAgdm9sdW1lICAgID0gezE1MDY5fSwKICB5ZWFyICAgICAgPSB7MjAyNH0sCiAgcGFnZXMgICAgID0gezM3NS0tMzkyfSwKICBkb2kgICAgICAgPSB7MTAuMTAwNy85NzgtMy0wMzEtNzMyNDctOF8yMn0KfQo">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -16717,12 +16797,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -16730,7 +16813,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -16739,16 +16822,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -16759,13 +16842,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -16776,13 +16859,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -16793,13 +16876,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -16841,7 +16924,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -16855,7 +16938,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -17122,6 +17205,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -17897,12 +17985,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -17910,7 +18001,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -17919,16 +18010,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -17939,13 +18030,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -17956,13 +18047,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -17973,13 +18064,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -18021,7 +18112,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -18035,7 +18126,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -18302,6 +18393,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -19025,12 +19121,15 @@ According to CCF Ranking 2022
         modal.innerHTML = '\
 <div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
-    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
-    #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
-    #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
+    #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;box-sizing:border-box}\
+    #bib-modal .bib-icon-btn:hover,#bib-modal .bib-icon-btn:active{transform:none}\
+    #bib-modal .bib-icon-btn:focus{outline:0}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:auto;box-sizing:border-box}\
+    #bib-modal .bib-format-tabs{margin:0 !important}\
+    #bib-modal .bib-format-tab{margin:0 !important}\
+    #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
+    #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
@@ -19038,7 +19137,7 @@ According to CCF Ranking 2022
   </style>\
   <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:12px 14px;border-bottom:1px solid var(--bib-border, rgba(127,127,127,.25));">\
     <div id="bib-modal-title" style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:20px;letter-spacing:.01em;">Cite</div>\
-    <button type="button" id="bib-close" class="btn btn-sm bib-icon-btn" aria-label="Close" title="Close">\
+    <button type="button" id="bib-close" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Close" title="Close">\
       <i class="fas fa-times" aria-hidden="true"></i>\
     </button>\
   </div>\
@@ -19047,16 +19146,16 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">BibTeX</div>\
       <div id="bib-toast-bibtex" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-download-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
+        <button type="button" id="bib-download-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Download BibTeX" title="Download BibTeX">\
           <i class="fas fa-download" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-copy-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
+        <button type="button" id="bib-copy-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy BibTeX" title="Copy BibTeX">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
+        <button type="button" id="bib-image-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export BibTeX image" title="Export BibTeX image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-bibtex" class="btn btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
+        <button type="button" id="bib-open-bibtex" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open BibTeX text" title="Open BibTeX text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -19067,13 +19166,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">IEEEtran</div>\
       <div id="bib-toast-ieee" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-ieee" class="btn btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
+        <button type="button" id="bib-copy-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy IEEEtran" title="Copy IEEEtran">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-ieee" class="btn btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
+        <button type="button" id="bib-image-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export IEEEtran image" title="Export IEEEtran image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-ieee" class="btn btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
+        <button type="button" id="bib-open-ieee" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open IEEEtran text" title="Open IEEEtran text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -19084,13 +19183,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">APA</div>\
       <div id="bib-toast-apa" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-apa" class="btn btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
+        <button type="button" id="bib-copy-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy APA" title="Copy APA">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-apa" class="btn btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
+        <button type="button" id="bib-image-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export APA image" title="Export APA image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-apa" class="btn btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
+        <button type="button" id="bib-open-apa" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open APA text" title="Open APA text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -19101,13 +19200,13 @@ According to CCF Ranking 2022
       <div style="font-weight:600;font-size:16px;">GBT7714-2015</div>\
       <div id="bib-toast-gbt" style="display:none;font-size:13px;font-weight:600;letter-spacing:.01em;opacity:.99;padding:6px 10px;border-radius:999px;border:1px solid var(--bib-border, rgba(127,127,127,.25));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg, inherit);position:absolute;left:50%;transform:translateX(-50%);"></div>\
       <div style="display:flex;gap:8px;align-items:center;">\
-        <button type="button" id="bib-copy-gbt" class="btn btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
+        <button type="button" id="bib-copy-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Copy GBT7714-2015" title="Copy GBT7714-2015">\
           <i class="fas fa-copy" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-image-gbt" class="btn btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
+        <button type="button" id="bib-image-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Export GBT7714-2015 image" title="Export GBT7714-2015 image">\
           <i class="fas fa-image" aria-hidden="true"></i>\
         </button>\
-        <button type="button" id="bib-open-gbt" class="btn btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
+        <button type="button" id="bib-open-gbt" class="btn btn-outline-primary btn-sm bib-icon-btn" aria-label="Open GBT7714-2015 text" title="Open GBT7714-2015 text">\
           <i class="fas fa-print" aria-hidden="true"></i>\
         </button>\
       </div>\
@@ -19149,7 +19248,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -19163,7 +19262,7 @@ According to CCF Ranking 2022
           var activate = function (key) {
             sections.forEach(function (entry) {
               var active = entry.key === key;
-              entry.section.style.display = active ? '' : 'none';
+              entry.section.style.display = active ? 'flex' : 'none';
               entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
@@ -19430,6 +19529,11 @@ According to CCF Ranking 2022
 	          } else if (el && el.getAttribute) {
 	            bib = el.getAttribute('data-bib') || '';
 	          }
+
+          bib = String(bib || '')
+            .replace(/^[ \t]*\r?\n/gm, '')
+            .replace(/\}\r?\n(?=@)/g, '}\n\n')
+            .trim();
 
           if (!bib) {
             textarea.value = 'Failed to load BibTeX.';
@@ -19821,7 +19925,7 @@ According to CCF Ranking 2022
 	        .filter(Boolean);
 	    };
 
-	    const currentBibText = () => visibleBibEntries().join('\n\n') + '\n';
+    const currentBibText = () => visibleBibEntries().join('\n\n') + '\n';
 	    const visibleItems = () => Array.from(document.querySelectorAll('.stream-item'))
 	      .filter((item) => item.style.display !== 'none');
 
@@ -20206,6 +20310,8 @@ According to CCF Ranking 2022
   <br style="line-height: 5px" />
   
 </footer>
+
+<script src="/js/research-work-cards.js?v=4"></script>
 
     </div>
     

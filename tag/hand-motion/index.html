@@ -1253,7 +1253,7 @@
 	  
 	  
 	    
-	      <ul><li><a href="#" data-toc="tags">Statistics by Tags</a></li>
+	      <ul><li><a href="#" data-toc="tags" aria-expanded="false">Statistics by Tags</a></li>
 	      <li><ul>
 	        
 	          
@@ -2609,6 +2609,62 @@ According to CCF Ranking 2022
 
         document.body.appendChild(modal);
 
+        
+        (function () {
+          var body = modal.querySelector('.bib-modal-body');
+          if (!body) return;
+          var formats = [
+            { key: 'bibtex', label: 'BibTeX', content: '#bib-text', kind: 'textarea' },
+            { key: 'ieee', label: 'IEEE', content: '#ieee-text' },
+            { key: 'apa', label: 'APA', content: '#apa-text' },
+            { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
+          ];
+          var tabs = document.createElement('div');
+          tabs.className = 'bib-format-tabs';
+          tabs.setAttribute('role', 'tablist');
+          tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
+          var sections = [];
+          formats.forEach(function (format, index) {
+            var content = body.querySelector(format.content);
+            if (!content) return;
+            var header = content.previousElementSibling;
+            if (!header) return;
+            var section = document.createElement('section');
+            section.className = 'bib-format-section';
+            section.setAttribute('data-bib-format', format.key);
+            section.style.display = 'none';
+            header.parentNode.insertBefore(section, header);
+            section.appendChild(header);
+            section.appendChild(content);
+            var tab = document.createElement('button');
+            tab.type = 'button';
+            tab.className = 'btn btn-sm btn-outline-primary bib-format-tab';
+            tab.textContent = format.label;
+            tab.setAttribute('role', 'tab');
+            tab.setAttribute('aria-controls', 'bib-format-' + format.key);
+            tab.dataset.format = format.key;
+            tabs.appendChild(tab);
+            section.id = 'bib-format-' + format.key;
+            sections.push({ key: format.key, section: section, tab: tab });
+          });
+          if (!sections.length) return;
+          body.insertBefore(tabs, body.firstChild);
+          var activate = function (key) {
+            sections.forEach(function (entry) {
+              var active = entry.key === key;
+              entry.section.style.display = active ? '' : 'none';
+              entry.tab.classList.toggle('btn-primary', active);
+              entry.tab.classList.toggle('btn-outline-primary', !active);
+              entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+          };
+          tabs.addEventListener('click', function (event) {
+            var tab = event.target.closest('.bib-format-tab');
+            if (tab) activate(tab.dataset.format);
+          });
+          activate('apa');
+        })();
+
         function updateTheme() {
           var dark = document.body.classList.contains('dark');
           var panel = modal.querySelector('#bib-modal-panel');
@@ -3648,6 +3704,62 @@ According to CCF Ranking 2022
 </div>';
 
         document.body.appendChild(modal);
+
+        
+        (function () {
+          var body = modal.querySelector('.bib-modal-body');
+          if (!body) return;
+          var formats = [
+            { key: 'bibtex', label: 'BibTeX', content: '#bib-text', kind: 'textarea' },
+            { key: 'ieee', label: 'IEEE', content: '#ieee-text' },
+            { key: 'apa', label: 'APA', content: '#apa-text' },
+            { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
+          ];
+          var tabs = document.createElement('div');
+          tabs.className = 'bib-format-tabs';
+          tabs.setAttribute('role', 'tablist');
+          tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
+          var sections = [];
+          formats.forEach(function (format, index) {
+            var content = body.querySelector(format.content);
+            if (!content) return;
+            var header = content.previousElementSibling;
+            if (!header) return;
+            var section = document.createElement('section');
+            section.className = 'bib-format-section';
+            section.setAttribute('data-bib-format', format.key);
+            section.style.display = 'none';
+            header.parentNode.insertBefore(section, header);
+            section.appendChild(header);
+            section.appendChild(content);
+            var tab = document.createElement('button');
+            tab.type = 'button';
+            tab.className = 'btn btn-sm btn-outline-primary bib-format-tab';
+            tab.textContent = format.label;
+            tab.setAttribute('role', 'tab');
+            tab.setAttribute('aria-controls', 'bib-format-' + format.key);
+            tab.dataset.format = format.key;
+            tabs.appendChild(tab);
+            section.id = 'bib-format-' + format.key;
+            sections.push({ key: format.key, section: section, tab: tab });
+          });
+          if (!sections.length) return;
+          body.insertBefore(tabs, body.firstChild);
+          var activate = function (key) {
+            sections.forEach(function (entry) {
+              var active = entry.key === key;
+              entry.section.style.display = active ? '' : 'none';
+              entry.tab.classList.toggle('btn-primary', active);
+              entry.tab.classList.toggle('btn-outline-primary', !active);
+              entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+          };
+          tabs.addEventListener('click', function (event) {
+            var tab = event.target.closest('.bib-format-tab');
+            if (tab) activate(tab.dataset.format);
+          });
+          activate('apa');
+        })();
 
         function updateTheme() {
           var dark = document.body.classList.contains('dark');

@@ -5121,9 +5121,6 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -5225,7 +5222,7 @@ According to CCF Ranking 2026
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -5243,7 +5240,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -5258,7 +5255,7 @@ According to CCF Ranking 2026
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -6202,9 +6199,6 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -6306,7 +6300,7 @@ According to CCF Ranking 2026
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -6324,7 +6318,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -6339,7 +6333,7 @@ According to CCF Ranking 2026
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -7310,9 +7304,6 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -7414,7 +7405,7 @@ According to CCF Ranking 2026
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -7432,7 +7423,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -7447,7 +7438,7 @@ According to CCF Ranking 2026
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -8378,9 +8369,6 @@ According to CCF Ranking 2026
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -8482,7 +8470,7 @@ According to CCF Ranking 2026
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -8500,7 +8488,7 @@ According to CCF Ranking 2026
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -8515,7 +8503,7 @@ According to CCF Ranking 2026
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -9427,9 +9415,6 @@ According to Core Ranking 2023
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -9531,7 +9516,7 @@ According to Core Ranking 2023
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -9549,7 +9534,7 @@ According to Core Ranking 2023
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -9564,7 +9549,7 @@ According to Core Ranking 2023
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -10610,9 +10595,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -10714,7 +10696,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -10732,7 +10714,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -10747,7 +10729,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -11681,9 +11663,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -11785,7 +11764,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -11803,7 +11782,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -11818,7 +11797,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -12720,9 +12699,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -12824,7 +12800,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -12842,7 +12818,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -12857,7 +12833,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -13908,9 +13884,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -14012,7 +13985,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -14030,7 +14003,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -14045,7 +14018,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -15013,9 +14986,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -15117,7 +15087,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -15135,7 +15105,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -15150,7 +15120,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -16234,9 +16204,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -16338,7 +16305,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -16356,7 +16323,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -16371,7 +16338,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };
@@ -17330,9 +17297,6 @@ According to CCF Ranking 2022
     #bib-modal .bib-icon-btn:active{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus{outline:0;box-shadow:none}\
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
-    #bib-modal .bib-format-tab{border:1px solid var(--bib-accent,#0d6efd);color:var(--bib-accent,#0d6efd);background:transparent;border-radius:6px;padding:.25rem .65rem;line-height:1.4;box-shadow:none}\
-    #bib-modal .bib-format-tab:hover{border-color:var(--bib-accent-hover,#0a58ca);color:var(--bib-accent-hover,#0a58ca);background:var(--bib-tab-hover,rgba(13,110,253,.08));box-shadow:none}\
-    #bib-modal .bib-format-tab.is-active{border-color:var(--bib-accent,#0d6efd);color:var(--bib-active-fg,#fff);background:var(--bib-accent,#0d6efd);box-shadow:none}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
@@ -17434,7 +17398,7 @@ According to CCF Ranking 2022
             { key: 'gbt', label: 'GB/T', content: '#gbt-text' }
           ];
           var tabs = document.createElement('div');
-          tabs.className = 'bib-format-tabs';
+          tabs.className = 'bib-format-tabs btn-links';
           tabs.setAttribute('role', 'tablist');
           tabs.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 2px;';
           var sections = [];
@@ -17452,7 +17416,7 @@ According to CCF Ranking 2022
             section.appendChild(content);
             var tab = document.createElement('button');
             tab.type = 'button';
-            tab.className = 'bib-format-tab';
+            tab.className = 'btn btn-outline-primary btn-page-header btn-sm bib-format-tab';
             tab.textContent = format.label;
             tab.setAttribute('role', 'tab');
             tab.setAttribute('aria-controls', 'bib-format-' + format.key);
@@ -17467,7 +17431,7 @@ According to CCF Ranking 2022
             sections.forEach(function (entry) {
               var active = entry.key === key;
               entry.section.style.display = active ? '' : 'none';
-              entry.tab.classList.toggle('is-active', active);
+              entry.tab.classList.toggle('active', active);
               entry.tab.setAttribute('aria-selected', active ? 'true' : 'false');
             });
           };

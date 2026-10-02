@@ -1089,7 +1089,7 @@
         modal.style.display = 'none';
 
         modal.innerHTML = '\
-<div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">\
+<div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
     #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
     #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
@@ -1098,7 +1098,7 @@
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -1239,7 +1239,7 @@
             var tab = event.target.closest('.bib-format-tab');
             if (tab) activate(tab.dataset.format);
           });
-          activate('apa');
+          activate('bibtex');
         })();
 
         function updateTheme() {
@@ -1509,7 +1509,7 @@
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
           textarea.style.height = 'auto';
-          var next = Math.min(textarea.scrollHeight + 2, maxPx);
+          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
           textarea.style.height = String(next) + 'px';
           textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';
@@ -2777,7 +2777,7 @@ According to Core Ranking 2023
         modal.style.display = 'none';
 
         modal.innerHTML = '\
-<div id="bib-modal-panel" style="width:min(900px, calc(100vw - 48px));max-height:min(80vh, 720px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:24px;">\
+<div id="bib-modal-panel" style="width:min(1120px, calc(100vw - 32px));max-height:min(90vh, 820px);background:var(--bib-bg,#fff);color:var(--bib-fg,inherit);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;margin:16px;">\
   <style>\
     #bib-modal .bib-icon-btn{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;max-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0;line-height:1;background:transparent;border:1px solid var(--bib-border, rgba(127,127,127,.25));color:var(--bib-fg,inherit);transition:none;box-shadow:none;box-sizing:border-box}\
     #bib-modal .bib-icon-btn:hover{background:transparent;border-color:var(--bib-border, rgba(127,127,127,.25));transform:none;box-shadow:none}\
@@ -2786,7 +2786,7 @@ According to Core Ranking 2023
     #bib-modal .bib-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(99,102,241,.25)}\
     #bib-modal .bib-modal-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;overflow:auto;box-sizing:border-box}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:none;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -2927,7 +2927,7 @@ According to Core Ranking 2023
             var tab = event.target.closest('.bib-format-tab');
             if (tab) activate(tab.dataset.format);
           });
-          activate('apa');
+          activate('bibtex');
         })();
 
         function updateTheme() {
@@ -3197,7 +3197,7 @@ According to Core Ranking 2023
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
           textarea.style.height = 'auto';
-          var next = Math.min(textarea.scrollHeight + 2, maxPx);
+          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
           textarea.style.height = String(next) + 'px';
           textarea.style.minHeight = '0';
           textarea.style.overflowY = 'auto';

@@ -2335,6 +2335,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -2548,7 +2549,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -3178,6 +3179,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -3391,7 +3393,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -4021,6 +4023,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -4234,7 +4237,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -4878,6 +4881,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -5091,7 +5095,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -5739,6 +5743,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -5952,7 +5957,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');
@@ -6568,6 +6573,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           panel.style.setProperty('--bib-tab-hover', dark ? 'rgba(110,168,254,.16)' : 'rgba(13,110,253,.08)');
           panel.style.setProperty('--bib-active-fg', dark ? '#0b1220' : '#fff');
         }
+        modal.__updateTheme = updateTheme;
         updateTheme();
 
         function close() { modal.style.display = 'none'; }
@@ -6781,7 +6787,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
 
       window.openBib = function (el) {
         var modal = ensureBibModal();
-        updateTheme();
+        if (modal.__updateTheme) modal.__updateTheme();
         var textarea = modal.querySelector('#bib-text');
         var ieeeDiv = modal.querySelector('#ieee-text');
         var apaDiv = modal.querySelector('#apa-text');

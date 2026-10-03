@@ -845,17 +845,74 @@
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
-      const m = (input || '').match(/@\w+\s*\{[\s\S]*?\n\}/m);
-      const body = (m ? m[0] : (input || '')) || '';
+      const body = String(input || '');
       const fields = {};
-      const re = /\b([a-zA-Z_]+)\s*=\s*(\{[\s\S]*?\}|\"[\s\S]*?\"|[^,\n]+)\s*,?/g;
-      let mm;
-      while ((mm = re.exec(body))) {
-        const k = mm[1].toLowerCase();
-        let v = (mm[2] || '').trim();
-        if ((v.startsWith('{') && v.endsWith('}')) || (v.startsWith('"') && v.endsWith('"'))) v = v.slice(1, -1);
-        v = v.replace(/\s+/g, ' ').trim();
-        fields[k] = v;
+      const header = /@\w+\s*([({])/.exec(body);
+      let i = header ? header.index + header[0].length : 0;
+
+      
+      
+      
+      if (header) {
+        while (i < body.length && body[i] !== ',') i += 1;
+        if (body[i] === ',') i += 1;
+      }
+
+      const skipSeparators = () => {
+        while (i < body.length && /[\s,]/.test(body[i])) i += 1;
+      };
+
+      while (i < body.length) {
+        skipSeparators();
+        if (body[i] === '}' || body[i] === ')') break;
+
+        const keyStart = i;
+        while (i < body.length && /[a-zA-Z0-9_:-]/.test(body[i])) i += 1;
+        const key = body.slice(keyStart, i).toLowerCase();
+        while (i < body.length && /\s/.test(body[i])) i += 1;
+        if (!key || body[i] !== '=') {
+          i += 1;
+          continue;
+        }
+        i += 1;
+        while (i < body.length && /\s/.test(body[i])) i += 1;
+
+        let value = '';
+        if (body[i] === '{') {
+          i += 1;
+          let depth = 1;
+          while (i < body.length && depth > 0) {
+            const ch = body[i];
+            if (ch === '\\' && i + 1 < body.length) {
+              value += ch + body[i + 1];
+              i += 2;
+              continue;
+            }
+            if (ch === '{') depth += 1;
+            if (ch === '}') depth -= 1;
+            if (depth > 0) value += ch;
+            i += 1;
+          }
+        } else if (body[i] === '"') {
+          i += 1;
+          while (i < body.length) {
+            const ch = body[i];
+            if (ch === '\\' && i + 1 < body.length) {
+              value += ch + body[i + 1];
+              i += 2;
+              continue;
+            }
+            i += 1;
+            if (ch === '"') break;
+            value += ch;
+          }
+        } else {
+          const valueStart = i;
+          while (i < body.length && body[i] !== ',' && body[i] !== '\n' && body[i] !== '\r') i += 1;
+          value = body.slice(valueStart, i);
+        }
+
+        fields[key] = value.replace(/\s+/g, ' ').trim();
       }
       return fields;
     };
@@ -2562,17 +2619,74 @@ According to CCF Ranking 2026
 <script>
   window.__bibtex_plaintext = window.__bibtex_plaintext || (function () {
     const parseBibTeX = (input) => {
-      const m = (input || '').match(/@\w+\s*\{[\s\S]*?\n\}/m);
-      const body = (m ? m[0] : (input || '')) || '';
+      const body = String(input || '');
       const fields = {};
-      const re = /\b([a-zA-Z_]+)\s*=\s*(\{[\s\S]*?\}|\"[\s\S]*?\"|[^,\n]+)\s*,?/g;
-      let mm;
-      while ((mm = re.exec(body))) {
-        const k = mm[1].toLowerCase();
-        let v = (mm[2] || '').trim();
-        if ((v.startsWith('{') && v.endsWith('}')) || (v.startsWith('"') && v.endsWith('"'))) v = v.slice(1, -1);
-        v = v.replace(/\s+/g, ' ').trim();
-        fields[k] = v;
+      const header = /@\w+\s*([({])/.exec(body);
+      let i = header ? header.index + header[0].length : 0;
+
+      
+      
+      
+      if (header) {
+        while (i < body.length && body[i] !== ',') i += 1;
+        if (body[i] === ',') i += 1;
+      }
+
+      const skipSeparators = () => {
+        while (i < body.length && /[\s,]/.test(body[i])) i += 1;
+      };
+
+      while (i < body.length) {
+        skipSeparators();
+        if (body[i] === '}' || body[i] === ')') break;
+
+        const keyStart = i;
+        while (i < body.length && /[a-zA-Z0-9_:-]/.test(body[i])) i += 1;
+        const key = body.slice(keyStart, i).toLowerCase();
+        while (i < body.length && /\s/.test(body[i])) i += 1;
+        if (!key || body[i] !== '=') {
+          i += 1;
+          continue;
+        }
+        i += 1;
+        while (i < body.length && /\s/.test(body[i])) i += 1;
+
+        let value = '';
+        if (body[i] === '{') {
+          i += 1;
+          let depth = 1;
+          while (i < body.length && depth > 0) {
+            const ch = body[i];
+            if (ch === '\\' && i + 1 < body.length) {
+              value += ch + body[i + 1];
+              i += 2;
+              continue;
+            }
+            if (ch === '{') depth += 1;
+            if (ch === '}') depth -= 1;
+            if (depth > 0) value += ch;
+            i += 1;
+          }
+        } else if (body[i] === '"') {
+          i += 1;
+          while (i < body.length) {
+            const ch = body[i];
+            if (ch === '\\' && i + 1 < body.length) {
+              value += ch + body[i + 1];
+              i += 2;
+              continue;
+            }
+            i += 1;
+            if (ch === '"') break;
+            value += ch;
+          }
+        } else {
+          const valueStart = i;
+          while (i < body.length && body[i] !== ',' && body[i] !== '\n' && body[i] !== '\r') i += 1;
+          value = body.slice(valueStart, i);
+        }
+
+        fields[key] = value.replace(/\s+/g, ' ').trim();
       }
       return fields;
     };

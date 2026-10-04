@@ -3717,6 +3717,41 @@
       return entries.length ? entries : [text];
     };
 
+    
+    
+    
+    
+    const normalizeBibTeXText = (value) => {
+      const superscripts = {
+        '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+        '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+        '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾', 'n': 'ⁿ'
+      };
+      const subscripts = {
+        '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+        '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+        '+': '₊', '-': '₋', '=': '₌', '(': '₍', ')': '₎'
+      };
+      const mapScript = (text, table, fallbackPrefix) => {
+        const chars = Array.from(String(text || ''));
+        return chars.every((ch) => table[ch])
+          ? chars.map((ch) => table[ch]).join('')
+          : fallbackPrefix + chars.join('');
+      };
+
+      let text = String(value || '');
+      const literalOpen = '\uE000';
+      const literalClose = '\uE001';
+      text = text.replace(/\\\{/g, literalOpen).replace(/\\\}/g, literalClose);
+      text = text.replace(/\$\^\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, superscripts, '^'));
+      text = text.replace(/\$_\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, subscripts, '_'));
+      text = text.replace(/\\(?:textit|textbf|emph|mathrm|mathbf|mathit|operatorname)\s*\{/g, '{');
+      text = text.replace(/\\([&#%_$])/g, '$1');
+      text = text.replace(/[{}]/g, '').replace(/\$/g, '');
+      text = text.replace(new RegExp(literalOpen, 'g'), '{').replace(new RegExp(literalClose, 'g'), '}');
+      return text.replace(/\s+/g, ' ').trim();
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -3740,7 +3775,8 @@
     const toIEEEtran = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsIEEE(f.author || f.authors || '');
-      const title = f.title ? `"${f.title.replace(/\{\s*|\s*\}/g, '')},"` : '';
+      const titleText = normalizeBibTeXText(f.title || '');
+      const title = titleText ? `"${titleText},"` : '';
       const year = f.year || '';
       const pages = f.pages ? `pp. ${f.pages.replace(/--/g, '–')}, ` : '';
       const volume = f.volume ? `vol. ${f.volume}, ` : '';
@@ -3774,7 +3810,7 @@
     const toGBT7714 = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsGB(f.author || f.authors || '');
-      const titleRaw = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const titleRaw = normalizeBibTeXText(f.title || '');
       const year = (f.year || '').trim();
       const pages = (f.pages || '').trim().replace(/--/g, '–');
       const volume = (f.volume || '').trim();
@@ -3845,7 +3881,7 @@
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsAPA(f.author || f.authors || '');
       const year = (f.year || '').trim();
-      const title = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const title = normalizeBibTeXText(f.title || '');
       const journal = (f.journal || '').trim();
       const booktitle = (f.booktitle || '').trim();
       const volume = (f.volume || '').trim();
@@ -4842,6 +4878,41 @@
       return entries.length ? entries : [text];
     };
 
+    
+    
+    
+    
+    const normalizeBibTeXText = (value) => {
+      const superscripts = {
+        '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+        '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+        '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾', 'n': 'ⁿ'
+      };
+      const subscripts = {
+        '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+        '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+        '+': '₊', '-': '₋', '=': '₌', '(': '₍', ')': '₎'
+      };
+      const mapScript = (text, table, fallbackPrefix) => {
+        const chars = Array.from(String(text || ''));
+        return chars.every((ch) => table[ch])
+          ? chars.map((ch) => table[ch]).join('')
+          : fallbackPrefix + chars.join('');
+      };
+
+      let text = String(value || '');
+      const literalOpen = '\uE000';
+      const literalClose = '\uE001';
+      text = text.replace(/\\\{/g, literalOpen).replace(/\\\}/g, literalClose);
+      text = text.replace(/\$\^\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, superscripts, '^'));
+      text = text.replace(/\$_\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, subscripts, '_'));
+      text = text.replace(/\\(?:textit|textbf|emph|mathrm|mathbf|mathit|operatorname)\s*\{/g, '{');
+      text = text.replace(/\\([&#%_$])/g, '$1');
+      text = text.replace(/[{}]/g, '').replace(/\$/g, '');
+      text = text.replace(new RegExp(literalOpen, 'g'), '{').replace(new RegExp(literalClose, 'g'), '}');
+      return text.replace(/\s+/g, ' ').trim();
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -4865,7 +4936,8 @@
     const toIEEEtran = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsIEEE(f.author || f.authors || '');
-      const title = f.title ? `"${f.title.replace(/\{\s*|\s*\}/g, '')},"` : '';
+      const titleText = normalizeBibTeXText(f.title || '');
+      const title = titleText ? `"${titleText},"` : '';
       const year = f.year || '';
       const pages = f.pages ? `pp. ${f.pages.replace(/--/g, '–')}, ` : '';
       const volume = f.volume ? `vol. ${f.volume}, ` : '';
@@ -4899,7 +4971,7 @@
     const toGBT7714 = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsGB(f.author || f.authors || '');
-      const titleRaw = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const titleRaw = normalizeBibTeXText(f.title || '');
       const year = (f.year || '').trim();
       const pages = (f.pages || '').trim().replace(/--/g, '–');
       const volume = (f.volume || '').trim();
@@ -4970,7 +5042,7 @@
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsAPA(f.author || f.authors || '');
       const year = (f.year || '').trim();
-      const title = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const title = normalizeBibTeXText(f.title || '');
       const journal = (f.journal || '').trim();
       const booktitle = (f.booktitle || '').trim();
       const volume = (f.volume || '').trim();
@@ -6009,6 +6081,41 @@
       return entries.length ? entries : [text];
     };
 
+    
+    
+    
+    
+    const normalizeBibTeXText = (value) => {
+      const superscripts = {
+        '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+        '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+        '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾', 'n': 'ⁿ'
+      };
+      const subscripts = {
+        '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+        '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+        '+': '₊', '-': '₋', '=': '₌', '(': '₍', ')': '₎'
+      };
+      const mapScript = (text, table, fallbackPrefix) => {
+        const chars = Array.from(String(text || ''));
+        return chars.every((ch) => table[ch])
+          ? chars.map((ch) => table[ch]).join('')
+          : fallbackPrefix + chars.join('');
+      };
+
+      let text = String(value || '');
+      const literalOpen = '\uE000';
+      const literalClose = '\uE001';
+      text = text.replace(/\\\{/g, literalOpen).replace(/\\\}/g, literalClose);
+      text = text.replace(/\$\^\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, superscripts, '^'));
+      text = text.replace(/\$_\{?([^{}$]+)\}?\$/g, (_, content) => mapScript(content, subscripts, '_'));
+      text = text.replace(/\\(?:textit|textbf|emph|mathrm|mathbf|mathit|operatorname)\s*\{/g, '{');
+      text = text.replace(/\\([&#%_$])/g, '$1');
+      text = text.replace(/[{}]/g, '').replace(/\$/g, '');
+      text = text.replace(new RegExp(literalOpen, 'g'), '{').replace(new RegExp(literalClose, 'g'), '}');
+      return text.replace(/\s+/g, ' ').trim();
+    };
+
     const formatAuthorsIEEE = (authorStr) => {
       if (!authorStr) return '';
       const parts = authorStr.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -6032,7 +6139,8 @@
     const toIEEEtran = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsIEEE(f.author || f.authors || '');
-      const title = f.title ? `"${f.title.replace(/\{\s*|\s*\}/g, '')},"` : '';
+      const titleText = normalizeBibTeXText(f.title || '');
+      const title = titleText ? `"${titleText},"` : '';
       const year = f.year || '';
       const pages = f.pages ? `pp. ${f.pages.replace(/--/g, '–')}, ` : '';
       const volume = f.volume ? `vol. ${f.volume}, ` : '';
@@ -6066,7 +6174,7 @@
     const toGBT7714 = (bibtex) => {
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsGB(f.author || f.authors || '');
-      const titleRaw = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const titleRaw = normalizeBibTeXText(f.title || '');
       const year = (f.year || '').trim();
       const pages = (f.pages || '').trim().replace(/--/g, '–');
       const volume = (f.volume || '').trim();
@@ -6137,7 +6245,7 @@
       const f = parseBibTeX(bibtex || '');
       const authors = formatAuthorsAPA(f.author || f.authors || '');
       const year = (f.year || '').trim();
-      const title = (f.title || '').replace(/\{\s*|\s*\}/g, '').trim();
+      const title = normalizeBibTeXText(f.title || '');
       const journal = (f.journal || '').trim();
       const booktitle = (f.booktitle || '').trim();
       const volume = (f.volume || '').trim();

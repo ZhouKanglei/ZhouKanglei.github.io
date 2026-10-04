@@ -5,7 +5,7 @@
     <link>https://zhoukanglei.github.io/tag/continual-action-quality-assessment/</link>
       <atom:link href="https://zhoukanglei.github.io/tag/continual-action-quality-assessment/index.xml" rel="self" type="application/rss+xml" />
     <description>Continual Action Quality Assessment</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2027 00:00:00 +0800</lastBuildDate>
     <image>
       <url>https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png</url>
       <title>Continual Action Quality Assessment</title>
@@ -13,20 +13,20 @@
     </image>
     
     <item>
+      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
+      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
+      <pubDate>Fri, 01 Jan 2027 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
+      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>BriMA: Bridged Modality Adaptation for Multi-Modal Continual Action Quality Assessment</title>
       <link>https://zhoukanglei.github.io/publications/brima/</link>
       <pubDate>Sat, 21 Feb 2026 00:00:00 +0800</pubDate>
       <guid>https://zhoukanglei.github.io/publications/brima/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
-      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
-      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
-</description>
     </item>
     
     <item>

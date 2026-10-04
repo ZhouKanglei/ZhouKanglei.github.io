@@ -45,6 +45,15 @@
     </item>
     
     <item>
+      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
+      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
+      <pubDate>Fri, 01 Jan 2027 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
+      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>MePo&#43;&#43;: Unifying Representation Refinement and Reconciliation for General Continual Learning</title>
       <link>https://zhoukanglei.github.io/publications/mepopp/</link>
       <pubDate>Fri, 04 Sep 2026 00:00:00 +0800</pubDate>
@@ -390,15 +399,6 @@
 &lt;li&gt;&lt;strong&gt;Lack of Interpretability&lt;/strong&gt;: Many current models function as black boxes, making it difficult to understand their decision-making processes. This lack of transparency is particularly concerning in high-stakes applications like muscle strength assessment, where predictions must be explainable and trustworthy.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Addressing these challenges requires the development of innovative methods to effectively integrate heterogeneous data, handle missing modalities, and provide interpretable predictions.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
-      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
-      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

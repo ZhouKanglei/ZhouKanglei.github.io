@@ -72,10 +72,10 @@
   
     
   
-  <meta name="description" content="Referring 3D segmentation seeks to localize and segment target objects in a 3D scene given a natural-language query, requiring joint reasoning over geometric structures and linguistic cues. Although recent progress using 3D Gaussian Splatting (3DGS) has improved rendering quality, existing methods still struggle to spatially ground textual references due to two fundamental limitations: (1) language encoders provide no explicit positional priors, weakening geometric relation modeling; and (2) cross-modal attention is self-reinforcing, causing spatial errors to propagate through the Gaussian field once misalignment occurs. To address this, we propose GeoCGA, a geometry-aware cross-modal graph alignment framework that bridges linguistic semantics with the 3DGS representation. GeoCGA introduces position-aware prompt expansion to build a semantic-spatial graph capturing relational structure in text, and constructs a Gaussian-based geometric graph encoding 3D topology. A cross-modal alignment module enforces geometric consistency between the two graphs, enabling stable and spatially grounded correspondence across views. GeoCGA consistently outperforms prior state-of-the-art methods, yielding relative mIoU improvements of 20.8% on Ref-LERF, 5.7% on LERF-OVS, and 1.0% on 3D-OVS." />
+  <meta name="description" content="Continual learning, the ability to learn from sequential experience while retaining and adapting prior knowledge, is central to intelligent systems operating in changing environments. However, conventional continual learning is typically studied with offline task-wise training and clear task boundaries, leaving a substantial gap from general continual learning under online, uncertain, and evolving data streams. In this regime, intelligent systems must separate conflicting experience to reduce interference while integrating compatible experience to promote generalization. Inspired by the organization of the Drosophila learning and memory system, we identify a hierarchical modular principle that coordinates both functions through expert specialization and ensemble integration. We instantiate this principle as lightweight modular adaptation of pretrained foundation models, combining brain-inspired random expansion for expert routing and diversified modular integration across spatial and temporal scales. Across visual recognition, vision-language understanding, ego-exo video understanding, and embodied vision-language-action learning, our method consistently improves learning under online and uncertain data streams, with gains exceeding 50 percentage points over replay-free alternatives in embodied manipulation. These findings support hierarchical modularity as a biologically grounded path for learning from dynamic experience." />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://zhoukanglei.github.io/publications/geocga/" />
+  <link rel="alternate" hreflang="en-us" href="https://zhoukanglei.github.io/publications/hiermodcl/" />
 
   
   
@@ -278,7 +278,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua617271c2ee215f97b77646d4eaa9996_4477_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="https://zhoukanglei.github.io/publications/geocga/" />
+  <link rel="canonical" href="https://zhoukanglei.github.io/publications/hiermodcl/" />
 
   
   
@@ -289,6 +289,7 @@
   
   
     
+    
   
   
 
@@ -297,24 +298,24 @@
     
     
   
-  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:card" content="summary" />
   
     <meta property="twitter:site" content="@Gravellesimon" />
     <meta property="twitter:creator" content="@Gravellesimon" />
   
   <meta property="og:site_name" content="Kanglei Zhou" />
-  <meta property="og:url" content="https://zhoukanglei.github.io/publications/geocga/" />
-  <meta property="og:title" content="Geometry-Aware Cross-Modal Graph Alignment for Referring Segmentation in 3D Gaussian Splatting | Kanglei Zhou" />
-  <meta property="og:description" content="Referring 3D segmentation seeks to localize and segment target objects in a 3D scene given a natural-language query, requiring joint reasoning over geometric structures and linguistic cues. Although recent progress using 3D Gaussian Splatting (3DGS) has improved rendering quality, existing methods still struggle to spatially ground textual references due to two fundamental limitations: (1) language encoders provide no explicit positional priors, weakening geometric relation modeling; and (2) cross-modal attention is self-reinforcing, causing spatial errors to propagate through the Gaussian field once misalignment occurs. To address this, we propose GeoCGA, a geometry-aware cross-modal graph alignment framework that bridges linguistic semantics with the 3DGS representation. GeoCGA introduces position-aware prompt expansion to build a semantic-spatial graph capturing relational structure in text, and constructs a Gaussian-based geometric graph encoding 3D topology. A cross-modal alignment module enforces geometric consistency between the two graphs, enabling stable and spatially grounded correspondence across views. GeoCGA consistently outperforms prior state-of-the-art methods, yielding relative mIoU improvements of 20.8% on Ref-LERF, 5.7% on LERF-OVS, and 1.0% on 3D-OVS." /><meta property="og:image" content="https://zhoukanglei.github.io/publications/geocga/featured.png" />
-    <meta property="twitter:image" content="https://zhoukanglei.github.io/publications/geocga/featured.png" /><meta property="og:locale" content="en-us" />
+  <meta property="og:url" content="https://zhoukanglei.github.io/publications/hiermodcl/" />
+  <meta property="og:title" content="Brain-Inspired Hierarchical Modularity for General Continual Learning | Kanglei Zhou" />
+  <meta property="og:description" content="Continual learning, the ability to learn from sequential experience while retaining and adapting prior knowledge, is central to intelligent systems operating in changing environments. However, conventional continual learning is typically studied with offline task-wise training and clear task boundaries, leaving a substantial gap from general continual learning under online, uncertain, and evolving data streams. In this regime, intelligent systems must separate conflicting experience to reduce interference while integrating compatible experience to promote generalization. Inspired by the organization of the Drosophila learning and memory system, we identify a hierarchical modular principle that coordinates both functions through expert specialization and ensemble integration. We instantiate this principle as lightweight modular adaptation of pretrained foundation models, combining brain-inspired random expansion for expert routing and diversified modular integration across spatial and temporal scales. Across visual recognition, vision-language understanding, ego-exo video understanding, and embodied vision-language-action learning, our method consistently improves learning under online and uncertain data streams, with gains exceeding 50 percentage points over replay-free alternatives in embodied manipulation. These findings support hierarchical modularity as a biologically grounded path for learning from dynamic experience." /><meta property="og:image" content="https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png" />
+    <meta property="twitter:image" content="https://zhoukanglei.github.io/media/logo_hu0eea0bb71b2a0d790ac0dace745b3fd6_33466_300x300_fit_lanczos_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2026-02-21T00:00:00&#43;08:00"
+        content="2026-09-21T00:00:00&#43;08:00"
       />
     
-    <meta property="article:modified_time" content="2026-02-21T00:00:00&#43;08:00">
+    <meta property="article:modified_time" content="2026-09-21T00:00:00&#43;08:00">
   
 
   
@@ -326,7 +327,7 @@
   
 
 
-  <title>Geometry-Aware Cross-Modal Graph Alignment for Referring Segmentation in 3D Gaussian Splatting | Kanglei Zhou</title>
+  <title>Brain-Inspired Hierarchical Modularity for General Continual Learning | Kanglei Zhou</title>
 
   
   
@@ -353,7 +354,7 @@
      
      
     "
-  data-wc-page-id="a6760070543876dc0d5ad4e9d4bba46f"
+  data-wc-page-id="d1e188b2092ada3909f72632d5efd9da"
   >
 
   
@@ -2536,36 +2537,30 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
-  
-
-
-<div class="article-container pt-3">
-  <h1 class="page-title">Geometry-Aware Cross-Modal Graph Alignment for Referring Segmentation in 3D Gaussian Splatting</h1>
 
   
   
   
-   
+  <div class="article-container pt-3">
+    <h1 class="page-title">Brain-Inspired Hierarchical Modularity for General Continual Learning</h1>
+
+    
+      
+
+      
+
+       
 
 <div class="article-metadata">
    
    
-  <div><span class="">Yuwen Tao</span>, <span class="">Kanglei Zhou</span><i class="author-notes fas fa-envelope" data-toggle="tooltip" title="Corresponding author"></i>, <span class=""><a href="/people/chang-li/">Chang Li</a></span>, <span class=""><a href="/people/liyuan-wang/">Liyuan Wang</a></span></div>
+  <div><span class=""><a href="/people/hongwei-yan/">Hongwei Yan</a></span><i class="author-notes fas fa-info-circle" data-toggle="tooltip" title="Equal contribution"></i>, <span class="">Kanglei Zhou</span><i class="author-notes fas fa-info-circle" data-toggle="tooltip" title="Equal contribution"></i>, <span class="">Qi Cheng</span>, <span class="">Weiyi Dong</span>, <span class="">Chunyan Lan</span>, <span class="">Guanglong Sun</span>, <span class="">Jun Zhou</span>, <span class="">Qian Li</span>, <span class="">Yi Zhong</span>, <span class=""><a href="/people/liyuan-wang/">Liyuan Wang</a></span></div>
     
   <span class="article-date">
     
     
-       Posted Feb 21, 2026
+       Posted Sep 21, 2026
   </span>
 
   <span class="article-date">
@@ -2574,9 +2569,9 @@
      
         
   <span class="middot-divider"></span>
-  <span class="pub-publication">Conference Paper</span>
+  <span class="pub-publication">Preprint / Working Paper</span>
     <span class="middot-divider"></span>
-  <span class="pub-publication">CVPR
+  <span class="pub-publication">arXiv
   </span>
   
   
@@ -2603,29 +2598,10 @@
     
   
   
-     
-     
-       
-       
-       
+    
     
    
   
-  
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="pub-core level-1">
-    
-    <a href="javascript:void(0)" style="font-family:inherit;" data-toggle="tooltip" title="CVPR, Core A* &lt;br&gt;
-According to Core Ranking 2023
-&lt;a href=&#39;https://portal.core.edu.au/conf-ranks/?search=CVPR&amp;by=all&amp;source=CORE2023&amp;sort=atitle&amp;page=1&#39; class=&#39;fas fa-link&#39;&gt;&lt;/a&gt;
-&lt;br&gt;
-&lt;a href=&#39;https://portal.core.edu.au/conf-ranks/?search=CVPR&amp;by=all&amp;source=CORE2023&amp;sort=atitle&amp;page=1&#39; target=&#39;_blank&#39;&gt;
-  &lt;img src=&#39;/img/icore-logo.png&#39; alt=&#39;CORE&#39; style=&#39;max-height:24px;&#39;&gt;
-&lt;/a&gt;">Core A*</a>
-  </span>
    
   
    
@@ -2643,28 +2619,12 @@ According to Core Ranking 2023
      
     
   
-  
-  
-  
-  
-  <span class="middot-divider"></span> 
-  <span class="pub-ccf level-1">
-    
-    <a href="javascript:void(0)" style="font-family:inherit;" data-toggle="tooltip" title="IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR), 
-CCF A&lt;br&gt;
-According to CCF Ranking 2026
-&lt;a href=&#39;https://ccf.atom.im/&#39; class=&#39;fas fa-link&#39;&gt;&lt;/a&gt;
-&lt;br&gt;
-&lt;a href=&#39;https://ccf.atom.im/&#39; target=&#39;_blank&#39;&gt;
-  &lt;img src=&#39;/img/ccf-logo.jpg&#39; alt=&#39;CCF&#39; style=&#39;max-height:24px;&#39;&gt;
-&lt;/a&gt;">CCF A</a>
-  </span>
    
    
         
 </div>
 
-  
+      
 
 
 
@@ -2684,7 +2644,7 @@ According to CCF Ranking 2026
 
 
 
-<a class="btn btn-outline-primary btn-page-header js-bib-open" href="#" data-bib64="QGlucHJvY2VlZGluZ3N7dGFvMjAyNmdlb2NnYSwKICBhdXRob3IgICAgPSB7VGFvLCBZdXdlbiBhbmQgWmhvdSwgS2FuZ2xlaSBhbmQgTGksIENoYW5nIGFuZCBXYW5nLCBMaXl1YW59LAogIHRpdGxlICAgICA9IHtHZW9tZXRyeS1Bd2FyZSBDcm9zcy1Nb2RhbCBHcmFwaCBBbGlnbm1lbnQgZm9yIFJlZmVycmluZyBTZWdtZW50YXRpb24gaW4gezNEfSBHYXVzc2lhbiBTcGxhdHRpbmd9LAogIGJvb2t0aXRsZSA9IHtQcm9jZWVkaW5ncyBvZiB0aGUgSUVFRS9DVkYgQ29uZmVyZW5jZSBvbiBDb21wdXRlciBWaXNpb24gYW5kIFBhdHRlcm4gUmVjb2duaXRpb259LAogIHllYXIgICAgICA9IHsyMDI2fSwKICBwYWdlcyAgICAgPSB7MjA0MzMtLTIwNDQyfQp9Cg">
+<a class="btn btn-outline-primary btn-page-header js-bib-open" href="#" data-bib64="QGFydGljbGV7eWFuMjAyNmJyYWluLAogIGF1dGhvciAgPSB7WWFuLCBIb25nd2VpIGFuZCBaaG91LCBLYW5nbGVpIGFuZCBDaGVuZywgUWkgYW5kIERvbmcsIFdlaXlpIGFuZCBMYW4sIENodW55YW4gYW5kIFN1biwgR3Vhbmdsb25nIGFuZCBaaG91LCBKdW4gYW5kIExpLCBRaWFuIGFuZCBaaG9uZywgWWkgYW5kIFdhbmcsIExpeXVhbn0sCiAgdGl0bGUgICA9IHtCcmFpbi1JbnNwaXJlZCBIaWVyYXJjaGljYWwgTW9kdWxhcml0eSBmb3IgR2VuZXJhbCBDb250aW51YWwgTGVhcm5pbmd9LAogIGpvdXJuYWwgPSB7YXJYaXYgcHJlcHJpbnQgYXJYaXY6MjYwOS4yNTE0Nn0sCiAgeWVhciAgICA9IHsyMDI2fQp9Cg">
   <i class="fas fa-quote-right mr-1" aria-hidden="true"></i>Cite
 </a>
 
@@ -3515,7 +3475,7 @@ According to CCF Ranking 2026
 
 
 
-<a class="btn btn-outline-primary btn-page-header" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Tao_Geometry-Aware_Cross-Modal_Graph_Alignment_for_Referring_Segmentation_in_3D_Gaussian_CVPR_2026_paper.pdf" target="_blank" rel="noopener">
+<a class="btn btn-outline-primary btn-page-header" href="https://arxiv.org/pdf/2609.25146" target="_blank" rel="noopener">
   <i class="fas fa-file-pdf mr-1" aria-hidden="true"></i>PDF
 </a>
 
@@ -3532,25 +3492,36 @@ According to CCF Ranking 2026
 
 
 
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary btn-page-header" href="https://arxiv.org/abs/2609.25146" target="_blank" rel="noopener">
+    <i class="ai ai-arxiv mr-1"></i>arXiv</a>
+
 
 </div>
 
 
-</div>
-
-
-
-
-
-  <div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 255px;">
-    <div style="position: relative">
-      <img src="/publications/geocga/featured_hu2c9fa86bbd626b374a4602331e73101d_437070_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="255" alt="" class="featured-image">
-      
-    </div>
+    
   </div>
 
-
-
+  
+    
+    
+      <div class="article-header article-container featured-image-wrapper mt-4 mb-4">
+        <div style="position: relative">
+          <img src="/media/placeholder.svg" alt="" class="featured-image">
+          
+        </div>
+      </div>
+    
+  
 
 
         <div class="article-container">
@@ -3558,7 +3529,7 @@ According to CCF Ranking 2026
           
             <h3 id="publication-abstract">Abstract</h3>
             <div class="abstract-card">
-              <p>  Referring 3D segmentation seeks to localize and segment target objects in a 3D scene given a natural-language query, requiring joint reasoning over geometric structures and linguistic cues. Although recent progress using 3D Gaussian Splatting (3DGS) has improved rendering quality, existing methods still struggle to spatially ground textual references due to two fundamental limitations: (1) language encoders provide no explicit positional priors, weakening geometric relation modeling; and (2) cross-modal attention is self-reinforcing, causing spatial errors to propagate through the Gaussian field once misalignment occurs. To address this, we propose GeoCGA, a geometry-aware cross-modal graph alignment framework that bridges linguistic semantics with the 3DGS representation. GeoCGA introduces position-aware prompt expansion to build a semantic-spatial graph capturing relational structure in text, and constructs a Gaussian-based geometric graph encoding 3D topology. A cross-modal alignment module enforces geometric consistency between the two graphs, enabling stable and spatially grounded correspondence across views. GeoCGA consistently outperforms prior state-of-the-art methods, yielding relative mIoU improvements of 20.8% on Ref-LERF, 5.7% on LERF-OVS, and 1.0% on 3D-OVS.</p>
+              <p>  Continual learning, the ability to learn from sequential experience while retaining and adapting prior knowledge, is central to intelligent systems operating in changing environments. However, conventional continual learning is typically studied with offline task-wise training and clear task boundaries, leaving a substantial gap from general continual learning under online, uncertain, and evolving data streams. In this regime, intelligent systems must separate conflicting experience to reduce interference while integrating compatible experience to promote generalization. Inspired by the organization of the Drosophila learning and memory system, we identify a hierarchical modular principle that coordinates both functions through expert specialization and ensemble integration. We instantiate this principle as lightweight modular adaptation of pretrained foundation models, combining brain-inspired random expansion for expert routing and diversified modular integration across spatial and temporal scales. Across visual recognition, vision-language understanding, ego-exo video understanding, and embodied vision-language-action learning, our method consistently improves learning under online and uncertain data streams, with gains exceeding 50 percentage points over replay-free alternatives in embodied manipulation. These findings support hierarchical modularity as a biologically grounded path for learning from dynamic experience.</p>
             </div>
           
 
@@ -3596,9 +3567,9 @@ $(document).ready(function () {
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/highlights/">Highlights</a>
+  <a class="badge badge-light" href="/tag/continual-learning/">Continual Learning</a>
   
-  <a class="badge badge-light" href="/tag/gaussian-splatting/">Gaussian Splatting</a>
+  <a class="badge badge-light" href="/tag/brain-inspired-learning/">Brain-Inspired Learning</a>
   
 </div>
 

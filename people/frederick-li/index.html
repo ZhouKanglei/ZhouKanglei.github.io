@@ -3407,8 +3407,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -4464,8 +4464,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -5731,8 +5731,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -6788,8 +6788,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -7818,8 +7818,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -8920,8 +8920,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -9981,8 +9981,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -11060,8 +11060,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
@@ -12145,8 +12145,8 @@
 	          var isInfo = kind === 'info';
 	          var success = !isError && !isInfo;
 	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
-	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
-	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastBg = success ? (dark ? '#4da3ff' : '#0d6efd') : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = (dark && (success || isInfo)) ? '#0b1220' : '#fff';
 	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
 	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;

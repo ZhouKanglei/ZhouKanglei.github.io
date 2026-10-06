@@ -6484,10 +6484,16 @@ According to CCF Ranking 2026
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -7712,10 +7718,16 @@ According to CCF Ranking 2026
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -9019,10 +9031,16 @@ According to CCF Ranking 2026
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -10201,10 +10219,16 @@ According to CCF Ranking 2026
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -11399,10 +11423,16 @@ According to CCF Ranking 2026
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -12689,10 +12719,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -13886,10 +13922,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -15256,10 +15298,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -16465,10 +16513,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -17662,10 +17716,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -18845,10 +18905,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -20105,10 +20171,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -21280,10 +21352,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -22479,10 +22557,16 @@ According to CCF Ranking 2022
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';
@@ -23696,10 +23780,16 @@ Source: JCR 2026 (2025 JIF)
 	            toast.setAttribute('aria-live', 'polite');
 	            document.body.appendChild(toast);
 	          }
-	          var success = kind !== 'error';
-	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          var isError = kind === 'error';
+	          var isInfo = kind === 'info';
+	          var success = !isError && !isInfo;
+	          var dark = document.body.classList.contains('dark') || document.documentElement.classList.contains('dark') || document.body.getAttribute('data-theme') === 'dark';
+	          var toastBg = success ? '#1f883d' : (isInfo ? (dark ? '#4da3ff' : '#0969da') : '#cf222e');
+	          var toastFg = isInfo && dark ? '#0b1220' : '#fff';
+	          var toastIcon = success ? 'fa-check-circle' : (isInfo ? 'fa-info-circle' : 'fa-times-circle');
+	          toast.innerHTML = '<i class="fas ' + toastIcon + '" aria-hidden="true"></i><span></span>';
 	          toast.querySelector('span').textContent = msg;
-	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:' + toastFg + ';background:' + toastBg + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
             toast.style.transition = 'opacity .2s ease, transform .2s ease';

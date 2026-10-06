@@ -6592,6 +6592,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -6755,25 +6756,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -7818,6 +7820,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -7981,25 +7984,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -9293,6 +9297,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -9456,25 +9461,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -10473,6 +10479,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -10636,25 +10643,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -11669,6 +11677,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -11832,25 +11841,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -12878,6 +12888,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -13041,25 +13052,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -14047,6 +14059,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -14210,25 +14223,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -15210,6 +15224,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -15373,25 +15388,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -16351,6 +16367,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -16514,25 +16531,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -17526,6 +17544,7 @@ According to CCF Ranking 2026
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -17689,25 +17708,26 @@ According to CCF Ranking 2026
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -18780,6 +18800,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -18943,25 +18964,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -19975,6 +19997,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -20138,25 +20161,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -21290,6 +21314,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -21453,25 +21478,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -22496,6 +22522,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -22659,25 +22686,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -23866,6 +23894,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -24029,25 +24058,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -25073,6 +25103,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -25236,25 +25267,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -26270,6 +26302,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -26433,25 +26466,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -27460,6 +27494,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -27623,25 +27658,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {
@@ -28691,6 +28727,7 @@ According to CCF Ranking 2022
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
     #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    @keyframes bib-toast-float-up{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -28854,25 +28891,26 @@ According to CCF Ranking 2022
         modal.querySelector('#bib-close').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-        function showToast(modalEl, toastId, msg, kind) {
-          var toast = modalEl.querySelector(toastId);
-          toast.textContent = msg;
-          toast.style.display = 'inline-block';
-          toast.style.transform = 'translate(-50%, 2px)';
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity .14s ease, transform .14s ease';
-          toast.style.borderColor = kind === 'error' ? 'rgba(220,53,69,.35)' : 'rgba(13,110,253,.22)';
-          toast.style.background = kind === 'error' ? 'rgba(220,53,69,.12)' : 'rgba(13,110,253,.10)';
-          requestAnimationFrame(function () {
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(-50%, 0)';
-          });
+	        function showToast(modalEl, toastId, msg, kind) {
+	          var toast = document.getElementById('bib-global-toast');
+	          if (!toast) {
+	            toast = document.createElement('div');
+	            toast.id = 'bib-global-toast';
+	            toast.setAttribute('role', 'status');
+	            toast.setAttribute('aria-live', 'polite');
+	            document.body.appendChild(toast);
+	          }
+	          var success = kind !== 'error';
+	          toast.innerHTML = '<i class="fas ' + (success ? 'fa-check-circle' : 'fa-times-circle') + '" aria-hidden="true"></i><span></span>';
+	          toast.querySelector('span').textContent = msg;
+	          toast.style.cssText = 'position:fixed;top:24px;left:50%;transform:translate(-50%,10px);z-index:10000;display:flex;align-items:center;gap:12px;padding:12px 24px;border-radius:8px;color:#fff;background:' + (success ? 'rgb(22,163,74)' : 'rgb(220,38,38)') + ';font-size:14px;font-weight:700;line-height:1.35;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);opacity:0;animation:bib-toast-float-up .45s ease-out forwards;pointer-events:none;';
           clearTimeout(showToast._t);
           showToast._t = setTimeout(function () {
+            toast.style.transition = 'opacity .2s ease, transform .2s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translate(-50%, 2px)';
-            setTimeout(function () { toast.style.display = 'none'; }, 140);
-          }, 1400);
+            toast.style.transform = 'translate(-50%, -4px)';
+            setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 220);
+          }, 3000);
         }
 
 	        function copyText(modalEl, text, label, toastId) {

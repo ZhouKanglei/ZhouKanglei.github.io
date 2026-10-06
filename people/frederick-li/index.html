@@ -3229,7 +3229,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -3649,10 +3649,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -4276,7 +4278,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -4696,10 +4698,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -5533,7 +5537,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -5953,10 +5957,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -6580,7 +6586,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -7000,10 +7006,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -7600,7 +7608,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -8020,10 +8028,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -8692,7 +8702,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -9112,10 +9122,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -9743,7 +9755,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -10163,10 +10175,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -10812,7 +10826,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -11232,10 +11246,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 
@@ -11887,7 +11903,7 @@
     #bib-modal .bib-format-section{flex-direction:column;gap:12px}\
     #bib-modal .bib-format-section>:first-child{margin-top:0 !important}\
     #bib-modal .bib-ref-box{width:100%;box-sizing:border-box;flex:0 0 auto;max-height:38vh;overflow:auto;scrollbar-gutter:stable;padding:12px;border-radius:12px;border:1px solid var(--bib-border-strong, rgba(127,127,127,.35));background:var(--bib-surface, rgba(127,127,127,.08));color:var(--bib-fg,inherit);font-size:14px;line-height:1.55}\
-    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:220px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
+    #bib-modal textarea.bib-ref-box{resize:vertical;min-height:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;line-height:1.5}\
     #bib-modal .btn{transform:none !important}\
     #bib-modal .btn:hover{transform:none !important}\
   </style>\
@@ -12307,10 +12323,12 @@
 
         try {
           var maxPx = Math.round(window.innerHeight * 0.38);
-          textarea.style.height = 'auto';
-          var next = Math.max(220, Math.min(textarea.scrollHeight + 2, maxPx));
-          textarea.style.height = String(next) + 'px';
+          
           textarea.style.minHeight = '0';
+          textarea.style.height = 'auto';
+          var minPx = Math.min(160, Math.max(96, Math.round(window.innerHeight * 0.14)));
+          var next = Math.max(minPx, Math.min(textarea.scrollHeight + 2, maxPx));
+          textarea.style.height = String(next) + 'px';
           textarea.style.overflowY = 'auto';
         } catch (e2) {}
 

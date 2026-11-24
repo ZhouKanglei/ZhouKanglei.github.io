@@ -26,14 +26,6 @@
   <url>
     <loc>https://zhoukanglei.github.io/tags/</loc><lastmod>2027-03-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
-    <loc>https://zhoukanglei.github.io/tag/action-quality-assessment/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://zhoukanglei.github.io/tag/continual-action-quality-assessment/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://zhoukanglei.github.io/publications/magrpp/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
-    <loc>https://zhoukanglei.github.io/tag/continual-learning/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
-  <url>
     <loc>https://zhoukanglei.github.io/tag/hand-pose-estimation/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/publications/inshape/</loc><lastmod>2027-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
@@ -48,6 +40,8 @@
   <url>
     <loc>https://zhoukanglei.github.io/publications/hiermodcl/</loc><lastmod>2026-09-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
+    <loc>https://zhoukanglei.github.io/tag/continual-learning/</loc><lastmod>2026-09-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
+  <url>
     <loc>https://zhoukanglei.github.io/tag/contrastive-learning/</loc><lastmod>2026-09-04T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/tag/eeg/</loc><lastmod>2026-09-04T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
@@ -61,6 +55,8 @@
     <loc>https://zhoukanglei.github.io/tag/representation-learning/</loc><lastmod>2026-09-04T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/tag/visual-decoding/</loc><lastmod>2026-09-04T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://zhoukanglei.github.io/tag/action-quality-assessment/</loc><lastmod>2026-09-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/tag/multi-modal-learning/</loc><lastmod>2026-09-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
@@ -110,6 +106,8 @@
   <url>
     <loc>https://zhoukanglei.github.io/publications/brima/</loc><lastmod>2026-02-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
+    <loc>https://zhoukanglei.github.io/tag/continual-action-quality-assessment/</loc><lastmod>2026-02-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
+  <url>
     <loc>https://zhoukanglei.github.io/publications/geocga/</loc><lastmod>2026-02-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/publications/flyprompt/</loc><lastmod>2026-01-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
@@ -117,6 +115,8 @@
     <loc>https://zhoukanglei.github.io/publications/pace/</loc><lastmod>2026-01-21T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/publications/caflow/</loc><lastmod>2026-01-15T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://zhoukanglei.github.io/publications/magrpp/</loc><lastmod>2026-01-01T00:00:00+08:00</lastmod><changefreq>weekly</changefreq></url>
   <url>
     <loc>https://zhoukanglei.github.io/tag/co-supervised-student/</loc><lastmod>2025-08-20T00:00:00+00:00</lastmod><changefreq>weekly</changefreq></url>
   <url>

@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
-      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
-      <pubDate>Fri, 01 Jan 2027 00:00:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
-      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Inclusive Hand Pose Estimation via Topology-Aware Distillation and Progressive Kinematic Reasoning</title>
       <link>https://zhoukanglei.github.io/publications/inshape/</link>
       <pubDate>Fri, 01 Jan 2027 00:00:00 +0800</pubDate>
@@ -100,6 +91,15 @@
       <pubDate>Wed, 21 Jan 2026 00:00:00 +0800</pubDate>
       <guid>https://zhoukanglei.github.io/publications/pace/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</title>
+      <link>https://zhoukanglei.github.io/publications/magrpp/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
+      <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>

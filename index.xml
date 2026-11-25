@@ -45,15 +45,6 @@
     </item>
     
     <item>
-      <title>Inclusive Hand Pose Estimation via Topology-Aware Distillation and Progressive Kinematic Reasoning</title>
-      <link>https://zhoukanglei.github.io/publications/inshape/</link>
-      <pubDate>Fri, 01 Jan 2027 00:00:00 +0800</pubDate>
-      <guid>https://zhoukanglei.github.io/publications/inshape/</guid>
-      <description>&lt;p&gt;Accepted for publication in IEEE TVCG. The DOI has been assigned; the article is in initial production and is not yet available on IEEE Xplore. The preprint is available on arXiv.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Guanglong Sun</title>
       <link>https://zhoukanglei.github.io/people/guanglong-sun/</link>
       <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
@@ -270,6 +261,14 @@
       <guid>https://zhoukanglei.github.io/publications/magrpp/</guid>
       <description>&lt;p&gt;The extension of &lt;a href=&#34;https://zhoukanglei.github.io/publications/magr_aqa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;our ECCV paper&lt;/a&gt;.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Inclusive Hand Pose Estimation via Topology-Aware Distillation and Progressive Kinematic Reasoning</title>
+      <link>https://zhoukanglei.github.io/publications/inshape/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0800</pubDate>
+      <guid>https://zhoukanglei.github.io/publications/inshape/</guid>
+      <description></description>
     </item>
     
     <item>

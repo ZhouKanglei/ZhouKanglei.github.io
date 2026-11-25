@@ -2757,12 +2757,11 @@
       
       let preferred = (sessionStorage.getItem('toc_open') || '').trim();
       
-      if (preferred === 'tags' && !params.get('tag')) preferred = '';
+      if (preferred === 'tags') preferred = '';
       if (!preferred) {
         if (params.get('year')) preferred = 'year';
         else if (params.get('publication_type')) preferred = 'types';
         else if (params.get('venue')) preferred = 'venues';
-        else if (params.get('tag')) preferred = 'tags';
         else if (params.get('ccf_rank') || params.get('core_rank') || params.get('jcr_rank')) preferred = 'ranks';
         else if (params.get('co_author')) preferred = 'coauthors';
       }
@@ -2779,7 +2778,7 @@
         if (!contentUl) return;
 
         const key = (a.getAttribute('data-toc') || '').trim();
-        const shouldOpen = preferred && key && preferred === key;
+        const shouldOpen = key !== 'tags' && preferred && key && preferred === key;
         contentUl.style.display = shouldOpen ? '' : 'none';
         a.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
         a.addEventListener('click', (e) => {

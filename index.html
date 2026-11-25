@@ -1457,20 +1457,6 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
   
 
 
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 <div class="row pub-timeline-layout">
   <div class="section-heading col-12 col-lg-3 mb-3 mb-lg-0">
     <h1 class="mb-0">Recent Publications</h1>
@@ -1888,14 +1874,13 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
   </div>
 
 
-    <section class="pub-timeline-year-group" aria-label="Recent publications">
-      <ol class="pub-timeline" aria-label="Recent publications, newest first">
+    <ol class="pub-timeline" aria-label="Recent publications, newest first">
       
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-11-22" aria-label="November 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">Nov</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">Nov</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/inshape/">Inclusive Hand Pose Estimation via Topology-Aware Distillation and Progressive Kinematic Reasoning</a></h2>
@@ -1907,8 +1892,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-10-04" aria-label="October 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">Oct</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">Oct</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/magrpp/">Continual Action Quality Assessment via Adaptive Manifold-Aligned Graph Regularization</a></h2>
@@ -1920,8 +1905,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-09-02" aria-label="September 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">Sep</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">Sep</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/dualalign/">Two-Stage Multi-Modal Fusion with Adaptive Alignment for Action Quality Assessment</a></h2>
@@ -1933,8 +1918,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-08-18" aria-label="August 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">Aug</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">Aug</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/neuropath/">NeuroPath: Brain-Inspired Dual-Pathway Graph Convolutional Networks for Skeleton-Based Action Recognition</a></h2>
@@ -1946,8 +1931,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-06-02" aria-label="June 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">Jun</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">Jun</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/qualitypreservingattack/">Quality-Preserving Imperceptible Adversarial Attack on Skeleton-based Human Action Recognition</a></h2>
@@ -1959,8 +1944,8 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
         
         <li class="pub-timeline-item">
           <time class="pub-timeline-date" datetime="2026-05-04" aria-label="May 2026">
-            <span class="pub-timeline-year-label">2026</span>
-            <span class="pub-timeline-month-label">May</span>
+            <span class="pub-timeline-date-year">2026</span>
+            <span class="pub-timeline-date-month">May</span>
           </time>
           <div class="pub-timeline-body">
             <h2 class="pub-timeline-title"><a href="/publications/aqa_survey/">A Comprehensive Survey of Action Quality Assessment: Method and Benchmark</a></h2>
@@ -1969,8 +1954,7 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
           </div>
         </li>
       
-      </ol>
-    </section>
+    </ol>
     
       <div class="see-all pub-timeline-more">
         <a href="/tag/highlights/">See all publications <i class="fas fa-angle-right" aria-hidden="true"></i></a>
@@ -1984,29 +1968,28 @@ the automatic translation system rendered *Kanglei* as *Connie*. Since the pronu
   .pub-timeline-more { display: inline-block; font-size: .85rem; margin-bottom: 1rem; }
   .pub-timeline-more { margin-top: 1.4rem; }
   .wg-pub-timeline .tag-cloud { margin-bottom: 1.5rem; }
-  .pub-timeline-year-group + .pub-timeline-year-group { margin-top: 1.8rem; }
-  .pub-timeline-year { margin: 0 0 1rem; font-size: 1rem; font-weight: 700; letter-spacing: .04em; }
-  .pub-timeline { --timeline-date: 3.1rem; --timeline-gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
-  .pub-timeline-item { position: relative; display: grid; grid-template-columns: var(--timeline-date) minmax(0, 1fr); gap: var(--timeline-gap); padding: 0 0 1.6rem; }
-  .pub-timeline-item::before { content: ""; position: absolute; left: calc(var(--timeline-date) + var(--timeline-gap) / 2); top: .45rem; bottom: -.45rem; border-left: 1px solid rgba(128,128,128,.35); }
+  .pub-timeline { --timeline-date: 3rem; --timeline-gap: 1.8rem; --timeline-marker-y: .85rem; list-style: none; margin: 0; padding: 0; }
+  .pub-timeline-item { position: relative; display: grid; grid-template-columns: var(--timeline-date) minmax(0, 1fr); gap: var(--timeline-gap); padding: 0 0 1.8rem; }
+  .pub-timeline-item::before { content: ""; position: absolute; left: calc(var(--timeline-date) + var(--timeline-gap) / 2); top: var(--timeline-marker-y); bottom: calc(-1 * var(--timeline-marker-y)); border-left: 1px solid rgba(128,128,128,.25); }
   .pub-timeline-item:last-child { padding-bottom: 0; }
   .pub-timeline-item:last-child::before { display: none; }
-  .pub-timeline-item::after { content: ""; position: absolute; left: calc(var(--timeline-date) + var(--timeline-gap) / 2); top: .45rem; width: .45rem; height: .45rem; transform: translateX(-50%); border-radius: 50%; background: #2962ff; }
-  .pub-timeline-date { padding-top: .1rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .pub-timeline-year-label { display: block; font-size: .72rem; font-weight: 700; line-height: 1.3; color: #4a4a4a; letter-spacing: .02em; }
-  .pub-timeline-month-label { display: block; font-size: .78rem; line-height: 1.35; color: #686868; }
+  .pub-timeline-item::after { content: ""; position: absolute; left: calc(var(--timeline-date) + var(--timeline-gap) / 2); top: var(--timeline-marker-y); width: .35rem; height: .35rem; transform: translate(-50%, -50%); border-radius: 50%; background: #2962ff; }
+  .pub-timeline-date { display: flex; flex-direction: column; align-items: center; gap: .1rem; padding-top: .06rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pub-timeline-date-year { font-size: .62rem; font-weight: 500; line-height: 1.3; letter-spacing: .06em; color: #737373; }
+  .pub-timeline-date-month { font-size: .88rem; font-weight: 600; line-height: 1.25; color: #444; }
   .pub-timeline-body { min-width: 0; }
   .pub-timeline h2.pub-timeline-title { margin: 0 0 .3rem; font-size: 1rem; font-weight: 600; line-height: 1.45; overflow-wrap: anywhere; }
   .pub-timeline-authors { font-size: .75rem; line-height: 1.6; }
   .pub-timeline-authors a { color: inherit; }
   .pub-timeline-venue { margin-top: .2rem; font-size: .78rem; font-weight: 600; }
-  .dark .pub-timeline-year-label { color: #d0d0d0; }
-  .dark .pub-timeline-month-label { color: #b5b5b5; }
+  .dark .pub-timeline-date-year { color: #aaa; }
+  .dark .pub-timeline-date-month { color: #ddd; }
   .dark .pub-timeline-item::after { background: #8ab4f8; }
   @media (max-width: 575.98px) {
-    .pub-timeline-item { display: block; padding-left: 1.2rem; padding-bottom: 1.5rem; }
-    .pub-timeline-item::before, .pub-timeline-item::after { left: .2rem; }
-    .pub-timeline-date { display: block; text-align: left; margin-bottom: .3rem; padding-top: 0; }
+    .pub-timeline { --timeline-date: 2.2rem; --timeline-gap: 1.25rem; }
+    .pub-timeline-item { padding-bottom: 1.5rem; }
+    .pub-timeline-date-year { font-size: .68rem; }
+    .pub-timeline-date-month { font-size: .85rem; }
   }
 </style>
 
